@@ -1,0 +1,58 @@
+html,body{
+    background-image: url(/img/plant-fruit-flower-ripe-food-red-1326960-pxhere.com.jpg);
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    background-size: 100% 100% ;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.CardColLeft{
+  position: fixed;
+  width: 15% ;
+  left: 5% ;
+  align-content: center;
+  padding-top: auto;
+  padding-bottom: auto ;
+  border-radius: 36px ;
+}
+
+.CardColRight{
+  position: fixed;
+  width: 15% ;
+  right: 5% ;
+  align-content: center;
+  padding-top: auto;
+  padding-bottom: auto ;
+}
+
+
+.DivContent{
+  position: relative ;
+  left : 25% ;
+  width : 50% ;
+  right : 25% ;
+  border-radius: 36px ;
+  text-align: center;
+}
+
+.imgIcon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%
+}
+
+.imgADSF{
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  width: 100%;
+  height: 25%;
+}
+
+.imgADSL{
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  width: 100%;
+  height: 25%;
+}

@@ -1,0 +1,21 @@
+body, html {
+  height: 100%;
+}
+
+
+.bg {
+  /* The image used */
+  background-image: url(/img/plant-fruit-flower-ripe-food-red-1326960-pxhere.com.jpg);
+
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-size: 100% 100% ;
+}
+
+.divFirst{
+  background-color: red;
+}
+
+.topBar {
+  position: fixed ; top: 0px; right: 0px ; left: 0px
+}
