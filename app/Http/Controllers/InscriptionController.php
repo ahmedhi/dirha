@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\user;
+use App\utilisateurs;
 use Illuminate\Http\Request;
 
 class InscriptionController extends Controller
@@ -16,14 +17,26 @@ class InscriptionController extends Controller
             'email' => ['required','email'],
             'password' => ['required','confirmed','min:8'],
             'password_confirmation' => ['required'],
+            'type' => ['required'],
         ]);
 
-        $user = \App\user::create([
+        switch ( request('type')){
+            case 'admin' :          $type = 1;
+                                    break;
+            case 'utilisateur' :    $type = 2;
+                                    break;
+            case 'superadmin' :     $type = 0;
+                                    break;
+        }
+
+
+        $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
+            'type' => $type,
         ]);
 
-        return "Nous avons recu votre email est " . request('email') ;
+        return redirect('/connexion'); ;
 
     }
 }

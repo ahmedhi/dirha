@@ -10,6 +10,9 @@
         <h1>Les utilisateurs</h1>
 
         <ul>
+            @auth
+                CONNECTER
+            @else
             @foreach( $users as $user)
 
                 <li>
@@ -23,6 +26,7 @@
                 </li>
 
             @endforeach
+                @endauth
         </ul>
     </div>
 </div>

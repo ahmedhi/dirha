@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <form method="post" action="connexion">
+    <form method="post" >
 
         {{ csrf_field() }}
 
@@ -20,14 +20,14 @@
             </div>
             <input type="text" class="form-control" placeholder="Adresse Mail" value="{{ old('email') }}" name="email">
         </div>
-            <!-- Gestion d'erreur pour l'adresse Mail -->
-            @if( $errors->has('email'))
+        <!-- Gestion d'erreur pour l'adresse Mail -->
+        @if( $errors->has('email'))
 
-                <p class="help is-danger">
-                    {{ $errors->first('email') }}
-                </p>
+            <p class="erreur">
+                {{ $errors->first('email') }}
+            </p>
 
-            @endif
+        @endif
         <div class="input-group form-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -35,13 +35,13 @@
             <input type="password" class="form-control" placeholder="Mot de passe" name="password">
         </div>
         <!-- Gestion d'erreur pour le mot de passe -->
-            @if( $errors->has('password'))
+        @if( $errors->has('password'))
 
-                <p class="help is-danger">
-                    {{ $errors->first('password') }}
-                </p>
+            <p class="erreur">
+                {{ $errors->first('password') }}
+            </p>
 
-            @endif
+        @endif
         <br>
         <center>
             <div class="form-group">
@@ -55,10 +55,10 @@
 
 
 @section('SpecFooter')
-        <div class="d-flex justify-content-center links">
-            Vous n'avez pas de compte ?
-        </div>
-        <div class="d-flex justify-content-center links">
-            <a href="inscription">Inscrivez-vous !</a>
-        </div>
-    @endsection
+    <div class="d-flex justify-content-center links">
+        Vous n'avez pas de compte ?
+    </div>
+    <div class="d-flex justify-content-center links">
+        <a href="inscription">Inscrivez-vous !</a>
+    </div>
+@endsection

@@ -12,7 +12,9 @@ class user extends Model implements Authenticatable {
 
     protected $fillable = [
         'email' ,
-        'mot_de_passe'
+        'mot_de_passe',
+        'type'
+
     ];
 
     public function getAuthPassword()

@@ -36,8 +36,12 @@ Route::group([
 });
 
 
-Route::get('/test', function (){
-    return view('masterConnect');
+Route::get('/co', function (){
+    return view('contact');
+});
+
+Route::post('/co', function (){
+    return back();
 });
 
 Route::get('/{email}','UserController@voir');

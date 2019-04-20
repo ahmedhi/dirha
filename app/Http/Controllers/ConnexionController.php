@@ -25,7 +25,7 @@ class ConnexionController extends Controller
 
         if($connect){
             flash("La connexion a bien été effectuer")->success();
-            return redirect('/mon-compte');
+            return redirect('/');
         }
         else return back()->withInput()->withErrors([
             'email' => 'votre email est incorrect',
