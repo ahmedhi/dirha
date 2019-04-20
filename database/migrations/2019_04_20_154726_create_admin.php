@@ -15,9 +15,7 @@ class CreateAdmin extends Migration
     {
         Schema::create('admin', function (Blueprint $table) {
             $table->integer('id_admin')->references('id')->on('users')->primary();
-            $table->string('admin_Name')->unique();
-            $table->string('nom');
-            $table->string('prenom');
+            $table->string('admin_Name');
             $table->string('tel')->unique();
             $table->timestamps();
         });

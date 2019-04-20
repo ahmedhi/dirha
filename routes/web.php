@@ -13,7 +13,13 @@
 
 Route::get('/inscription', 'InscriptionController@form');
 
-Route::post('/inscription' , 'InscriptionController@Traitement');
+Route::get('/inscriptionP', 'InscriptionController@Partenaire');
+
+Route::post('/inscriptionP' , 'InscriptionController@TraitementP');
+
+Route::get('/inscriptionU', 'InscriptionController@Utilisateur');
+
+Route::post('/inscriptionU' , 'InscriptionController@TraitementU');
 
 Route::get('/connexion' , 'ConnexionController@form');
 
@@ -37,11 +43,8 @@ Route::group([
 
 
 Route::get('/co', function (){
-    return view('contact');
+    return view('inscriptionChoix');
 });
 
-Route::post('/co', function (){
-    return back();
-});
 
 Route::get('/{email}','UserController@voir');

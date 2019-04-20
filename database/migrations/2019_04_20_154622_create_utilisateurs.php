@@ -15,9 +15,7 @@ class CreateUtilisateurs extends Migration
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->integer('id_user')->references('id')->on('users')->primary();
-            $table->string('user_Name')->unique();
-            $table->string('nom');
-            $table->string('prenom');
+            $table->string('user_Name');
             $table->string('tel')->unique();
             $table->string('img');
             $table->double('taille', 15, 8)->unsigned();

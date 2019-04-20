@@ -15,9 +15,7 @@ class CreateSuperuser extends Migration
     {
         Schema::create('superuser', function (Blueprint $table) {
             $table->integer('id_su')->references('id')->on('users')->primary();
-          $table->string('su_Name')->unique();
-          $table->string('nom');
-          $table->string('prenom');
+          $table->string('su_Name');
           $table->string('tel')->unique();
           $table->timestamps();
         });
