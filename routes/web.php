@@ -35,6 +35,7 @@ Route::group([
     Route::get('/deconnexion','CompteController@deconnexion');
 });
 
+Route :: view ('/00', 'acceuil');
 
 Route::get('/co', function (){
     return view('contact');
@@ -43,6 +44,24 @@ Route::get('/co', function (){
 Route::post('/co', function (){
     return back();
 });
+Route:: post('/00',function(){
 
+    request()->validate([
+        'title' => ['requered'],
+        'article'=> ['requered'],
+        'source'=>  ['requered'],
+    ]);
+
+    $artcl =  app\Article:: create([
+        'title' => request('title'),
+        'source'=> request('source'),
+        'description'=>request('article'),
+        'Like' => 0,
+        'Dislike' => 0 ,
+
+    ]);
+
+    return "Nous avons reçu votre article " ;
+});
 
 Route::get('/{email}','UserController@voir');
