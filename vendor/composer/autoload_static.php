@@ -372,6 +372,7 @@ class ComposerStaticInit61264e833d9d33b39c6a14aa46380eda
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\admin' => __DIR__ . '/../..' . '/app/admin.php',
+        'App\\partenaires' => __DIR__ . '/../..' . '/app/partenaires.php',
         'App\\user' => __DIR__ . '/../..' . '/app/user.php',
         'App\\utilisateurs' => __DIR__ . '/../..' . '/app/utilisateurs.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

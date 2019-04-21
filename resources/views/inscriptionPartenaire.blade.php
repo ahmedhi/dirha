@@ -31,7 +31,7 @@
 
         @endif
 
-    <!-- Mot de passe -->
+        <!-- Mot de passe -->
         <div class="input-group form-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -47,7 +47,7 @@
 
         @endif
 
-    <!-- Mot de passe de confirmation-->
+         <!-- Mot de passe de confirmation-->
         <div class="input-group form-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -67,6 +67,15 @@
         <br>
 
         <!-- Sexe -->
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-power-off "></i></span>
+            </div>
+            <select name="sexe" class="form-control">
+                <option value="Homme" selected="selected">Homme</option>
+                <option value="Femme" >Femme</option>
+            </select>
+        </div>
 
         <!-- Nom Complet-->
         <div class="input-group form-group">

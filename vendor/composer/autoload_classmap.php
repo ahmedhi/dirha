@@ -30,6 +30,7 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\admin' => $baseDir . '/app/admin.php',
+    'App\\partenaires' => $baseDir . '/app/partenaires.php',
     'App\\user' => $baseDir . '/app/user.php',
     'App\\utilisateurs' => $baseDir . '/app/utilisateurs.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

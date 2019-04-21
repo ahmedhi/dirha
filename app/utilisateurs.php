@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class utilisateurs extends Model
 {
     protected $fillable = [
-        'email' ,
-        'mot_de_passe',
-        'type'
+        'id_user',
+        'user_Name',
+        'tel',
+        'img',
+        'taille',
+        'poids',
+        'date_de_naissance',
+        'sexe',
+        'pays',
     ];
 }

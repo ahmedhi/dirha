@@ -9,18 +9,9 @@
 @endsection
 
 @section('content')
-    <form method="post" class="section ">
+    <form method="post" class="section" enctype="multipart/form-data">
 
     {{csrf_field()}}
-
-    <!--Type Just For Test-->
-
-        <div class="input-group form-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user-shield"></i></span>
-            </div>
-            <input type="text" class="form-control" name="type" placeholder="Type" value="{{ old('email') }}">
-        </div>
 
     <!-- Email -->
         <div class="input-group form-group">
@@ -75,6 +66,15 @@
         <br>
 
         <!-- Sexe -->
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-power-off "></i></span>
+            </div>
+            <select name="sexe" class="form-control">
+                <option value="Homme" selected="selected">Homme</option>
+                <option value="Femme" >Femme</option>
+            </select>
+        </div>
 
         <!-- Nom Complet-->
         <div class="input-group form-group">
@@ -92,7 +92,7 @@
 
         @endif
 
-    <!-- Photo de profil -->
+        <!-- Photo de profil -->
         <div class="input-group form-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-images"></i></span>
