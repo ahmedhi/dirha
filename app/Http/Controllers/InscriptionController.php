@@ -33,7 +33,7 @@ class InscriptionController extends Controller
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
-            'type' => $type,
+            'type' => request('type'),
         ]);
 
         return redirect('/connexion'); ;

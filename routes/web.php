@@ -30,7 +30,7 @@ Route::group([
 
     Route::post('/modification-mot-de-passe','CompteController@ChangePwd');
 
-    Route::post('/messages','MessagesController@new');
+    Route::post('/articles','ArticlesController@nouveau');
 
     Route::get('/deconnexion','CompteController@deconnexion');
 });
@@ -43,5 +43,6 @@ Route::get('/co', function (){
 Route::post('/co', function (){
     return back();
 });
+
 
 Route::get('/{email}','UserController@voir');
