@@ -30,8 +30,6 @@ Route::group([
 
     Route::post('/modification-mot-de-passe','CompteController@ChangePwd');
 
-    Route::post('/articles','ArticlesController@nouveau');
-
     Route::get('/deconnexion','CompteController@deconnexion');
 });
 
@@ -44,7 +42,8 @@ Route::get('/co', function (){
 Route::post('/co', function (){
     return back();
 });
-Route:: post('/00',function(){
+Route::get('/00', 'ArticlesController@voir');
+/*{
 
     request()->validate([
         'title' => ['requered'],
@@ -61,7 +60,7 @@ Route:: post('/00',function(){
 
     ]);
 
-    return "Nous avons reçu votre article " ;
+    return "Nous avons reçu votre article " ;p
 });
-
+*/
 Route::get('/{email}','UserController@voir');

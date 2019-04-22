@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @foreach( $ as $article)
+    @foreach( $articles as $article)
 
             <div class="card text-center">
 
