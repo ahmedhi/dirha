@@ -19,7 +19,7 @@ class ArticlesController extends Controller
             'source'=>  ['required'],
         ]);
 
-        $id = 17;
+        $id = 3;
 
         $artcl =  article:: create([
             'id_partenaire' => $id,

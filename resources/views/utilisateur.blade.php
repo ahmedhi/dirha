@@ -39,6 +39,20 @@
                     @endif
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Catégorie</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Consiel</option>
+                            <option value="2">Recette</option>
+                            <option value="3">Citation</option>
+                            <option value="3">Menu</option>
+                            <option value="3">Diète</option>
+                            <option value="3">Règime</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon3">Source</span>
                         </div>
                         <input type="text" class="form-control" id="basic-url" name="source" aria-describedby="basic-addon3">
