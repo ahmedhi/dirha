@@ -43,6 +43,8 @@ Route::post('/co', function (){
     return back();
 });
 Route::get('/00', 'ArticlesController@voir');
+
+ROute::post('/00' , 'ArticlesController@nouveau');
 /*{
 
     request()->validate([

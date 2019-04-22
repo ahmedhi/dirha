@@ -19,14 +19,20 @@ class ArticlesController extends Controller
             'source'=>  ['required'],
         ]);
 
-        $artcl =  app\article:: create([
+        $id = 17;
+
+        $artcl =  article:: create([
+            'id_partenaire' => $id,
             'title' => request('title'),
             'source'=> request('source'),
             'description'=>request('article'),
-            'Like' => 0,
-            'Dislike' => 0 ,
+            'Like' => $id,
+            'Dislike' => $id ,
+            'categorie' => "Article tres interressant",
 
         ]);
+
+        return redirect('/00');
     }
 
     public function voir(){
