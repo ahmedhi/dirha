@@ -36,9 +36,11 @@ Route::group([
 
     Route::post('/modification-mot-de-passe','CompteController@ChangePwd');
 
-    Route::post('/messages','MessagesController@new');
-
     Route::get('/deconnexion','CompteController@deconnexion');
+});
+
+Route::get('/co', function (){
+    return view('contact');
 });
 //Midlleware to check admin acces
 /*
@@ -50,11 +52,15 @@ Route::group([
         return view('adminMaster');
     });
 
+Route::post('/co', function (){
+    return back();
 });
 */
+Route::get('/00', 'ArticlesController@voir');
+
+Route::post('/00', 'ArticlesController@nouveau');
 
 Route::get('/config', function (){
     return view('adminMaster');
 });
-
 Route::get('/{email}','UserController@voir');
