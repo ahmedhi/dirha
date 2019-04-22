@@ -11,7 +11,6 @@ class ArticlesController extends Controller
         if (auth()->guest()) {
             flash("Vous devez etre connecté pour voir cette page.")->error();
             return redirect('/connexion');
-
         }
 
         request()->validate([
@@ -20,17 +19,20 @@ class ArticlesController extends Controller
             'source'=>  ['required'],
         ]);
 
+        $id = 17;
+
         $artcl =  article:: create([
-            'id_partenaire'=> auth()->user()->id,
+            'id_partenaire' => $id,
             'title' => request('title'),
             'source'=> request('source'),
             'description'=>request('article'),
-            'categorie'=> "Test",
-            'Like' => 0,
-            'Dislike' => 0 ,
+            'Like' => $id,
+            'Dislike' => $id ,
+            'categorie' => "Article tres interressant",
 
         ]);
-        return redirected('/');
+
+        return redirect('/00');
     }
 
     public function voir(){

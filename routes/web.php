@@ -33,6 +33,8 @@ Route::group([
     Route::get('/deconnexion','CompteController@deconnexion');
 });
 
+Route :: view ('/00', 'acceuil');
+
 Route::get('/co', function (){
     return view('contact');
 });
@@ -42,7 +44,7 @@ Route::post('/co', function (){
 });
 Route::get('/00', 'ArticlesController@voir');
 
-Route::post('/00', 'ArticlesController@nouveau');
+ROute::post('/00' , 'ArticlesController@nouveau');
 /*{
 
     request()->validate([
