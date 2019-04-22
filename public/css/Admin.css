@@ -1,0 +1,18 @@
+.rubrique{
+    position: relative;
+    top: 10%;
+    color: white;
+
+}
+
+.card-body{
+    padding-top: 1.25rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 60px;
+    border-radius: 36px;
+}
+
+.card{
+
+}

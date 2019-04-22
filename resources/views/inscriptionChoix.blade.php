@@ -87,15 +87,15 @@
 
     <!--Body -->
     <div class="container">
-        <div class="row" >
+        <div class="row vertical-center" >
             <div class="col d-flex justify-content-center h-100 ">
                 <a href="/inscriptionU" class="card custom-card titleHeader" style="color: #cd8511;">
-                    <div class="card-header ">
-                        Compte Normal
+                    <div class="card-header " style="padding-top: 35px;padding-bottom: 35px;">
+                        <h1>Compte Normal</h1>
                     </div>
                     <div class="card-body">
                         <p class="blanc">
-                            Quesque vous attender pour crée un compte !
+                            Qu'est-ce que vous attendez pour créer un compte !
                         </p>
                         <br>
                         <h6 class="blanc">
@@ -116,20 +116,20 @@
                     </div>
                     <div class="card-body">
                         <p class="blanc">
-                            Devenez partenaire Fallo en quelque clic !
+                            Devenez partenaire Fallo en quelques clics !
                         </p>
                         <br>
                         <h6 class="blanc">
                             En devenant partenaire Fallo en plus des avantages du compte normal vous avez la possibilité
-                            de publier des articles de diétetiques et ainsi donner la possibilité à plus de 100 millions
-                            d'utilisateur à travers le monde.
+                            de publier des articles de diétetique sur un site de plus de 100 millions
+                            d'utilisateurs à travers le monde.
                         </h6>
                         <br><br>
-                        <p>
+                        <p class="card-footer">
                             <i class="fas fa-exclamation-circle "></i>
                             <h6>
-                            Il faut avoir un minimum de connaisance en medecine pour devenir partenaire Fallo
-                        </h6>
+                            Il faut avoir un minimum de connaissances en medecine pour devenir partenaire Fallo
+                            </h6>
                         </p>
 
                     </div>

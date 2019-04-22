@@ -15,11 +15,11 @@ Route::get('/inscription', 'InscriptionController@form');
 
 Route::get('/inscriptionP', 'InscriptionController@Partenaire');
 
-Route::post('/inscriptionP' , 'InscriptionController@TraitementP');
+Route::post('/inscriptionP' , 'InscriptionController@AddPart');
 
 Route::get('/inscriptionU', 'InscriptionController@Utilisateur');
 
-Route::post('/inscriptionU' , 'InscriptionController@TraitementU');
+Route::post('/inscriptionU' , 'InscriptionController@AddUser');
 
 Route::get('/connexion' , 'ConnexionController@form');
 
@@ -43,7 +43,7 @@ Route::group([
 
 
 Route::get('/co', function (){
-    return view('inscriptionChoix');
+    return view('adminMaster');
 });
 
 

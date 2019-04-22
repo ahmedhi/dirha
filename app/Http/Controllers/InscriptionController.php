@@ -35,7 +35,7 @@ class InscriptionController extends Controller
         }
     }
 
-    public function TraitementU(){
+    public function AddUser(){
         request() -> validate([
             'email' => ['required','email'],
             'password' => ['required','confirmed','min:8'],
@@ -74,7 +74,7 @@ class InscriptionController extends Controller
 
     }
 
-    public function TraitementP(){
+    public function AddPart(){
         request() -> validate([
             'email' => ['required','email'],
             'password' => ['required','confirmed','min:8'],
@@ -95,7 +95,7 @@ class InscriptionController extends Controller
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
-            'type' => 2, // =2 pour partenaire
+            'type' => 3, // =2 pour partenaire Valider | = 3 pour partenaire non valider
         ]);
 
 
@@ -120,4 +120,6 @@ class InscriptionController extends Controller
         return redirect('/connexion');
 
     }
+
+
 }

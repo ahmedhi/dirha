@@ -28,16 +28,6 @@
             border-radius: 0;
         }
 
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        .row.content {height: 450px}
-
-        /* Set gray background color and 100% height */
-        .sidenav {
-            padding-top: 20px;
-            background-color: #f1f1f1;
-            height: 100%;
-        }
-
         /* Set black background color, white text and some padding */
         footer {
             background-color: #555;
@@ -156,8 +146,8 @@
         <!-- ADS Bar -->
         <div class="CardColRight" >
             <center>
-                <img src="img/macAds1.png" class="imgADSF">
-                <img src="img/macAds.jpg" class="imgADSL">
+                <img src="img/ADSHan.jpg" class="imgADSF">
+                <img src="img/ADSFallo.png" class="imgADSL">
             </center>
         </div>
 
