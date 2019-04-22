@@ -40,11 +40,21 @@ Route::group([
 
     Route::get('/deconnexion','CompteController@deconnexion');
 });
+//Midlleware to check admin acces
+/*
+Route::group([
+   'middleware' => 'App\Http\Middleware\AdminMidthware'
+], function (){
 
+    Route::get('/config', function (){
+        return view('adminMaster');
+    });
 
-Route::get('/co', function (){
+});
+*/
+
+Route::get('/config', function (){
     return view('adminMaster');
 });
-
 
 Route::get('/{email}','UserController@voir');

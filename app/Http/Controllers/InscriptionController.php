@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\admin;
 use App\partenaires;
 use App\user;
 use App\utilisateurs;
@@ -121,5 +122,49 @@ class InscriptionController extends Controller
 
     }
 
+    public function AddAdmin(){ //NOT TESTED
+        request() -> validate([
+            'email' => ['required','email'],
+            'password' => ['required','confirmed','min:8'],
+            'password_confirmation' => ['required'],
+            'nom_complet' =>['required'],
+            'num' => ['required'],
+        ]);
 
+        // Creation du nouveau profil dans la table users
+        $user = user::create([
+            'email' => request('email'),
+            'mot_de_passe' => bcrypt(request('password')),
+            'type' => 0, // =0 pour admin
+        ]);
+
+        $admin = admin::create([
+            'id_admin' => $user->id,
+            'admin_Name' => request('nom_complet'),
+            'tel' => request('num'),
+        ]);
+    }
+
+    public function AddSu(){ //NOT TESTED
+        request() -> validate([
+            'email' => ['required','email'],
+            'password' => ['required','confirmed','min:8'],
+            'password_confirmation' => ['required'],
+            'nom_complet' =>['required'],
+            'num' => ['required'],
+        ]);
+
+        // Creation du nouveau profil dans la table users
+        $user = user::create([
+            'email' => request('email'),
+            'mot_de_passe' => bcrypt(request('password')),
+            'type' => 0, // =0 pour admin
+        ]);
+
+        $admin = admin::create([
+            'id_su' => $user->id,
+            'su_Name' => request('nom_complet'),
+            'tel' => request('num'),
+        ]);
+    }
 }

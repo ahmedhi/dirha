@@ -31,39 +31,32 @@
         }
 
         .sidenav {
-            height: auto;
-            width: 0;
+            height: 100%;
+            width: 15%;
             position: fixed;
             z-index: 10;
-            top: 25%;
             left: 0;
             background-image: url(/img/LateWallpaper.png);
-            background-size: 250px 420px;
+            background-size: 100% 70%;
             background-position: center;
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
-            border-radius: 0px 40px 40px 0px;
 
         }
 
         .sidenav a {
+            color: white;
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 25px;
             display: block;
-            transition: 0.3s;
+            transition: all .5s;
         }
-
         .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            left: -25px;
-            font-size: 36px;
+          font-size: 20px;
+            letter-spacing: 5px;
+            color:red;
         }
 
         #main {
@@ -77,35 +70,11 @@
         }
         </style>
 </head>
-
 <body>
-<div class="card" style="border-radius: 36px;">
-    <div id="mySidenav" class="sidenav">
-        <div class="card-header">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style=" color: green">&times;</a>
-    </div>
-
-    <div class="card-body">
-        <a href="#" class="rubrique"><strong>Acceuil</strong></a>
-            <br>
-        <a href="#" class="rubrique"><strong>Liste d'attente</strong></a>
-            <br>
-        <a href="#" class="rubrique"><strong>Liste Client</strong></a>
-            <br>
-        <a href="#" class="rubrique"><strong>Liste Partenaire</strong></a>
-        </div>
-    </div>
-
-</div>
-
 <!-- NavBar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="position: relative ; z-index: 9;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="box-shadow: 5px 4px 10px 3px #888; position: relative ; z-index: 9;">
 
     <div class="navbar-brand">
-
-        <div class="navbar-brand">
-            <i class="fas fa-ellipsis-v " onclick="openNav()"></i>
-        </div>
         <a class="navbar-brand">
             <img src="img/FalloSolo.png" width="30" height="30" class="d-inline-block align-top">
             Fallo
@@ -133,43 +102,59 @@
 
 
 
-    @if( !request()->is('connexion') )
-
-
-        <div class="my-2 my-lg-0">
-            <div class="navbar-brand">
-                <div class="buttons">
-
-                    @auth
-                        <a class="" href="/mon-compte">
-                            Mon Compte
-                        </a>
-                        <a class="btn btn-danger" href="/deconnexion">
-                            Déconnexion
-                        </a>
-
-                    @else
-                        <a class="btn btn-outline-success" href="/inscription">
-                            <strong>S'inscire</strong>
-                        </a>
-                        <a class="btn btn-outline-secondary" href="/connexion">
-                            Se connecter
-                        </a>
-                    @endauth
-
+</nav>
+<div class="sidenav">
+    <ul>
+        <il>
+            <a href="#">Acceuil</a>
+        </il>
+        <il>
+            <a href="#">Liste Client</a>
+        </il>
+        <il>
+            <a href="#">Liste Partenaire</a>
+        </il>
+    </ul>
+</div>
+<div class="highSide" >
+    <div class="container">
+        <div class="row">
+            <div class="col" >
+                <div class="card">
+                    <div class="card-header">
+                        Nombre d'utilisateur
+                    </div>
+                    <div class="card-body">
+                        Il y a 240 utilisateur <br>
+                        24 nouveaux
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Nombre de Partenaire
+                    </div>
+                    <div class="card-body">
+                        BODY
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Nombre de demande en attente
+                    </div>
+                    <div class="card-body">
+                        BODY
+                    </div>
                 </div>
             </div>
         </div>
-    @endif
-</nav>
-
-<div class="container-fluid">
-<div>
-    TEST
-</div>
+    </div>
 
 </div>
-
+<!--
 <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
@@ -183,7 +168,7 @@
         document.body.style.backgroundColor = "white";
     }
 </script>
-
+-->
 
 </body>
 
