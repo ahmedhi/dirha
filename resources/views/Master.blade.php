@@ -77,7 +77,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="/">Nos meilleurs articles <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/00">Nos meilleurs articles <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>

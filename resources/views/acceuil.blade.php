@@ -13,7 +13,7 @@
             <div class="card-body">
                 <p class="text-sm-left">{{ $article->id_partenaire }} </p>
                 <h5 class="card-title">{{ $article->title }} </h5>
-                <p class="card-text">{{$article->description}}</p>
+                <p class="text-left">{{$article->description}}</p>
                 <p class="text-right">{{$article->source}}</p>
             </div>
             <br>
