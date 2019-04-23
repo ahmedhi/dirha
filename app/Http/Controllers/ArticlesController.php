@@ -19,17 +19,18 @@ class ArticlesController extends Controller
             'source'=>  ['required'],
         ]);
 
-        $id = 17;
-
         $artcl =  article:: create([
-            'id_partenaire' => $id,
+            'id_partenaire' => auth()->id(),
             'title' => request('title'),
             'source'=> request('source'),
             'description'=>request('article'),
             'Like' => 0,
             'Dislike' => 0 ,
+            'categorie' => "Article tres interressant",
 
         ]);
+
+        return redirect('/00');
     }
 
     public function voir(){

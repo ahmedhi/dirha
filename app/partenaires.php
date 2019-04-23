@@ -21,4 +21,8 @@ class partenaires extends Model
         'experience',
         'adresse',
     ];
+
+    public function articles(){
+        $this->hasMany(article::class);
+    }
 }

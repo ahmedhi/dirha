@@ -106,54 +106,67 @@
 <div class="sidenav">
     <ul>
         <il>
-            <a href="#">Acceuil</a>
+            <a href="/config">Acceuil</a>
         </il>
         <il>
-            <a href="#">Liste Client</a>
+            <a href="#">Liste des demandes</a>
         </il>
         <il>
-            <a href="#">Liste Partenaire</a>
+            <a href="/client">Liste Client</a>
+        </il>
+        <il>
+            <a href="/partenaire">Liste Partenaire</a>
+        </il>
+        <il>
+            <a href="#">Liste Aliment</a>
         </il>
     </ul>
+
 </div>
 <div class="highSide" >
-    <div class="container">
-        <div class="row">
-            <div class="col" >
-                <div class="card">
-                    <div class="card-header">
-                        Nombre d'utilisateur
-                    </div>
-                    <div class="card-body">
-                        Il y a 240 utilisateur <br>
-                        24 nouveaux
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        Nombre de Partenaire
-                    </div>
-                    <div class="card-body">
-                        BODY
+    <div class="ColorBack">
+        <div class="container ColorBack">
+            <div class="row">
+                <div class="col" >
+                    <div class="card">
+                        <div class="card-header">
+                            Nombre d'utilisateur
+                        </div>
+                        <div class="card-body">
+                            Il y a {{ $numUser }} utilisateurs
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        Nombre de demande en attente
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Nombre de Partenaire
+                        </div>
+                        <div class="card-body">
+                            Il y a {{ $numPart }} partenaires
+                        </div>
                     </div>
-                    <div class="card-body">
-                        BODY
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Nombre de demande en attente
+                        </div>
+                        <div class="card-body">
+                            actuellement il n'y a pas de demande en attente
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<br><br>
+    <div class="container">
+        @yield('content')
+    </div>
 
 </div>
+
 <!--
 <script>
     function openNav() {

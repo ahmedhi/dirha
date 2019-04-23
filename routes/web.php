@@ -60,7 +60,10 @@ Route::get('/00', 'ArticlesController@voir');
 
 Route::post('/00', 'ArticlesController@nouveau');
 
-Route::get('/config', function (){
-    return view('adminMaster');
-});
+Route::get('config', 'AdminController@index');
+
+Route::get('client', 'AdminController@clientArray');
+
+Route::get('partenaire', 'AdminController@partArray');
+
 Route::get('/{email}','UserController@voir');
