@@ -1,12 +1,10 @@
 <?php
 
-namespace App;
+namespace app;
 
-use Illuminate\Database\Eloquent\Model;
-
-class article extends Model
-{
-    protected $fillable =[
+use illuminate\Database\Eloquent\Model;
+class article extends Model {
+    protected $fillable = [
         'id_partenaire',
         'title',
         'source',
@@ -14,5 +12,5 @@ class article extends Model
         'categorie',
         'Like',
         'DisLike',
-        ];
+    ];
 }

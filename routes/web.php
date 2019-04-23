@@ -39,6 +39,7 @@ Route::group([
     Route::get('/deconnexion','CompteController@deconnexion');
 });
 
+
 Route::get('/co', function (){
     return view('contact');
 });
@@ -65,5 +66,9 @@ Route::get('config', 'AdminController@index');
 Route::get('client', 'AdminController@clientArray');
 
 Route::get('partenaire', 'AdminController@partArray');
+
+Route::get('/00', 'ArticlesController@voir');
+
+ROute::post('/00' , 'ArticlesController@nouveau');
 
 Route::get('/{email}','UserController@voir');
