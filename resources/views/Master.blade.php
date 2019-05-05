@@ -20,6 +20,7 @@
     <!--Fontawesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/Master.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
@@ -97,9 +98,15 @@
                         </a>
 
                     @else
+                        @if( request()->is('inscription'))
+                            <a class="btn btn-outline-success" href="/inscription">
+                                <strong>Ajouter administrateur</strong>
+                            </a>
+                        @else
                         <a class="btn btn-outline-success" href="/inscription">
                             <strong>S'inscire</strong>
                         </a>
+                        @endif
                         <a class="btn btn-outline-secondary" href="/connexion">
                             Se connecter
                         </a>
@@ -118,7 +125,7 @@
         @if( auth()->check())
             <div class="card content CardColLeft">
                 <figure style=" position: relative ">
-                    <img src="img/profilIconDefault.png" class="img-thumbnail" style="position: relative ; padding-top: 25px">
+                    <img src="UserImage/profile-icon-png-898.png" class="img-thumbnail" style="position: relative ; padding-top: 25px">
                 </figure>
 
                 <br><br><br><br>

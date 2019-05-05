@@ -71,9 +71,9 @@
                         </a>
 
                     @else
-                        <a class="btn btn-outline-success" href="/inscription">
-                            <strong>S'inscire</strong>
-                        </a>
+                        <a class="btn btn-outline-success" href="/inscriptionA">
+                                <strong>Ajouter administrateur</strong>
+                            </a>
                         <a class="btn btn-outline-secondary" href="/connexion">
                             Se connecter
                         </a>

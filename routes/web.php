@@ -11,20 +11,6 @@
 |
 */
 
-Route::get('/inscription', 'InscriptionController@form');
-
-Route::get('/inscriptionP', 'InscriptionController@Partenaire');
-
-Route::post('/inscriptionP' , 'InscriptionController@AddPart');
-
-Route::get('/inscriptionU', 'InscriptionController@Utilisateur');
-
-Route::post('/inscriptionU' , 'InscriptionController@AddUser');
-
-Route::get('/connexion' , 'ConnexionController@form');
-
-Route::post('/connexion' , 'ConnexionController@traitement');
-
 Route::get('/' , 'UserController@liste');
 
 Route::group([
@@ -37,6 +23,29 @@ Route::group([
     Route::post('/modification-mot-de-passe','CompteController@ChangePwd');
 
     Route::get('/deconnexion','CompteController@deconnexion');
+});
+
+Route::group([ //Need to be a guest to have permission to view this pages
+    'middleware' => 'App\Http\Middleware\Guest',
+], function (){
+    Route::get('/inscription', 'InscriptionController@form');
+
+    Route::get('/inscriptionP', 'InscriptionController@Partenaire');
+
+    Route::post('/inscriptionP' , 'InscriptionController@AddPart');
+
+    Route::get('/inscriptionU', 'InscriptionController@Utilisateur');
+
+    Route::post('/inscriptionU' , 'InscriptionController@AddUser');
+
+    Route::get('/SUADD' , 'InscriptionController@SU');
+
+    Route::post('/SUADD' , 'InscriptionController@AddSu');
+
+    Route::get('/connexion' , 'ConnexionController@form');
+
+    Route::post('/connexion' , 'ConnexionController@traitement');
+
 });
 
 
@@ -62,6 +71,10 @@ Route::get('/00', 'ArticlesController@voir');
 Route::post('/00', 'ArticlesController@nouveau');
 
 Route::get('config', 'AdminController@index');
+
+Route::get('/inscriptionA' , 'InscriptionController@Admin');
+
+Route::post('/inscriptionA' , 'InscriptionController@AddAdmin');
 
 Route::get('client', 'AdminController@clientArray');
 

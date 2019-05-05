@@ -6,15 +6,17 @@
 
 @section('content')
 
-    @foreach( $articles as $article)
+    @foreach( $ArtParts as $ArtPart )
 
         <div class="card text-center">
 
             <div class="card-body">
-                <p class="text-sm-left">{{ $article->id_partenaire }} </p>
-                <h5 class="card-title">{{ $article->title }} </h5>
-                <p class="text-left">{{$article->description}}</p>
-                <p class="text-right">{{$article->source}}</p>
+                <p class="text-sm-left font-weight-bold">
+                    {{ $ArtPart->part_Name }}
+                </p>
+                <h5 class="card-title font-weight-bold">{{ $ArtPart->title }} </h5>
+                <p class="text-left">{{$ArtPart->description}}</p>
+                <p class="text-right font-italic">{{$ArtPart->source}}</p>
             </div>
             <br>
             <div class="card-header">

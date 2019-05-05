@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\admin;
 use App\user;
 use App\utilisateurs;
 use Illuminate\Http\Request;
@@ -19,11 +20,16 @@ class AdminController extends Controller
         $numUser = DB::table('utilisateurs')->count();
         $numPart = DB::table('partenaires')->count();
 
+        $admin = DB::table('users')
+            ->join('admins','admins.id_admin','users.id')
+            ->get();
+
         return view('adminindex',[
             'users' => $user,
             'parts' => $part,
             'numUser' => $numUser,
             'numPart' => $numPart,
+            'admins' => $admin,
         ]);
     }
 
@@ -58,6 +64,16 @@ class AdminController extends Controller
             'parts' => $part,
             'numUser' => $numUser,
             'numPart' => $numPart,
+        ]);
+    }
+
+    public function adminArray(){
+        $admin = DB::table('users')
+            ->join('admins','admins.id_admin','users.id')
+            ->get();
+
+        return view('AddAdmin',[
+            'admins' => $admin,
         ]);
     }
 
