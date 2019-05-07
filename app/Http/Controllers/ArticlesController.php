@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\article;
+use Illuminate\Support\Facades\DB;
 
 class ArticlesController extends Controller
 {
@@ -34,9 +35,12 @@ class ArticlesController extends Controller
     }
 
     public function voir(){
-        $articles = article::all();
+        $ArtParts = DB::table('articles')
+                        ->join('partenaires','partenaires.id_partenaire','articles.id_partenaire')
+                        ->get();
+
         return view('acceuil',[
-            'articles' => $articles,
+            'ArtParts' => $ArtParts,
         ]);
     }
 }

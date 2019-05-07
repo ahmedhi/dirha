@@ -1,188 +1,315 @@
-<html>
-<head>
-    <title>
-        @yield('title')
-    </title>
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <!-- FavIcon -->
     <link rel="icon" type="image/png" href="img/FalloSolo.png" />
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="js/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <!--Bootsrap 4 CDN-->
-    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-    <!--Custom styles et Jquey-->
-    <link rel="stylesheet" type="text/css" href="css/Admin.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <style>
-        body {
-            font-family: "Lato", sans-serif;
-            transition: background-color .5s;
-        }
-
-        .sidenav {
-            height: 100%;
-            width: 15%;
-            position: fixed;
-            z-index: 10;
-            left: 0;
-            background-image: url(/img/LateWallpaper.png);
-            background-size: 100% 70%;
-            background-position: center;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-
-        }
-
-        .sidenav a {
-            color: white;
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            display: block;
-            transition: all .5s;
-        }
-        .sidenav a:hover {
-          font-size: 20px;
-            letter-spacing: 5px;
-            color:red;
-        }
-
-        #main {
-            transition: margin-left .5s;
-            padding: 16px;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }
-        </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Aministrateur
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CSS Files -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/assets/demo/demo.css" rel="stylesheet" />
+    @yield('refsheet')
 </head>
+
 <body>
-<!-- NavBar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="box-shadow: 5px 4px 10px 3px #888; position: relative ; z-index: 9;">
-
-    <div class="navbar-brand">
-        <a class="navbar-brand">
-            <img src="img/FalloSolo.png" width="30" height="30" class="d-inline-block align-top">
-            Fallo
-        </a>
+<div class="wrapper " >
+    <div class="sidebar" data-color="red">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+      -->
+        <div class="logo">
+            <a href="/" class="simple-text logo-mini" style="margin-right: 25px;margin-left: 55px;">
+                <img src="img/FalloSolo.png" width="30" height="30" class="d-inline-block align-top">
+            </a>
+            <a href="/" class="simple-text logo-normal">
+                <strong>Fallo</strong>
+            </a>
+        </div>
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+            <ul class="nav">
+                <li class="active ">
+                    <a href="/config">
+                        <i class="now-ui-icons business_bank"></i>
+                        <p>Acceuil</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>Liste des Demandes</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/client">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>Liste des Clients</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/partenaire">
+                        <i class="now-ui-icons transportation_air-baloon"></i>
+                        <p>Liste des Partenaires</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p>Liste des Aliments</p>
+                    </a>
+                </li>
+                @if(auth()->user()->type == -1)
+                <li>
+                    <a href="/inscriptionA">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p>Ajouter des aministrateurs</p>
+                    </a>
+                </li>
+                @endif
+                <li class="active-pro">
+                    <a href="./upgrade.html">
+                        <p>Fallo Corp  MADE BY ASKOUR&HILALI</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Nos meilleurs articles <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-    </div>
-
-
-    <!-- try to have the path of the page
-          Les deux boutton pour s'inscrire et se connecter
-          ne seront pas visible si l'utilisateur
-          est au niveau de la page de connexion
-    -->
-
-
-
-</nav>
-<div class="sidenav">
-    <ul>
-        <il>
-            <a href="/config">Acceuil</a>
-        </il>
-        <il>
-            <a href="#">Liste des demandes</a>
-        </il>
-        <il>
-            <a href="/client">Liste Client</a>
-        </il>
-        <il>
-            <a href="/partenaire">Liste Partenaire</a>
-        </il>
-        <il>
-            <a href="#">Liste Aliment</a>
-        </il>
-    </ul>
-
-</div>
-<div class="highSide" >
-    <div class="ColorBack">
-        <div class="container ColorBack">
+    <div class="main-panel" id="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-primary navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand">Page d'Administrateur</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <form>
+                        <div class="input-group no-border">
+                            <!-- Chercher dans toutes les liste : utilisateur partenaire admin et aliment -->
+                            <input type="text" value="" class="form-control" placeholder="Chercher...">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="now-ui-icons users_single-02"></i>
+                                <p>
+                                    <span class="d-lg-none d-md-block">Compte</span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        @yield('Content-fluid')
+        <div class="content" style="padding-top: 80px">
+            @yield('content')
+            <br><br>
             <div class="row">
-                <div class="col" >
-                    <div class="card">
-                        <div class="card-header">
-                            Nombre d'utilisateur
+                <div class="col-md-6">
+                    <div class="card  card-tasks">
+                        <div class="card-header ">
+                            <h5 class="card-category">Backend development</h5>
+                            <h4 class="card-title">Tasks</h4>
                         </div>
-                        <div class="card-body">
-                            Il y a {{ $numUser }} utilisateurs
+                        <div class="card-body ">
+                            <div class="table-full-width table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                    <span class="form-check-sign"></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="text-left">Sign contract for "What are conference organizers afraid of?"</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                                                <i class="now-ui-icons ui-2_settings-90"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                                                <i class="now-ui-icons ui-1_simple-remove"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox">
+                                                    <span class="form-check-sign"></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="text-left">Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                                                <i class="now-ui-icons ui-2_settings-90"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                                                <i class="now-ui-icons ui-1_simple-remove"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                    <span class="form-check-sign"></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="text-left">Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                                                <i class="now-ui-icons ui-2_settings-90"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                                                <i class="now-ui-icons ui-1_simple-remove"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer ">
+                            <hr>
+                            <div class="stats">
+                                <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            Nombre de Partenaire
+                            <h5 class="card-category">Information Personnel</h5>
+                            <h4 class="card-title"> Salutation
+                                    @if(auth()->user()->type == 0)
+                                        {{ auth()->user()->admin->admin_Name }}
+                                    @else
+                                    {{ auth()->user()->su->su_Name }}
+                                    @endif
+                            </h4>
                         </div>
                         <div class="card-body">
-                            Il y a {{ $numPart }} partenaires
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            Nombre de demande en attente
-                        </div>
-                        <div class="card-body">
-                            actuellement il n'y a pas de demande en attente
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                Nom
+                                            </th>
+                                            <td>
+                                                {{ auth()->user()->su->su_Name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Tel
+                                            </th>
+                                            <td>
+                                                {{ auth()->user()->su->tel }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Compte crée le
+                                            </th>
+                                            <td>
+                                                {{ auth()->user()->created_at }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com">
+                                FALLO Corp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Contacter l'administrateur
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright" id="copyright">
+                    &copy;
+                    Développer par le ASKOUR Hamza et HILALI Ahmed
+                </div>
+            </div>
+        </footer>
     </div>
-<br><br>
-    <div class="container">
-        @yield('content')
-    </div>
-
 </div>
-
-<!--
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.min.js"></script>
+<script src="../assets/js/core/popper.min.js"></script>
+<script src="../assets/js/core/bootstrap.min.js"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="../assets/js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/now-ui-dashboard.min.js?v=1.3.0" type="text/javascript"></script>
+<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/demo/demo.js"></script>
 <script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
 
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft= "0";
-        document.body.style.backgroundColor = "white";
-    }
+    });
 </script>
--->
-
 </body>
 
 </html>

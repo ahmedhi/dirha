@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-
-    <table class="table" style="margin-left: -20%">
+    <div class="table-responsive">
+    <table class="table">
         <thead class="thead-dark">
         <tr style=" text-align: center ;" >
             <th scope="col">ID UTILISATEUR</th>
@@ -44,5 +44,6 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 
 @endsection

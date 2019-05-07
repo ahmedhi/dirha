@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\admin;
 use App\partenaires;
+use App\superusers;
 use App\user;
 use App\utilisateurs;
 use Illuminate\Http\Request;
@@ -12,16 +13,24 @@ use Illuminate\Support\Facades\Input;
 class InscriptionController extends Controller
 {
     public function form(){
+
         return view('inscriptionChoix');
     }
-
 
     public function Partenaire(){
         return view('inscriptionPartenaire');
     }
 
     public function Utilisateur(){
-        return view('inscription');
+        return view('inscriptionUtilisateur');
+    }
+
+    public function Admin(){
+        return view('AddAdmin');
+    }
+
+    public function SU(){
+        return view('InscriptionSU');
     }
 
     public function SavePicture(){
@@ -122,7 +131,7 @@ class InscriptionController extends Controller
 
     }
 
-    public function AddAdmin(){ //NOT TESTED
+    public function AddAdmin(){
         request() -> validate([
             'email' => ['required','email'],
             'password' => ['required','confirmed','min:8'],
@@ -143,6 +152,10 @@ class InscriptionController extends Controller
             'admin_Name' => request('nom_complet'),
             'tel' => request('num'),
         ]);
+
+        flash("Votre compte administrateur vient d'etre créer ")->success();
+
+        return redirect('/connexion');
     }
 
     public function AddSu(){ //NOT TESTED
@@ -158,13 +171,15 @@ class InscriptionController extends Controller
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
-            'type' => 0, // =0 pour admin
+            'type' => -1, // =-1 pour suadmin
         ]);
 
-        $admin = admin::create([
+        superusers::create([
             'id_su' => $user->id,
             'su_Name' => request('nom_complet'),
             'tel' => request('num'),
         ]);
+
+        return redirect('/connexion');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuperuser extends Migration
+class CreateSuperusersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSuperuser extends Migration
      */
     public function up()
     {
-        Schema::create('superuser', function (Blueprint $table) {
+        Schema::create('superusers', function (Blueprint $table) {
             $table->integer('id_su')->references('id')->on('users')->primary();
-          $table->string('su_Name');
-          $table->string('tel')->unique();
-          $table->timestamps();
+            $table->string('su_Name');
+            $table->string('tel')->unique();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateSuperuser extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('superuser');
+        Schema::dropIfExists('superusers');
     }
 }
