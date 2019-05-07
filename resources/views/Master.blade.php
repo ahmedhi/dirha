@@ -63,6 +63,14 @@
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
+            @auth
+                @if( auth()->user()->type === -1 || auth()->user()->type === 0)
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/config">Dashboard<span class="sr-only">(current)</span></a>
+                    </li>
+                @endif
+            @endauth
+
             <li class="nav-item active">
                 <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
             </li>

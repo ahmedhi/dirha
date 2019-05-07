@@ -52,33 +52,30 @@ Route::group([ //Need to be a guest to have permission to view this pages
 Route::get('/co', function (){
     return view('contact');
 });
+
 //Midlleware to check admin acces
-/*
+
 Route::group([
    'middleware' => 'App\Http\Middleware\AdminMidthware'
 ], function (){
 
-    Route::get('/config', function (){
-        return view('adminMaster');
-    });
+    Route::get('config', 'AdminController@index');
 
-Route::post('/co', function (){
-    return back();
+    Route::get('/inscriptionA' , 'InscriptionController@Admin');
+
+    Route::post('/inscriptionA' , 'InscriptionController@AddAdmin');
+
+    Route::get('/client', 'AdminController@clientArray');
+
+    Route::get('/partenaire', 'AdminController@partArray');
+
+    Route::get('/fixpartenaire', 'AdminController@checkPartenaire');
+
 });
-*/
+
 Route::get('/00', 'ArticlesController@voir');
 
 Route::post('/00', 'ArticlesController@nouveau');
-
-Route::get('config', 'AdminController@index');
-
-Route::get('/inscriptionA' , 'InscriptionController@Admin');
-
-Route::post('/inscriptionA' , 'InscriptionController@AddAdmin');
-
-Route::get('client', 'AdminController@clientArray');
-
-Route::get('partenaire', 'AdminController@partArray');
 
 Route::get('/00', 'ArticlesController@voir');
 

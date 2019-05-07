@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\admin;
 use App\partenaires;
-use App\superusers;
 use App\user;
-use App\utilisateurs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -59,18 +56,13 @@ class InscriptionController extends Controller
             'sexe' => ['required'],
         ]);
 
+        $nameFile = $this->SavePicture();
+
         // Creation du nouveau profil dans la table users
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
-            'type' => 1, // =1 pour utilisateur normal
-        ]);
-
-        $nameFile = $this->SavePicture();
-
-        $util = utilisateurs::create([
-            'id_user' => $user->id,
-            'user_Name' => request('nom_complet'),
+            'nom' => request('nom_complet'),
             'img' => $nameFile,
             'tel' => request('num'),
             'date_de_naissance' => request('date'),
@@ -78,7 +70,9 @@ class InscriptionController extends Controller
             'taille' => request('taille'),
             'sexe' => request('sexe'),
             'pays' => request('pays'),
+            'type' => 1, // =1 pour utilisateur normal
         ]);
+
 
         return redirect('/connexion');
 
@@ -101,19 +95,13 @@ class InscriptionController extends Controller
             'sexe' => ['required'],
         ]);
 
+        $nameFile = $this->SavePicture();
+
         // Creation du nouveau profil dans la table users
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
-            'type' => 3, // =2 pour partenaire Valider | = 3 pour partenaire non valider
-        ]);
-
-
-        $nameFile = $this->SavePicture();
-
-        $util = partenaires::create([
-            'id_partenaire' => $user->id,
-            'part_Name' => request('nom_complet'),
+            'nom' => request('nom_complet'),
             'img' => $nameFile,
             'tel' => request('num'),
             'date_de_naissance' => request('date'),
@@ -121,6 +109,11 @@ class InscriptionController extends Controller
             'taille' => request('taille'),
             'sexe' => request('sexe'),
             'pays' => request('pays'),
+            'type' => 3, // =2 pour partenaire Valider | = 3 pour partenaire non valider
+        ]);
+
+        $util = partenaires::create([
+            'partenaire_id' => $user->id,
             'diplome' => request('diplome'),
             'metier' => request('metier'),
             'experience' => request('experience'),
@@ -144,13 +137,9 @@ class InscriptionController extends Controller
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
-            'type' => 0, // =0 pour admin
-        ]);
-
-        $admin = admin::create([
-            'id_admin' => $user->id,
-            'admin_Name' => request('nom_complet'),
+            'nom' => request('nom_complet'),
             'tel' => request('num'),
+            'type' => 0, // =0 pour admin
         ]);
 
         flash("Votre compte administrateur vient d'etre créer ")->success();
@@ -158,7 +147,7 @@ class InscriptionController extends Controller
         return redirect('/connexion');
     }
 
-    public function AddSu(){ //NOT TESTED
+    public function AddSu(){
         request() -> validate([
             'email' => ['required','email'],
             'password' => ['required','confirmed','min:8'],
@@ -171,13 +160,9 @@ class InscriptionController extends Controller
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
-            'type' => -1, // =-1 pour suadmin
-        ]);
-
-        superusers::create([
-            'id_su' => $user->id,
-            'su_Name' => request('nom_complet'),
+            'nom' => request('nom_complet'),
             'tel' => request('num'),
+            'type' => -1, // =-1 pour suadmin
         ]);
 
         return redirect('/connexion');

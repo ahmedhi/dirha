@@ -14,15 +14,7 @@ class CreatePartenaireTable extends Migration
     public function up()
     {
         Schema::create('partenaires', function (Blueprint $table) {
-            $table->integer('id_partenaire')->primary();
-            $table->string('part_Name');
-            $table->string('tel')->unique();
-            $table->string('img');
-            $table->double('taille', 15, 8)->unsigned();
-            $table->double('poids', 15, 8)->unsigned();
-            $table->date('date_de_naissance');
-            $table->string('sexe');
-            $table->string('pays');
+            $table->integer('partenaire_id')->primary();
             $table->longText('diplome');
             $table->string('metier');
             $table->longText('experience');
@@ -32,7 +24,7 @@ class CreatePartenaireTable extends Migration
 
         Schema::table('partenaires', function($table){
 
-            $table->foreign('id_partenaire')->references('id')->on('users');
+            $table->foreign('partenaire_id')->references('id')->on('users');
         });
 
     }

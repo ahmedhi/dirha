@@ -27,7 +27,7 @@ class ArticlesController extends Controller
             'description'=>request('article'),
             'Like' => 0,
             'Dislike' => 0 ,
-            'categorie' => "Article tres interressant",
+            'categorie' => "",
 
         ]);
 

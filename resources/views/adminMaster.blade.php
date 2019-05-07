@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/fixpartenaire">
                         <i class="now-ui-icons education_atom"></i>
                         <p>Liste des Demandes</p>
                     </a>
@@ -78,6 +78,11 @@
                     </a>
                 </li>
                 @endif
+                <li>
+                    <a class="btn btn-danger" href="/deconnexion">
+                        Déconnexion
+                    </a>
+                </li>
                 <li class="active-pro">
                     <a href="./upgrade.html">
                         <p>Fallo Corp  MADE BY ASKOUR&HILALI</p>
@@ -125,7 +130,15 @@
                                     <span class="d-lg-none d-md-block">Compte</span>
                                 </p>
                             </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="now-ui-icons users_single-02"></i>
+                                <p>
+                                    <span class="d-lg-none d-md-block">Compte</span>
+                                </p>
+                            </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -221,11 +234,7 @@
                         <div class="card-header">
                             <h5 class="card-category">Information Personnel</h5>
                             <h4 class="card-title"> Salutation
-                                    @if(auth()->user()->type == 0)
-                                        {{ auth()->user()->admin->admin_Name }}
-                                    @else
-                                    {{ auth()->user()->su->su_Name }}
-                                    @endif
+                                    {{ auth()->user()->nom }}
                             </h4>
                         </div>
                         <div class="card-body">
@@ -237,7 +246,7 @@
                                                 Nom
                                             </th>
                                             <td>
-                                                {{ auth()->user()->su->su_Name }}
+                                                {{ auth()->user()->nom }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -245,7 +254,7 @@
                                                 Tel
                                             </th>
                                             <td>
-                                                {{ auth()->user()->su->tel }}
+                                                {{ auth()->user()->tel }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -254,6 +263,18 @@
                                             </th>
                                             <td>
                                                 {{ auth()->user()->created_at }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Type
+                                            </th>
+                                            <td>
+                                                @if(auth()->user()->type === 0)
+                                                    Administrateur
+                                                @else
+                                                    Super Administrateur
+                                                @endif
                                             </td>
                                         </tr>
                                     </tbody>

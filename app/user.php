@@ -14,6 +14,14 @@ class user extends Model implements Authenticatable {
     protected $fillable = [
         'email' ,
         'mot_de_passe',
+        'nom',
+        'tel',
+        'img',
+        'taille',
+        'poids',
+        'date_de_naissance',
+        'sexe',
+        'pays',
         'type'
 
     ];
@@ -27,7 +35,7 @@ class user extends Model implements Authenticatable {
     {
         return '';
     }
-
+    /*
     public function connect(){
         switch (auth()->user()->type){
             case 0 : return $this->hasOne(admin::class,'id_admin');
@@ -56,4 +64,5 @@ class user extends Model implements Authenticatable {
         return $this->hasOne('App\superusers','id_su','id');
     }
 
+    */
 }
