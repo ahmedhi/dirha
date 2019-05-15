@@ -14,9 +14,9 @@ class CreateRepasTable extends Migration
     public function up()
     {
         Schema::create('repas', function (Blueprint $table) {
-            $table->increments('id_repas');
+            $table->increments('repas_id');
             $table->string('nom');
-            $table->string('id_prop')->references('id')->on('users');
+            $table->string('prop_id')->references('id')->on('users');
             $table->double('kcal',15,8)->unisgned();
 
             $table->timestamps();

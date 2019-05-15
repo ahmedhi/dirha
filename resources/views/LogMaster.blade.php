@@ -100,12 +100,8 @@
                 </center>
             </div>
             <div class="card-body">
-                @auth
-                    TEST
-                @endauth
 
                 @yield('content')
-
 
                 <div class="card-footer">
                     <!-- SpecFooter est un footer specifique a la page -->

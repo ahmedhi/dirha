@@ -20,22 +20,13 @@
     <!--Fontawesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/Master.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
-        }
-
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        .row.content {height: 450px}
-
-        /* Set gray background color and 100% height */
-        .sidenav {
-            padding-top: 20px;
-            background-color: #f1f1f1;
-            height: 100%;
         }
 
         /* Set black background color, white text and some padding */
@@ -72,12 +63,20 @@
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
+            @auth
+                @if( auth()->user()->type === -1 || auth()->user()->type === 0)
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/config">Dashboard<span class="sr-only">(current)</span></a>
+                    </li>
+                @endif
+            @endauth
+
             <li class="nav-item active">
                 <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="/">Nos meilleurs articles <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/00">Nos meilleurs articles <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
@@ -107,9 +106,15 @@
                         </a>
 
                     @else
+                        @if( request()->is('inscription'))
+                            <a class="btn btn-outline-success" href="/inscription">
+                                <strong>Ajouter administrateur</strong>
+                            </a>
+                        @else
                         <a class="btn btn-outline-success" href="/inscription">
                             <strong>S'inscire</strong>
                         </a>
+                        @endif
                         <a class="btn btn-outline-secondary" href="/connexion">
                             Se connecter
                         </a>
@@ -128,7 +133,7 @@
         @if( auth()->check())
             <div class="card content CardColLeft">
                 <figure style=" position: relative ">
-                    <img src="img/profilIconDefault.png" class="img-thumbnail" style="position: relative ; padding-top: 25px">
+                    <img src="UserImage/profile-icon-png-898.png" class="img-thumbnail" style="position: relative ; padding-top: 25px">
                 </figure>
 
                 <br><br><br><br>
@@ -146,18 +151,14 @@
             <!-- Image Fallo -->
             <img src="img/FalloSolo.png" class="imgIcon" >
 
-            @auth
-                TEST
-            @endauth
-
             @yield('content')
 
         </div>
         <!-- ADS Bar -->
         <div class="CardColRight" >
             <center>
-                <img src="img/macAds1.png" class="imgADSF">
-                <img src="img/macAds.jpg" class="imgADSL">
+                <img src="img/ADSHan.jpg" class="imgADSF">
+                <img src="img/ADSFallo.png" class="imgADSL">
             </center>
         </div>
 

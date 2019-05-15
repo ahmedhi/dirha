@@ -9,20 +9,12 @@
 @endsection
 
 @section('content')
-    <form method="post" class="section ">
+    <form method="post" class="section " enctype="multipart/form-data">
 
-    {{csrf_field()}}
+        {{csrf_field()}}
 
-    <!--Type Just For Test-->
 
-        <div class="input-group form-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user-shield"></i></span>
-            </div>
-            <input type="text" class="form-control" name="type" placeholder="Type" value="{{ old('email') }}">
-        </div>
-
-    <!-- Email -->
+        <!-- Email -->
         <div class="input-group form-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -39,7 +31,7 @@
 
         @endif
 
-    <!-- Mot de passe -->
+        <!-- Mot de passe -->
         <div class="input-group form-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -55,7 +47,7 @@
 
         @endif
 
-    <!-- Mot de passe de confirmation-->
+         <!-- Mot de passe de confirmation-->
         <div class="input-group form-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -75,6 +67,15 @@
         <br>
 
         <!-- Sexe -->
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-power-off "></i></span>
+            </div>
+            <select name="sexe" class="form-control">
+                <option value="Homme" selected="selected">Homme</option>
+                <option value="Femme" >Femme</option>
+            </select>
+        </div>
 
         <!-- Nom Complet-->
         <div class="input-group form-group">
@@ -92,13 +93,13 @@
 
         @endif
 
-    <!-- Photo de profil
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-images"></i></span>
-                </div>
-                <input type="file" class="form-control" name="image" placeholder="Photo de profil">
-            </div> -->
+    <!-- Photo de profil -->
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-images"></i></span>
+            </div>
+            <input type="file" class="form-control" id ="image" name="image" placeholder="Photo de profil" style="padding-bottom: 0.400px;border-bottom-width: 0px;padding-top: 0.5px;">
+        </div>
 
         <!-- Gestion d'erreur pour le image -->
         @if( $errors->has('image'))
@@ -125,6 +126,27 @@
         @if( $errors->has('num'))
             <p class="erreur">
                 {{ $errors->first('num') }}
+            </p>
+
+        @endif
+
+    <!-- Numero de téléphone Fix -->
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-tty "></i></span>
+            </div>
+            <input  type="tel"
+                    class="form-control" name="fix"
+                    placeholder="Numero de Téléphone Fix"
+                    value="{{ old('fix') }}"
+                    pattern="0[0-9]{9}"
+            >
+        </div>
+
+        <!-- Gestion d'erreur pour le num -->
+        @if( $errors->has('fix'))
+            <p class="erreur">
+                {{ $errors->first('fix') }}
             </p>
 
         @endif
@@ -441,9 +463,77 @@
                 {{ $errors->first('taille') }}
             </p>
 
-    @endif
+        @endif
 
-    <!-- Boutton de confirmation -->
+        <br>
+        <div id='partenaire'>
+            <!-- Diplome -->
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-graduation-cap "></i></span>
+                </div>
+                <input type="text" class="form-control" name="diplome" placeholder="Dernier diplome" value="{{ old('diplome') }}">
+            </div>
+
+            <!-- Gestion d'erreur pour le diplome -->
+            @if( $errors->has('diplome'))
+                <p class="erreur">
+                    {{ $errors->first('diplome') }}
+                </p>
+
+            @endif
+
+        <!-- Metier -->
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-briefcase "></i></span>
+                </div>
+                <input type="text" class="form-control" name="metier" placeholder="Métier actuel" value="{{ old('metier') }}">
+            </div>
+
+            <!-- Gestion d'erreur pour le metier -->
+            @if( $errors->has('metier'))
+                <p class="erreur">
+                    {{ $errors->first('metier') }}
+                </p>
+
+            @endif
+
+        <!-- experience -->
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-circle"></i></span>
+                </div>
+                <textarea rows="5" class="form-control" name="experience" placeholder="Experience" value="{{ old('experience') }}"></textarea>
+            </div>
+
+            <!-- Gestion d'erreur pour le experience -->
+            @if( $errors->has('experience'))
+                <p class="erreur">
+                    {{ $errors->first('experience') }}
+                </p>
+
+            @endif
+
+        <!-- Adresse -->
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-pin "></i></span>
+                </div>
+                <textarea rows="5" class="form-control" name="adresse" placeholder="Adresse" value="{{ old('adresse') }}"></textarea>
+            </div>
+
+            <!-- Gestion d'erreur pour le experience -->
+            @if( $errors->has('adresse'))
+                <p class="erreur">
+                    {{ $errors->first('adresse') }}
+                </p>
+
+            @endif
+
+        </div>
+
+        <!-- Boutton de confirmation -->
         <center>
             <div class="form-group">
                 <input type="submit" value="S'inscrire" class="btn login_btn">

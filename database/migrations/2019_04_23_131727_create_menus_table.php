@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenu extends Migration
+class CreateMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateMenu extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom')->unique();
-            $table->integer('id_proprietaire')->references('id')->on('users');
+            $table->integer('proprietaire_id')->references('id')->on('users');
             $table->integer('type_exercice');
             $table->integer('type_evolution');
         });

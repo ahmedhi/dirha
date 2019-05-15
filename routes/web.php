@@ -11,14 +11,6 @@
 |
 */
 
-Route::get('/inscription', 'InscriptionController@form');
-
-Route::post('/inscription' , 'InscriptionController@Traitement');
-
-Route::get('/connexion' , 'ConnexionController@form');
-
-Route::post('/connexion' , 'ConnexionController@traitement');
-
 Route::get('/' , 'UserController@liste');
 
 Route::group([
@@ -33,36 +25,60 @@ Route::group([
     Route::get('/deconnexion','CompteController@deconnexion');
 });
 
-Route :: view ('/00', 'acceuil');
+Route::group([ //Need to be a guest to have permission to view this pages
+    'middleware' => 'App\Http\Middleware\Guest',
+], function (){
+    Route::get('/inscription', 'InscriptionController@form');
+
+    Route::get('/inscriptionP', 'InscriptionController@Partenaire');
+
+    Route::post('/inscriptionP' , 'InscriptionController@AddPart');
+
+    Route::get('/inscriptionU', 'InscriptionController@Utilisateur');
+
+    Route::post('/inscriptionU' , 'InscriptionController@AddUser');
+
+    Route::get('/SUADD' , 'InscriptionController@SU');
+
+    Route::post('/SUADD' , 'InscriptionController@AddSu');
+
+    Route::get('/connexion' , 'ConnexionController@form');
+
+    Route::post('/connexion' , 'ConnexionController@traitement');
+
+});
+
 
 Route::get('/co', function (){
     return view('contact');
 });
 
-Route::post('/co', function (){
-    return back();
+//Midlleware to check admin acces
+
+Route::group([
+   'middleware' => 'App\Http\Middleware\AdminMidthware'
+], function (){
+
+    Route::get('config', 'AdminController@index');
+
+    Route::get('/inscriptionA' , 'InscriptionController@Admin');
+
+    Route::post('/inscriptionA' , 'InscriptionController@AddAdmin');
+
+    Route::get('/client', 'AdminController@clientArray');
+
+    Route::get('/partenaire', 'AdminController@partArray');
+
+    Route::get('/fixpartenaire', 'AdminController@checkPartenaire');
+
 });
+
+Route::get('/00', 'ArticlesController@voir');
+
+Route::post('/00', 'ArticlesController@nouveau');
+
 Route::get('/00', 'ArticlesController@voir');
 
 ROute::post('/00' , 'ArticlesController@nouveau');
-/*{
 
-    request()->validate([
-        'title' => ['requered'],
-        'article'=> ['requered'],
-        'source'=>  ['requered'],
-    ]);
-
-    $artcl =  app\Article:: create([
-        'title' => request('title'),
-        'source'=> request('source'),
-        'description'=>request('article'),
-        'Like' => 0,
-        'Dislike' => 0 ,
-
-    ]);
-
-    return "Nous avons reçu votre article " ;p
-});
-*/
 Route::get('/{email}','UserController@voir');

@@ -1,0 +1,42 @@
+.rubrique{
+    position: relative;
+    top: 10%;
+    color: white;
+
+}
+
+.card{
+    box-shadow: 5px 4px 10px 3px #888;
+}
+
+.card-body{
+    padding-top: 1.25rem;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    background-color: #c9fbf9;
+}
+
+.card-header{
+    text-align: center;
+    font-weight: bold;
+    background-color: #b4f8fb;
+}
+
+.highSide{
+    width: 87%;
+    margin-left: 285px;
+}
+
+.ColorBack{
+    background-color: #dcdcdc;
+}
+
+.col{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+ul{
+    padding-left: 0px;
+}

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class ConnexionController extends Controller
 {
     public function form(){
+        if( auth()->check())
+            return redirect('/');
         return view('connexion');
     }
 
@@ -25,6 +27,8 @@ class ConnexionController extends Controller
 
         if($connect){
             flash("La connexion a bien été effectuer")->success();
+            if( auth()->user()->type === 0 || auth()->user()->type === -1 )
+                return redirect('/config');
             return redirect('/');
         }
         else return back()->withInput()->withErrors([

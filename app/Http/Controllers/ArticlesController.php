@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\article;
+use Illuminate\Support\Facades\DB;
 
 class ArticlesController extends Controller
 {
@@ -19,16 +20,14 @@ class ArticlesController extends Controller
             'source'=>  ['required'],
         ]);
 
-        $id = 17;
-
         $artcl =  article:: create([
-            'id_partenaire' => $id,
+            'partenaire_id' => auth()->id(),
             'title' => request('title'),
             'source'=> request('source'),
             'description'=>request('article'),
-            'Like' => $id,
-            'Dislike' => $id ,
-            'categorie' => "Article tres interressant",
+            'Like' => 0,
+            'Dislike' => 0 ,
+            'categorie' => "",
 
         ]);
 
@@ -36,9 +35,10 @@ class ArticlesController extends Controller
     }
 
     public function voir(){
-        $articles = article::all();
+        $Articles = article::all();
+
         return view('acceuil',[
-            'articles' => $articles,
+            'articles' => $Articles,
         ]);
     }
 }

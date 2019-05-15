@@ -14,8 +14,8 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->increments('id_article');
-            $table->integer('id_partenaire');
+            $table->increments('article_id');
+            $table->integer('partenaire_id');
             $table->string('title');
             $table->string('source');
             $table->string('description');
@@ -24,7 +24,7 @@ class CreateArticlesTable extends Migration
             $table->integer('DisLike')->unsigned();
 
             $table->unique('title');
-            $table->foreign('id_partenaire')->references('id_partenaire')->on('partenaires');
+            $table->foreign('partenaire_id')->references('partenaire_id')->on('partenaires');
 
             $table->timestamps();
         });
@@ -37,6 +37,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article');
+        Schema::dropIfExists('articles');
     }
 }
