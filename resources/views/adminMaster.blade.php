@@ -74,7 +74,7 @@
                 <li>
                     <a href="/inscriptionA">
                         <i class="now-ui-icons users_single-02"></i>
-                        <p>Ajouter des aministrateurs</p>
+                        <p>Gestion des aministrateurs</p>
                     </a>
                 </li>
                 @endif

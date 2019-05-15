@@ -15,7 +15,7 @@
 
                 <li>
 
-                         <a href="/{{ $user->email }}" > {{ $user->email }}</a>
+                         <a href="/00" > {{ $user->email }}</a>
 
                 </li>
 

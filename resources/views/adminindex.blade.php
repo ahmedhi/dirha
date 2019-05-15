@@ -95,11 +95,11 @@
         </thead>
         <tbody>
         @foreach( $users as $user)
-            @if( $user->type === 1)
+            @if( $user->type === 1 || $user->type === 3)
             <tr>
                 <th scope="col">{{ $user->id}}</th>
                 <th scope="col">{{ $user->email }}</th>
-                <th scope="col">{{ $user->user_Name }}</th>
+                <th scope="col">{{ $user->nom }}</th>
                 <th scope="col">{{ $user->tel }}</th>
                 <th scope="col">{{ $user->taille }}</th>
                 <th scope="col">{{ $user->poids }}</th>
@@ -139,19 +139,19 @@
         @foreach( $users as $user)
             @if( $user->type === 2)
             <tr>
-                <th scope="col">{{ $part->id}}</th>
-                <th scope="col">{{ $part->email }}</th>
-                <th scope="col">{{ $part->part_Name }}</th>
-                <th scope="col">{{ $part->tel }}</th>
-                <th scope="col">{{ $part->taille }}</th>
-                <th scope="col">{{ $part->poids }}</th>
-                <th scope="col">{{ $part->sexe }}</th>
-                <th scope="col">{{ $part->pays }}</th>
-                <th scope="col">{{ $part->diplome }}</th>
-                <th scope="col">{{ $part->metier }}</th>
-                <th scope="col">{{ $part->experience }}</th>
-                <th scope="col">{{ $part->adresse }}</th>
-                <th scope="col">{{ $part->date_de_naissance }}</th>
+                <th scope="col">{{ $user->id}}</th>
+                <th scope="col">{{ $user->email }}</th>
+                <th scope="col">{{ $user->nom }}</th>
+                <th scope="col">{{ $user->tel }}</th>
+                <th scope="col">{{ $user->taille }}</th>
+                <th scope="col">{{ $user->poids }}</th>
+                <th scope="col">{{ $user->sexe }}</th>
+                <th scope="col">{{ $user->pays }}</th>
+                <th scope="col">{{ $user->part->diplome }}</th>
+                <th scope="col">{{ $user->part->metier }}</th>
+                <th scope="col">{{ $user->part->experience }}</th>
+                <th scope="col">{{ $user->part->adresse }}</th>
+                <th scope="col">{{ $user->date_de_naissance }}</th>
             </tr>
             @endif
         @endforeach
@@ -160,7 +160,7 @@
         </div>
 
 @if(auth()->user()->type === -1)
-    <h3 style="text-align: center">Liste des Administrateurs</h3>
+    <h3 style="text-align: center">Liste des useristrateurs</h3>
     <div class="table-responsive">
             <table class="table">
                 <thead class="tableTitle">
@@ -175,10 +175,10 @@
                 @foreach( $users as $user)
                     @if( $user->type === 0)
                     <tr>
-                        <th scope="col">{{ $admin->id}}</th>
-                        <th scope="col">{{ $admin->email }}</th>
-                        <th scope="col">{{ $admin->admin_Name }}</th>
-                        <th scope="col">{{ $admin->tel }}</th>
+                        <th scope="col">{{ $user->id}}</th>
+                        <th scope="col">{{ $user->email }}</th>
+                        <th scope="col">{{ $user->nom }}</th>
+                        <th scope="col">{{ $user->tel }}</th>
                     </tr>
                     @endif
                 @endforeach

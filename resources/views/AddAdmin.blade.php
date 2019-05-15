@@ -6,10 +6,11 @@
 
 @section('content')
     <center>
-    <div class="card" style="width: 50%;">
+    <div class="card" style="width: 50%; border-radius: 26px; background-color: #ececec">
         <div class="card-header">
             <div style="text-align: center;"><h3 style="color: #ff3636">ADMINISTRATEUR</h3></div>
         </div>
+        <div class="card-body">
     <form method="post" class="section " enctype="multipart/form-data">
 
     {{csrf_field()}}
@@ -112,7 +113,31 @@
         </center>
 
     </form>
+        </div>
     </div>
     </center>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr style=" text-align: center ;" >
+                <th scope="col">ID</th>
+                <th scope="col">Email</th>
+                <th scope="col">Nom Complet</th>
+                <th scope="col">Téléphone</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach( $users as $user)
+                    <tr>
+                        <th scope="col">{{ $user->id }}</th>
+                        <th scope="col">{{ $user->email }}</th>
+                        <th scope="col">{{ $user->nom }}</th>
+                        <th scope="col">{{ $user->tel }}</th>
+                    </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 
 @endsection

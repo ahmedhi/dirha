@@ -35,6 +35,10 @@ class user extends Model implements Authenticatable {
     {
         return '';
     }
+
+    public function part(){
+        return $this->hasOne('App\partenaires','partenaire_id','id');
+    }
     /*
     public function connect(){
         switch (auth()->user()->type){

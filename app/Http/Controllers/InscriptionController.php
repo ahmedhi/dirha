@@ -23,7 +23,10 @@ class InscriptionController extends Controller
     }
 
     public function Admin(){
-        return view('AddAdmin');
+        $admins = user::where('type',0)->get();
+        return view('AddAdmin',[
+            'users' => $admins,
+        ]);
     }
 
     public function SU(){
