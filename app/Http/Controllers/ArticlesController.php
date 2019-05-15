@@ -21,7 +21,7 @@ class ArticlesController extends Controller
         ]);
 
         $artcl =  article:: create([
-            'id_partenaire' => auth()->id(),
+            'partenaire_id' => auth()->id(),
             'title' => request('title'),
             'source'=> request('source'),
             'description'=>request('article'),
@@ -35,12 +35,10 @@ class ArticlesController extends Controller
     }
 
     public function voir(){
-        $ArtParts = DB::table('articles')
-                        ->join('partenaires','partenaires.id_partenaire','articles.id_partenaire')
-                        ->get();
+        $Articles = article::all();
 
         return view('acceuil',[
-            'ArtParts' => $ArtParts,
+            'articles' => $Articles,
         ]);
     }
 }

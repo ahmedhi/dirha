@@ -13,4 +13,9 @@ class article extends Model {
         'Like',
         'DisLike',
     ];
+
+    public function users(){
+        return $this->hasOne('App\user','id','partenaire_id');
+    }
+
 }
