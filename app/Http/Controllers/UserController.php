@@ -19,13 +19,8 @@ class UserController extends Controller
     }
 
     public function voir(){
-       $email = request('email');
-
-        $user = user::where('email' , $email)->first();
-
-
         return  /*$user->email */
-          view('/utilisateur' , ['user' => $user ]);
+          view('/utilisateur' );
 
     }
 

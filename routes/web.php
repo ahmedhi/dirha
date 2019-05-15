@@ -77,12 +77,8 @@ Route::group([
 
 });
 
-Route::get('/00', 'ArticlesController@voir');
+Route::get('/Bestarticles', 'ArticlesController@voir');
 
-Route::post('/00', 'ArticlesController@nouveau');
+Route::post('/Bestarticles', 'ArticlesController@nouveau');
 
-Route::get('/00', 'ArticlesController@voir');
-
-ROute::post('/00' , 'ArticlesController@nouveau');
-
-Route::get('/{email}','UserController@voir');
+Route::get('/article','UserController@voir');
