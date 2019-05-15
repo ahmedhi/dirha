@@ -22,18 +22,20 @@
                 </thead>
                 <tbody>
                 @foreach( $users as $user)
-                <tr>
-                    <th scope="col">{{ $user->id_user }}</th>
-                    <th scope="col">{{ $user->email }}</th>
-                    <th scope="col">{{ $user->user_Name }}</th>
-                    <th scope="col">{{ $user->tel }}</th>
-                    <th scope="col">{{ $user->taille }}</th>
-                    <th scope="col">{{ $user->poids }}</th>
-                    <th scope="col">{{ $user->sexe }}</th>
-                    <th scope="col">{{ $user->pays }}</th>
-                    <th scope="col">{{ $user->date_de_naissance }}</th>
-                </tr>
-                    @endforeach
+                    @if( $user->type === 1 )
+                        <tr>
+                            <th scope="col">{{ $user->id }}</th>
+                            <th scope="col">{{ $user->email }}</th>
+                            <th scope="col">{{ $user->nom }}</th>
+                            <th scope="col">{{ $user->tel }}</th>
+                            <th scope="col">{{ $user->taille }}</th>
+                            <th scope="col">{{ $user->poids }}</th>
+                            <th scope="col">{{ $user->sexe }}</th>
+                            <th scope="col">{{ $user->pays }}</th>
+                            <th scope="col">{{ $user->date_de_naissance }}</th>
+                        </tr>
+                    @endif
+                @endforeach
                 </tbody>
             </table>
         </div>

@@ -25,22 +25,24 @@
         </tr>
         </thead>
         <tbody>
-        @foreach( $parts as $part)
-            <tr>
-                <th scope="col">{{ $part->id}}</th>
-                <th scope="col">{{ $part->email }}</th>
-                <th scope="col">{{ $part->part_Name }}</th>
-                <th scope="col">{{ $part->tel }}</th>
-                <th scope="col">{{ $part->taille }}</th>
-                <th scope="col">{{ $part->poids }}</th>
-                <th scope="col">{{ $part->sexe }}</th>
-                <th scope="col">{{ $part->pays }}</th>
-                <th scope="col">{{ $part->diplome }}</th>
-                <th scope="col">{{ $part->metier }}</th>
-                <th scope="col">{{ $part->experience }}</th>
-                <th scope="col">{{ $part->adresse }}</th>
-                <th scope="col">{{ $part->date_de_naissance }}</th>
-            </tr>
+        @foreach( $users as $user)
+            @if($user->type === 2)
+                <tr>
+                    <th scope="col">{{ $user->id}}</th>
+                    <th scope="col">{{ $user->email }}</th>
+                    <th scope="col">{{ $user->part_Name }}</th>
+                    <th scope="col">{{ $user->tel }}</th>
+                    <th scope="col">{{ $user->taille }}</th>
+                    <th scope="col">{{ $user->poids }}</th>
+                    <th scope="col">{{ $user->sexe }}</th>
+                    <th scope="col">{{ $user->pays }}</th>
+                    <th scope="col">{{ $user->diplome }}</th>
+                    <th scope="col">{{ $user->metier }}</th>
+                    <th scope="col">{{ $user->experience }}</th>
+                    <th scope="col">{{ $user->adresse }}</th>
+                    <th scope="col">{{ $user->date_de_naissance }}</th>
+                </tr>
+            @endif
         @endforeach
         </tbody>
     </table>

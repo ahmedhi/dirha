@@ -2,79 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\admin;
 use App\user;
-use App\utilisateurs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
         public function index(){
-        $user = DB::table('users')
-            ->join('utilisateurs','utilisateurs.id_user','users.id')
-            ->get();
-        $part = DB::table('users')
-                ->join('partenaires','partenaires.id_partenaire','users.id')
-                ->get();
-        $numUser = DB::table('utilisateurs')->count();
-        $numPart = DB::table('partenaires')->count();
-
-        $admin = DB::table('users')
-            ->join('admins','admins.id_admin','users.id')
-            ->get();
+            $users = user::all();
 
         return view('adminindex',[
-            'users' => $user,
-            'parts' => $part,
-            'numUser' => $numUser,
-            'numPart' => $numPart,
-            'admins' => $admin,
+            'users' => $users,
         ]);
     }
 
     public function clientArray(){
-
-
-        $user = DB::table('users')
-                    ->join('utilisateurs','utilisateurs.id_user','users.id')
-                    ->get();
-
-        $numUser = DB::table('utilisateurs')->count();
-        $numPart = DB::table('partenaires')->count();
+        $users = user::all();
 
         return view('ListeClient',[
-            'users' => $user,
-            'numUser' => $numUser,
-            'numPart' => $numPart,
+            'users' => $users,
         ]);
     }
 
     public function partArray(){
-
-
-        $part = DB::table('users')
-            ->join('partenaires','partenaires.id_partenaire','users.id')
-            ->get();
-
-        $numUser = DB::table('utilisateurs')->count();
-        $numPart = DB::table('partenaires')->count();
+        $users = user::all();
 
         return view('ListePartenaire',[
-            'parts' => $part,
-            'numUser' => $numUser,
-            'numPart' => $numPart,
+            'users' => $users,
         ]);
     }
 
     public function adminArray(){
-        $admin = DB::table('users')
-            ->join('admins','admins.id_admin','users.id')
-            ->get();
+        $users = user::all();
 
         return view('AddAdmin',[
-            'admins' => $admin,
+            'users' => $users,
         ]);
+    }
+
+    public function checkPartenaire(){
+            $users = user::all();
+
+            return view('ListeCheckPartenaire',[
+                'users' => $users,
+            ]);
     }
 
 }

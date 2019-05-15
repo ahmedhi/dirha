@@ -5,7 +5,7 @@ namespace app;
 use illuminate\Database\Eloquent\Model;
 class article extends Model {
     protected $fillable = [
-        'id_partenaire',
+        'partenaire_id',
         'title',
         'source',
         'description',
@@ -13,4 +13,9 @@ class article extends Model {
         'Like',
         'DisLike',
     ];
+
+    public function users(){
+        return $this->hasOne('App\user','id','partenaire_id');
+    }
+
 }

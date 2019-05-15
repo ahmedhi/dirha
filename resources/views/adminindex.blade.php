@@ -95,6 +95,7 @@
         </thead>
         <tbody>
         @foreach( $users as $user)
+            @if( $user->type === 1)
             <tr>
                 <th scope="col">{{ $user->id}}</th>
                 <th scope="col">{{ $user->email }}</th>
@@ -106,6 +107,7 @@
                 <th scope="col">{{ $user->pays }}</th>
                 <th scope="col">{{ $user->date_de_naissance }}</th>
             </tr>
+            @endif
         @endforeach
         </tbody>
     </table>
@@ -134,7 +136,8 @@
         </tr>
         </thead>
         <tbody>
-        @foreach( $parts as $part)
+        @foreach( $users as $user)
+            @if( $user->type === 2)
             <tr>
                 <th scope="col">{{ $part->id}}</th>
                 <th scope="col">{{ $part->email }}</th>
@@ -150,6 +153,7 @@
                 <th scope="col">{{ $part->adresse }}</th>
                 <th scope="col">{{ $part->date_de_naissance }}</th>
             </tr>
+            @endif
         @endforeach
         </tbody>
     </table>
@@ -168,13 +172,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach( $admins as $admin)
+                @foreach( $users as $user)
+                    @if( $user->type === 0)
                     <tr>
                         <th scope="col">{{ $admin->id}}</th>
                         <th scope="col">{{ $admin->email }}</th>
                         <th scope="col">{{ $admin->admin_Name }}</th>
                         <th scope="col">{{ $admin->tel }}</th>
                     </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>

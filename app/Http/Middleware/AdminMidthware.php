@@ -15,13 +15,7 @@ class AdminMidthware
      */
     public function handle($request, Closure $next)
     {
-        if( !auth()->check()){
-            flash("Vous devez etre connecter pour acceder à cette rubrique")->error();
-            return redirect('connexion');
-        }
-
-        if( auth()->user()->type == -1 || auth()->user()->type == 0  ){
-            flash("Erreur d'accès. Vous n'avez pas les conditions requis");
+        if( !auth()->check() || (auth()->user()->type != -1 &&  auth()->user()->type != 0)){
             return redirect('/');
         }
 
