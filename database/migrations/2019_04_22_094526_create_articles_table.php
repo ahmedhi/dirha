@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->integer('partenaire_id');
             $table->string('title');
             $table->string('source');
-            $table->string('description');
+            $table->longText('description');
             $table->string('categorie');
             $table->integer('Like')->unsigned();
             $table->integer('DisLike')->unsigned();

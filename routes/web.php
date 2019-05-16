@@ -13,6 +13,12 @@
 
 Route::get('/' , 'UserController@liste');
 
+Route::get('/Bestarticles', 'ArticlesController@voir');
+
+Route::post('/Bestarticles', 'ArticlesController@nouveau');
+
+Route::get('/article','UserController@voir');
+
 Route::group([
 
     'middleware' => 'App\Http\Middleware\Auth',
@@ -77,8 +83,5 @@ Route::group([
 
 });
 
-Route::get('/Bestarticles', 'ArticlesController@voir');
+Route::get('/menu','UserController@MenuListe');
 
-Route::post('/Bestarticles', 'ArticlesController@nouveau');
-
-Route::get('/article','UserController@voir');

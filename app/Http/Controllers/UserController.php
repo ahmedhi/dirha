@@ -24,5 +24,8 @@ class UserController extends Controller
 
     }
 
+    public function MenuListe(){
+        return view('menuListe');
+    }
 
 }

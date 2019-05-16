@@ -146,7 +146,7 @@
             </div>
     @endif
     <!-- Content -->
-        <div class="card col-sm-6 text-left  DivContent" >
+        <div class="card col-sm-6 text-left  DivContent" style="">
 
             <!-- Image Fallo -->
             <img src="img/FalloSolo.png" class="imgIcon" >
