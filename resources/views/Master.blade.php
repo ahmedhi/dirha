@@ -137,12 +137,13 @@
                 </figure>
 
                 <br><br><br><br>
-                <li><strong>Nom d'utilisateur : </strong> <br>{{ auth()->user()->email }}
+                <ul>
+                <li><strong>Nom d'utilisateur : </strong> <br>{{ auth()->user()->nom }}</li><br>
+                <li><strong>Date de création : </strong><br>{{ auth()->user()->created_at }}</li>
                     <br>
-                <li><strong>Date de création : </strong> <br>  {{ auth()->user()->created_at }}
+                <li><strong>Date de modification : </strong><br>{{ auth()->user()->updated_at }}</li>
                     <br>
-                <li><strong>Date de modification : </strong> <br>  {{ auth()->user()->updated_at }}
-                    <br><br>
+                </ul>
             </div>
     @endif
     <!-- Content -->

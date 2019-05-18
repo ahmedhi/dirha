@@ -18,6 +18,7 @@ class ArticlesController extends Controller
             'title' => ['required'],
             'article'=> ['required'],
             'source'=>  ['required'],
+            'categorie'=> ['required'],
         ]);
 
         $artcl =  article:: create([
@@ -25,9 +26,9 @@ class ArticlesController extends Controller
             'title' => request('title'),
             'source'=> request('source'),
             'description'=>request('article'),
+            'categorie'=>request('categorie'),
             'Like' => 0,
             'Dislike' => 0 ,
-            'categorie' => "",
 
         ]);
 

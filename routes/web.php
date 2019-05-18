@@ -20,6 +20,12 @@ Route::group([
 ], function (){
     Route::get('/mon-compte','CompteController@acceuil');
 
+    Route::get('/infosPersonnels','CompteController@infos');
+
+    Route::get('/modifInfos','CompteController@formodif');
+
+    Route ::post('/modifInfos','ConmpteController@modif');
+
     Route::post('/modification-mot-de-passe','CompteController@ChangePwd');
 
     Route::get('/deconnexion','CompteController@deconnexion');
@@ -82,3 +88,4 @@ Route::get('/00', 'ArticlesController@voir');
 ROute::post('/00' , 'ArticlesController@nouveau');
 
 Route::get('/{email}','UserController@voir');
+
