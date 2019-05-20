@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <title>Informations Personnels </title>
+
+    <link rel="icon" type="image/png" href="img/FalloSolo.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,11 +32,89 @@
 </head>
 <body>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+
+    <div class="navbar-brand">
+        <a class="navbar-brand" href="/">
+          <img src="img/FalloSolo.png" width="30" height="30" class="d-inline-block align-top">
+            Fallo
+        </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            @auth
+                @if( auth()->user()->type === -1 || auth()->user()->type === 0)
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/config">Dashboard<span class="sr-only">(current)</span></a>
+                    </li>
+                @endif
+            @endauth
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/00">Nos meilleurs articles <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- try to have the path of the page
+          Les deux boutton pour s'inscrire et se connecter
+          ne seront pas visible si l'utilisateur
+          est au niveau de la page de connexion
+    -->
+
+
+
+    @if( !request()->is('connexion') )
+
+
+        <div class="my-2 my-lg-0">
+            <div class="navbar-brand">
+                <div class="buttons">
+
+                    @auth
+                        <a class="btn btn-danger" href="/deconnexion">
+                            Déconnexion
+                        </a>
+
+                    @else
+                        @if( request()->is('inscription'))
+                            <a class="btn btn-outline-success" href="/inscription">
+                                <strong>Ajouter administrateur</strong>
+                            </a>
+                        @else
+                            <a class="btn btn-outline-success" href="/inscription">
+                                <strong>S'inscire</strong>
+                            </a>
+                        @endif
+                        <a class="btn btn-outline-secondary" href="/connexion">
+                            Se connecter
+                        </a>
+                    @endauth
+
+                </div>
+            </div>
+        </div>
+    @endif
+</nav>
+
+
+
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <img src="img/FalloSolo.png" width="90" height="90"> Fallo <br> <br><br> <br> <br>
+        <br><br>     <img src="img/FalloSolo.png" width="90" height="90"> Fallo <br> <br><br> <br> <br>
         <h1 id="colorlib-logo"><a href="index.html">ASKOUR Hamza </a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
@@ -61,7 +141,17 @@
                             <h2 class="ftco-heading-2">Informations Personnels </h2>
                             <ul class="list-unstyled categories">
 
-                                <li><a href="#">Type de Compte : {{auth()->user()->type}} </a></li>
+                                <li><a href="#">Type de Compte :
+                                        @if(auth()->user()->type == -1 )
+                                        Super User
+                                        @endif
+                                        @if(auth()->user()->type == 1)
+                                        Utilisateur Normal
+                                        @endif
+                                        @if(auth()->user()->type == 3)
+                                            Partenaire
+                                        @endif
+                                    </a></li>
                                 <li><a href="#">Nom Complet : {{auth()->user()->nom}} </a></li>
                                 <li><a href="#">Date de Naissance : {{auth()->user()->date_de_naissance}} </a></li>
                             </ul>
@@ -116,6 +206,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="profil/js/google-map.js"></script>
 <script src="profil/js/main.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>

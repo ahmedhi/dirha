@@ -34,18 +34,20 @@ class CompteController extends Controller
             'taille' => ['required'],
         ]);
         $nameFile = $this->SavePicture();
-        $user = user::update([
-            'mot_de_passe' => bcrypt(request('password')),
-            'nom' => request('nom_complet'),
-            'img' => $nameFile,
-            'tel' => request('num'),
-            'date_de_naissance' => request('date'),
-            'poids' => request('poids'),
-            'taille' => request('taille'),
-            'sexe' => request('sexe'),
-            'pays' => request('pays'),
 
-        ]);
+        $user = user::where('id',auth()->user()->id );
+        if($user->mot_de_passe == request('ancienPassword'));
+        $user->mot_de_passe = bcrypt(request('password'));
+        $user->nom = request('nom_complet');
+        $user->img = $nameFile;
+        $user->date_de_naissance = request('date') ;
+        $user->tel = request('num') ;
+        $user->taille = request('taille') ;
+        $user->poids = request('poids') ;
+        $user->saxe = request('sexe') ;
+        $user->pays = request('payts');
+        $user->save();
+
         return redirect('/mon-compte');
     }
 

@@ -24,7 +24,7 @@ Route::group([
 
     Route::get('/modifInfos','CompteController@formodif');
 
-    Route ::post('/modifInfos','ConmpteController@modif');
+    Route ::post('/modifInfos','CompteController@modif');
 
     Route::post('/modification-mot-de-passe','CompteController@ChangePwd');
 

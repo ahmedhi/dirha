@@ -4,7 +4,8 @@
 <html lang="en">
 
 <head>
-    <title> Modifier les informations Personnels </title>
+    <title>Modifier les informations Personnels </title>
+    <link rel="icon" type="image/png" href="img/FalloSolo.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,8 +30,86 @@
     <link rel="stylesheet" href="profil/css/flaticon.css">
     <link rel="stylesheet" href="profil/css/icomoon.css">
     <link rel="stylesheet" href="profil/css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+
+    <div class="navbar-brand">
+        <a class="navbar-brand" href="/">
+             <img src="img/FalloSolo.png" width="30" height="30" class="d-inline-block align-top">
+            Fallo
+        </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            @auth
+                @if( auth()->user()->type === -1 || auth()->user()->type === 0)
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/config">Dashboard<span class="sr-only">(current)</span></a>
+                    </li>
+                @endif
+            @endauth
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/00">Nos meilleurs articles <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- try to have the path of the page
+          Les deux boutton pour s'inscrire et se connecter
+          ne seront pas visible si l'utilisateur
+          est au niveau de la page de connexion
+    -->
+
+
+
+    @if( !request()->is('connexion') )
+
+
+        <div class="my-2 my-lg-0">
+            <div class="navbar-brand">
+                <div class="buttons">
+
+                    @auth
+
+                        <a class="btn btn-danger" href="/deconnexion">
+                            Déconnexion
+                        </a>
+
+                    @else
+                        @if( request()->is('inscription'))
+                            <a class="btn btn-outline-success" href="/inscription">
+                                <strong>Ajouter administrateur</strong>
+                            </a>
+                        @else
+                            <a class="btn btn-outline-success" href="/inscription">
+                                <strong>S'inscire</strong>
+                            </a>
+                        @endif
+                        <a class="btn btn-outline-secondary" href="/connexion">
+                            Se connecter
+                        </a>
+                    @endauth
+
+                </div>
+            </div>
+        </div>
+    @endif
+</nav>
+
+
+
 
 <! bootstrap >
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -44,7 +123,7 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <img src="img/FalloSolo.png" width="90" height="90"> Fallo <br> <br><br> <br> <br>
+      <br><br>  <img src="img/FalloSolo.png" width="90" height="90"> Fallo <br> <br><br> <br> <br>
         <h1 id="colorlib-logo"><a href="index.html">ASKOUR Hamza </a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
@@ -70,7 +149,7 @@
                 <div class="col-md-8 text text-center" >
 
                     <div class="sidebar-box ftco-animate">
-                        <h3 class="sidebar-heading">Modification de : </h3>
+                       <br><br> <h3 class="sidebar-heading">Modification de : </h3>
                         <ul class="tagcloud">
                             <a href="#" class="tag-cloud-link">Mot de passe </a>
                             <a href="#" class="tag-cloud-link">Nom Complet </a>
@@ -98,7 +177,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Ancien Mot de passe" name="password">
+                            <input type="password" class="form-control" placeholder="Ancien Mot de passe" name="ancienPassword">
 
                         </div>
                         <div class="input-group form-group">
