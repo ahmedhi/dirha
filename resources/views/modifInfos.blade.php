@@ -149,6 +149,7 @@
 
 
 
+
     <div id="colorlib-main">
         <div class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(profil/images/nut.jpg);" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
@@ -169,7 +170,88 @@
                     </div>
 
 
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">
+                        <i class="fas fa-plus"> Ajouter un menu </i>
+                    </button>
 
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header ">
+                                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Modifier menu du Dejeuner</h2>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h4 style="align-content: center">Liste des aliments</h4>
+                                                <img src="aliments/apricot.ico" width="75px" height="75px">
+                                                <img src="aliments/banana.ico" width="75px" height="75px">
+                                                <img src="aliments/tomato.ico" width="75px" height="75px">
+                                                <br>
+                                                <img src="aliments/apricot.ico" width="75px" height="75px">
+                                                <img src="aliments/banana.ico" width="75px" height="75px">
+                                                <img src="aliments/tomato.ico" width="75px" height="75px">
+                                            </div>
+                                            <div class="col">
+                                                <h4 style="align-content: center">Aliments du menu</h4>
+                                                <img src="aliments/banana.ico" width="75px" height="75px">
+                                                <img src="aliments/tomato.ico" width="75px" height="75px">
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div class="row" style="align-content: center">
+                                            <div class="col-2">
+                                                <img src="aliments/tomato.ico" width="75px" height="75px">
+                                            </div>
+                                            <div class="col-10">
+                                                <table class="table-borderless" style="width: 100%">
+                                                    <tr>
+                                                        <th>
+                                                            Kcal
+                                                        </th>
+                                                        <th>
+                                                            Protéines
+                                                        </th>
+                                                        <th>
+                                                            Glucides
+                                                        </th>
+                                                        <th>
+                                                            Glucides
+                                                        </th>
+                                                        <th>
+                                                            Minéraux
+                                                        </th>
+                                                        <th>
+                                                            Fibres
+                                                        </th>
+                                                        <th>
+                                                            Kcal
+                                                        </th>
+                                                        <th>
+                                                            Vitamines
+                                                        </th>
+                                                    </tr>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
 
 
