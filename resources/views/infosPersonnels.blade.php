@@ -29,7 +29,15 @@
     <link rel="stylesheet" href="profil/css/flaticon.css">
     <link rel="stylesheet" href="profil/css/icomoon.css">
     <link rel="stylesheet" href="profil/css/style.css">
+
 </head>
+
+<style>
+    li{
+        color: darkgray;
+    }
+</style>
+
 <body>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -114,7 +122,7 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <br><br>     <img src="img/FalloSolo.png" width="90" height="90"> Fallo <br> <br><br> <br> <br>
+        <br><br>     <img src="img/FalloSolo.png" width="90" height="90"> <br> <br><br> <br> <br>
         <h1 id="colorlib-logo"><a href="index.html">ASKOUR Hamza </a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
@@ -141,7 +149,7 @@
                             <h2 class="ftco-heading-2">Informations Personnels </h2>
                             <ul class="list-unstyled categories">
 
-                                <li><a href="#">Type de Compte :
+                                <li>Type de Compte :
                                         @if(auth()->user()->type == -1 )
                                         Super User
                                         @endif
@@ -149,11 +157,17 @@
                                         Utilisateur Normal
                                         @endif
                                         @if(auth()->user()->type == 3)
+                                            Partenaire (Besoin de validation)
+                                        @endif
+                                        @if(auth()->user()->id == 0)
+                                            Admin
+                                        @endif
+                                        @if(auth()->user()->type == 2)
                                             Partenaire
                                         @endif
-                                    </a></li>
-                                <li><a href="#">Nom Complet : {{auth()->user()->nom}} </a></li>
-                                <li><a href="#">Date de Naissance : {{auth()->user()->date_de_naissance}} </a></li>
+                                    </li>
+                                <li>Nom Complet : {{auth()->user()->nom}} </li>
+                                <li>Date de Naissance : {{auth()->user()->date_de_naissance}}</li>
                             </ul>
                         </div>
                     </div>
@@ -161,9 +175,9 @@
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">.</h2>
                             <ul class="list-unstyled categories">
-                                <li><a href="#">Sexe : {{auth()->user()->sexe}} </a></li>
-                                <li><a href="#">Taille : {{auth()->user()->taille}} cm </a></li>
-                                <li><a href="#">Poids : {{auth()->user()->poids}} Kg</a></li>
+                                <li>Sexe : {{auth()->user()->sexe}} </li>
+                                <li>Taille : {{auth()->user()->taille}} cm </li>
+                                <li>Poids : {{auth()->user()->poids}} Kg</li>
                             </ul>
                         </div>
                     </div>
@@ -173,8 +187,8 @@
                             <div class="block-23 mb-3">
                                 <ul>
                                     <li><span class="icon icon-map-marker"></span><span class="text">{{auth()->user()->pays}}</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{auth()->user()->tel}}</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{auth()->user()->email}}</span></a></li>
+                                    <li><span class="icon icon-phone"></span><span class="text">{{auth()->user()->tel}}</span></li>
+                                    <li><span class="icon icon-envelope"></span><span class="text">{{auth()->user()->email}}</span></li>
                                 </ul>
                             </div>
                         </div>

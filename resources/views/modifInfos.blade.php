@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="profil/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="profil/css/animate.css">
 
     <link rel="stylesheet" href="profil/css/owl.carousel.min.css">
@@ -33,8 +33,13 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
-<body>
+<style>
+    li{
+        color : darkgray;
+    }
+</style>
 
+<body>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 
@@ -123,7 +128,7 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-      <br><br>  <img src="img/FalloSolo.png" width="90" height="90"> Fallo <br> <br><br> <br> <br>
+      <br><br>  <img src="img/FalloSolo.png" width="90" height="90"> <br> <br><br> <br> <br>
         <h1 id="colorlib-logo"><a href="index.html">ASKOUR Hamza </a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
@@ -320,7 +325,7 @@
                     <!-- Boutton de confirmation -->
                         <center>
                             <div class="form-group">
-                                <input type="submit" value="Enregistrer les modifications " class="btn login_btn">
+                                <button type="submit" class="btn btn-success">Enregistrer modification</button>
                             </div>
                         </center>
 
@@ -350,9 +355,25 @@
                         <h2 class="ftco-heading-2">Informations Personnels </h2>
                         <ul class="list-unstyled categories">
 
-                            <li><a href="#">Type de Compte : {{auth()->user()->type}} </a></li>
-                            <li><a href="#">Nom Complet  :{{auth()->user()->nom}} </a></li>
-                            <li><a href="#">Date de Naissance : {{auth()->user()->date_de_naissance}} </a></li>
+                            <li>Type de Compte :
+                                @if(auth()->user()->type == -1 )
+                                    Super User
+                                @endif
+                                @if(auth()->user()->type == 1)
+                                    Utilisateur Normal
+                                @endif
+                                @if(auth()->user()->type == 3)
+                                    Partenaire (Besoin de validation)
+                                @endif
+                                @if(auth()->user()->id == 0)
+                                    Admin
+                                @endif
+                                @if(auth()->user()->type == 2)
+                                    Partenaire
+                                @endif
+                            </li>
+                            <li>Nom Complet : {{auth()->user()->nom}} </li>
+                            <li>Date de Naissance : {{auth()->user()->date_de_naissance}}</li>
                         </ul>
                     </div>
                 </div>
@@ -360,9 +381,9 @@
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">.</h2>
                         <ul class="list-unstyled categories">
-                            <li><a href="#">Sexe : {{auth()->user()->sexe}}</a></li>
-                            <li><a href="#">Taille : {{auth()->user()->taille}} cm</a></li>
-                            <li><a href="#">Poids : {{auth()->user()->poids}} Kg</a></li>
+                            <li>Sexe : {{auth()->user()->sexe}} </li>
+                            <li>Taille : {{auth()->user()->taille}} cm </li>
+                            <li>Poids : {{auth()->user()->poids}} Kg</li>
                         </ul>
                     </div>
                 </div>
@@ -372,8 +393,8 @@
                         <div class="block-23 mb-3">
                             <ul>
                                 <li><span class="icon icon-map-marker"></span><span class="text">{{auth()->user()->pays}}</span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{auth()->user()->tel}}</span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{auth()->user()->email}}</span></a></li>
+                                <li><span class="icon icon-phone"></span><span class="text">{{auth()->user()->tel}}</span></li>
+                                <li><span class="icon icon-envelope"></span><span class="text">{{auth()->user()->email}}</span></li>
                             </ul>
                         </div>
                     </div>

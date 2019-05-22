@@ -119,7 +119,7 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <br><br>    <img src="img/FalloSolo.png" width="90" height="90"> Fallo <br> <br><br> <br> <br>
+        <br><br>    <img src="img/FalloSolo.png" width="90" height="90">  <br> <br><br> <br> <br>
         <h1 id="colorlib-logo"><a href="index.html">{{auth()->user()->nom}} </a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
