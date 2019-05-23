@@ -16,12 +16,12 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('article_id');
             $table->integer('partenaire_id');
-            $table->string('title');
-            $table->string('source');
-            $table->longText('description');
-            $table->string('categorie');
-            $table->integer('Like')->unsigned();
-            $table->integer('DisLike')->unsigned();
+            $table->string('title')->default('Sans titre');
+            $table->string('source')->default('Source Inconnu');
+            $table->longText('description')->default('Article introuvable');
+            $table->string('categorie')->default('Non définie');
+            $table->integer('Like')->unsigned()->default('0');
+            $table->integer('DisLike')->unsigned()->default('0');
 
             $table->unique('title');
             $table->foreign('partenaire_id')->references('partenaire_id')->on('partenaires');

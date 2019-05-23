@@ -81,6 +81,10 @@ Route::group([
 
     Route::get('/delete/{id}', 'AdminController@DeleteP');
 
+    Route::get('/aliment','AlimentsController@voirAliment');
+
+    Route::post('/aliment','AlimentsController@addAliment');
+
 });
 
 Route::get('/menu','UserController@MenuListe');

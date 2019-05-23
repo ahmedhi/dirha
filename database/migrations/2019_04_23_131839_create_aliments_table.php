@@ -10,20 +10,20 @@ class CreateAlimentsTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+      */
     public function up()
     {
         Schema::create('aliments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('icone')->unique();
-            $table->string('nom')->unique();
-            $table->double('energie_Kcal', 15, 8)->unsigned();
-            $table->double('proteines', 15, 8)->unsigned();
-            $table->double('glucides', 15, 8)->unsigned();
-            $table->double('lipides', 15, 8)->unsigned();
-            $table->double('fibres', 15, 8)->unsigned();
-            $table->double('mineraux', 15, 8)->unsigned();
-            $table->double('vitamines', 15, 8)->unsigned();
+            $table->increments('aliment_id');
+            $table->string('nom')->unique()->default('NULL');
+            $table->double('energie_Kcal', 15, 8)->unsigned()->default(0);
+            $table->double('proteines', 15, 8)->unsigned()->default(0);
+            $table->double('glucides', 15, 8)->unsigned()->default(0);
+            $table->double('lipides', 15, 8)->unsigned()->default(0);
+            $table->double('fibres', 15, 8)->unsigned()->default(0);
+            $table->double('mineraux', 15, 8)->unsigned()->default(0);
+            $table->double('vitamines', 15, 8)->unsigned()->default(0);
+            $table->integer('quantite')->unsigned()->default(0);
             $table->timestamps();
         });
     }

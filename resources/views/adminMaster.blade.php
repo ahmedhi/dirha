@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/aliment">
                         <i class="now-ui-icons users_single-02"></i>
                         <p>Liste des Aliments</p>
                     </a>
@@ -111,17 +111,6 @@
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <form>
-                        <div class="input-group no-border">
-                            <!-- Chercher dans toutes les liste : utilisateur partenaire admin et aliment -->
-                            <input type="text" value="" class="form-control" placeholder="Chercher...">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="#">
@@ -130,15 +119,6 @@
                                     <span class="d-lg-none d-md-block">Compte</span>
                                 </p>
                             </a>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="now-ui-icons users_single-02"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Compte</span>
-                                </p>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
             </div>

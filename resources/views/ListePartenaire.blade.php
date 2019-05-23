@@ -9,7 +9,7 @@
     <table class="table">
         <thead class="thead-dark">
         <tr style=" text-align: center ;" >
-            <th scope="col">ID UTILISATEUR</th>
+            <th scope="col">ID</th>
             <th scope="col">EMAIL</th>
             <th scope="col">NOM COMPLET</th>
             <th scope="col">TELEPHONE</th>
@@ -30,16 +30,16 @@
                 <tr>
                     <th scope="col">{{ $user->id}}</th>
                     <th scope="col">{{ $user->email }}</th>
-                    <th scope="col">{{ $user->part_Name }}</th>
+                    <th scope="col">{{ $user->nom }}</th>
                     <th scope="col">{{ $user->tel }}</th>
                     <th scope="col">{{ $user->taille }}</th>
                     <th scope="col">{{ $user->poids }}</th>
                     <th scope="col">{{ $user->sexe }}</th>
                     <th scope="col">{{ $user->pays }}</th>
-                    <th scope="col">{{ $user->diplome }}</th>
-                    <th scope="col">{{ $user->metier }}</th>
-                    <th scope="col">{{ $user->experience }}</th>
-                    <th scope="col">{{ $user->adresse }}</th>
+                    <th scope="col">{{ $user->part->diplome }}</th>
+                    <th scope="col">{{ $user->part->metier }}</th>
+                    <th scope="col">{{ $user->part->experience }}</th>
+                    <th scope="col">{{ $user->part->adresse }}</th>
                     <th scope="col">{{ $user->date_de_naissance }}</th>
                 </tr>
             @endif
