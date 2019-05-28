@@ -141,16 +141,34 @@
             <div class="overlay"></div>
             <div class="js-fullheight d-flex justify-content-center align-items-center">
                 <div class="col-md-8 text text-center">
-                    <div class="img mb-4" style="background-image: url(profil/images/3498.jpg);"></div>
+                    <div class="img mb-4" style="background-image: url(profil/images/{{auth()->user()->img}});"></div>
                     <div class="desc">
                         <h2 class="subheading">Bienvenue</h2>
                         <h1 class="mb-4">{{auth()->user()->nom}} </h1>
-                        <p class="mb-4">Compte Normal</p>
+                        <p class="mb-4"> @if(auth()->user()->type == -1 )
+                                Super User
+                            @endif
+                            @if(auth()->user()->type == 1)
+                                Utilisateur Normal
+                            @endif
+                            @if(auth()->user()->type == 3)
+                                Partenaire (Besoin de validation)
+                            @endif
+                            @if(auth()->user()->id == 0)
+                                Admin
+                            @endif
+                            @if(auth()->user()->type == 2)
+                                Partenaire
+                            @endif
+                        </p>
 
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     </div><!-- END COLORLIB-MAIN -->
 </div><!-- END COLORLIB-PAGE -->
 

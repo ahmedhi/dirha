@@ -130,13 +130,14 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-      <br><br>  <img src="img/FalloSolo.png" width="90" height="90"> <br> <br><br> <br> <br>
-        <h1 id="colorlib-logo"><a href="index.html">ASKOUR Hamza </a></h1>
+        <br><br>    <img src="img/FalloSolo.png" width="90" height="90">  <br> <br><br> <br> <br>
+        <h1 id="colorlib-logo"><a href="index.html">{{auth()->user()->nom}} </a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
-               <li><a href="mon-compte"> Profil</a></li>
+                <li><a href="mon-compte"> Profil</a></li>
                 <li><a href="infosPersonnels">Informations Personnels</a></li>
-                <li class="colorlib-active"><a href="modifInfos">Modifier les informations Personnels </a></li>
+                <li class="colorlib-active">  <a href="modifInfos">Modifier les informations Personnels </a></li>
+
             </ul>
         </nav>
 
@@ -156,17 +157,101 @@
             <div class="js-fullheight d-flex justify-content-center align-items-center">
                 <div class="col-md-8 text text-center" >
 
-                    <div class="sidebar-box ftco-animate">
-                       <br><br> <h3 class="sidebar-heading">Modification de : </h3>
-                        <ul class="tagcloud">
-                            <a href="#" class="tag-cloud-link">Mot de passe </a>
-                            <a href="#" class="tag-cloud-link">Nom Complet </a>
-                            <a href="#" class="tag-cloud-link">Photo de profil</a>
-                            <a href="#" class="tag-cloud-link">Taille</a>
-                            <a href="#" class="tag-cloud-link">Poids</a>
-                            <a href="#" class="tag-cloud-link">Date de naissance</a>
-                            <a href="#" class="tag-cloud-link">Numero de Téléphone</a>
-                        </ul>
+
+
+                    <!-- Button to Open the Modal -->
+                <div>
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">
+                        <i class="icon-update"> Changer le mot de passe  </i>
+                    </button>
+                </div>
+                    <br><br>
+                    <div>
+                        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#my">
+                            <i class="icon-update"> Modifier les informations Personnels </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header ">
+                                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Changer le mot de passe </h2>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="container">
+                                            <div>
+                                            <form method="post" class="section" enctype="multipart/form-data" action="/mp">
+
+                                            {{csrf_field()}}
+
+
+
+                                            <!-- Mot de passe -->
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" placeholder="Ancien Mot de passe" name="ancienPassword">
+
+                                                </div>
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" placeholder="Nouveau Mot de passe" name="password">
+
+                                                </div>
+                                                <!-- Gestion d'erreur pour le mot de passe -->
+                                                @if( $errors->has('password'))
+                                                    <p class="erreur">
+                                                        {{ $errors->first('password') }}
+                                                    </p>
+
+                                                @endif
+
+                                            <!-- Mot de passe de confirmation-->
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" placeholder="Mot de passe de confirmation" name="password_confirmation">
+                                                </div>
+
+                                                <!-- Gestion d'erreur pour le mot de passe de confirmation-->
+                                                @if( $errors->has('password_confirmation'))
+
+                                                    <p class="erreur">
+                                                        {{ $errors->first('password_confirmation') }}
+                                                    </p>
+
+                                                @endif
+
+
+                                            <!-- Boutton de confirmation -->
+                                                <center>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-info">Enregistrer modification</button>
+                                                        <form action="/modifInfos"> <button type="submit" class="btn btn-info">Retour</button></form>
+                                                    </div>
+                                                </center>
+                                            </form>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -174,177 +259,129 @@
 
 
 
-                    <form method="post" class="section" enctype="multipart/form-data" >
 
-                    {{csrf_field()}}
+                    <div class="modal fade" id="my" >
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-s">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header ">
+                                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Modifier les informations Personnels</h2>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="container">
+                                       <center>
+                                          <form method="post" class="section" enctype="multipart/form-data"  action="/mi">
+
+                                            {{csrf_field()}}
 
 
+                                                <!-- Nom Complet-->
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="nom_complet" value="{{ auth()->user()->nom }}" >
+                                                </div>
 
-                    <!-- Mot de passe -->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                <!-- Gestion d'erreur pour le Nom -->
+                                                @if( $errors->has('nom_complet'))
+                                                    <p class="erreur">
+                                                        {{ $errors->first('nom_complet') }}
+                                                    </p>
+
+                                                @endif
+
+                                            <!-- Numero de téléphone -->
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile"></i></span>
+                                                    </div>
+                                                    <input  type="tel"
+                                                            class="form-control" name="num"
+                                                            placeholder="Numero de Téléphone"
+                                                            value="{{ auth()->user()->tel }}"
+                                                            pattern="0[0-9]{9}"
+                                                    >
+                                                </div>
+
+                                                <!-- Gestion d'erreur pour le num -->
+                                                @if( $errors->has('num'))
+                                                    <p class="erreur">
+                                                        {{ $errors->first('num') }}
+                                                    </p>
+
+                                                @endif
+
+                                            <!-- Date de naissance -->
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-calendar-alt "></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="date" placeholder="Date de naissance" value="{{ auth()->user()->date_de_naissance }}">
+                                                </div>
+
+                                                <!-- Gestion d'erreur pour le date -->
+                                                @if( $errors->has('date'))
+                                                    <p class="erreur">
+                                                        {{ $errors->first('date') }}
+                                                    </p>
+
+                                                @endif
+
+                                            <!-- Poids -->
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-weight"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="poids" placeholder="Poids (kg)" value="{{ auth()->user()->poids }}">
+                                                </div>
+
+                                                <!-- Gestion d'erreur pour le poids -->
+                                                @if( $errors->has('poids'))
+                                                    <p class="erreur">
+                                                        {{ $errors->first('poids') }}
+                                                    </p>
+
+                                                @endif
+
+                                            <!-- Taille -->
+                                                <div class="input-group form-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-ruler-vertical"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="taille" placeholder="Taille (cm)" value="{{ auth()->user()->taille}}">
+                                                </div>
+
+                                                <!-- Gestion d'erreur pour le poids -->
+                                                @if( $errors->has('taille'))
+                                                    <p class="erreur">
+                                                        {{ $errors->first('taille') }}
+                                                    </p>
+
+                                            @endif
+
+                                            <!-- Boutton de confirmation -->
+                                                <center>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-info">Enregistrer modification</button>
+                                                        <form action="/modifInfos"> <button type="submit" class="btn btn-info">Retour</button></form>
+                                                    </div>
+                                                </center>
+
+                                            </form>
+
+                                       </center>
+                                    </div>
+                                </div>
                             </div>
-                            <input type="password" class="form-control" placeholder="Ancien Mot de passe" name="ancienPassword">
-
                         </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="Nouveau Mot de passe" name="password">
-
-                        </div>
-                        <!-- Gestion d'erreur pour le mot de passe -->
-                        @if( $errors->has('password'))
-                            <p class="erreur">
-                                {{ $errors->first('password') }}
-                            </p>
-
-                        @endif
-
-                    <!-- Mot de passe de confirmation-->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="Mot de passe de confirmation" name="password_confirmation">
-                        </div>
-
-                        <!-- Gestion d'erreur pour le mot de passe de confirmation-->
-                        @if( $errors->has('password_confirmation'))
-
-                            <p class="erreur">
-                                {{ $errors->first('password_confirmation') }}
-                            </p>
-
-                        @endif
-
-                        <br>
-
-                        <h3 class="sidebar-heading">Les anciennes infromations : </h3> <br>
-
-                        <!-- Nom Complet-->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" name="nom_complet" value="{{ auth()->user()->nom }}" >
-                        </div>
-
-                        <!-- Gestion d'erreur pour le Nom -->
-                        @if( $errors->has('nom_complet'))
-                            <p class="erreur">
-                                {{ $errors->first('nom_complet') }}
-                            </p>
-
-                        @endif
-
-                    <!-- Photo de profil -->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-images"></i></span>
-                            </div>
-                            <input type="file" class="form-control" id ="image" name="image" placeholder="Photo de profil" style="padding-bottom: 0.400px;border-bottom-width: 0px;padding-top: 0.5px;">
-                        </div>
-
-                        <!-- Gestion d'erreur pour le image -->
-                        @if( $errors->has('image'))
-                            <p class="erreur">
-                                {{ $errors->first('image') }}
-                            </p>
-
-                        @endif
-
-                    <!-- Numero de téléphone -->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-mobile"></i></span>
-                            </div>
-                            <input  type="tel"
-                                    class="form-control" name="num"
-                                    placeholder="Numero de Téléphone"
-                                    value="{{ auth()->user()->tel }}"
-                                    pattern="0[0-9]{9}"
-                            >
-                        </div>
-
-                        <!-- Gestion d'erreur pour le num -->
-                        @if( $errors->has('num'))
-                            <p class="erreur">
-                                {{ $errors->first('num') }}
-                            </p>
-
-                        @endif
-
-                    <!-- Date de naissance -->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-calendar-alt "></i></span>
-                            </div>
-                            <input type="date" class="form-control" name="date" placeholder="Date de naissance" value="{{ auth()->user()->date_de_naissance }}">
-                        </div>
-
-                        <!-- Gestion d'erreur pour le date -->
-                        @if( $errors->has('date'))
-                            <p class="erreur">
-                                {{ $errors->first('date') }}
-                            </p>
-
-                        @endif
-
-                        <!-- Poids -->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-weight"></i></span>
-                            </div>
-                            <input type="text" class="form-control" name="poids" placeholder="Poids (kg)" value="{{ auth()->user()->poids }}">
-                        </div>
-
-                        <!-- Gestion d'erreur pour le poids -->
-                        @if( $errors->has('poids'))
-                            <p class="erreur">
-                                {{ $errors->first('poids') }}
-                            </p>
-
-                        @endif
-
-                    <!-- Taille -->
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-ruler-vertical"></i></span>
-                            </div>
-                            <input type="text" class="form-control" name="taille" placeholder="Taille (cm)" value="{{ auth()->user()->taille}}">
-                        </div>
-
-                        <!-- Gestion d'erreur pour le poids -->
-                        @if( $errors->has('taille'))
-                            <p class="erreur">
-                                {{ $errors->first('taille') }}
-                            </p>
-
-                    @endif
-
-                    <!-- Boutton de confirmation -->
-                        <center>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success">Enregistrer modification</button>
-                            </div>
-                        </center>
-
-                    </form>
+                    </div>
 
 
 
-
-
-
-
-                </div>
-            </div>
-        </div>
-    </div><!-- END COLORLIB-MAIN -->
-</div><!-- END COLORLIB-PAGE -->
 
 <!-- loader -->
 

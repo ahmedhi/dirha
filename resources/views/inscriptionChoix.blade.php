@@ -92,6 +92,7 @@
                 <a href="/inscriptionU" class="card custom-card titleHeader" style="color: #cd8511;">
                     <div class="card-header " style="padding-top: 35px;padding-bottom: 35px;">
                         <h1>Compte Normal</h1>
+                        <img src="img/user.png" height="90px" width="90px">
                     </div>
                     <div class="card-body">
                         <p class="blanc">
@@ -113,6 +114,7 @@
                 <a href="/inscriptionP" class="card custom-card titleHeader" style="color: #df1921">
                     <div class="card-header " >
                         <h1>Compte Partenaire </h1>
+                        <img src="img/partenaires.png" height="70px" width="90px">
                     </div>
                     <div class="card-body">
                         <p class="blanc">

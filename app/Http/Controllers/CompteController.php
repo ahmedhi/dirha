@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class CompteController extends Controller
 {
@@ -22,34 +23,41 @@ class CompteController extends Controller
     }
 
 
-    public function modif(){
-        request() -> validate([
-            'ancien_password'=> ['required','min:8'],
-            'password' => ['required','confirmed','min:8'],
-            'password_confirmation' => ['required'],
-            'nom_complet' =>['required'],
+    public function modifinf(){
+        request()->validate([
+            'nom_complet' => ['required'],
+            'date' => ['required'],
             'num' => ['required'],
-            'date' => ['required','date'],
-            'poids' => ['required'],
             'taille' => ['required'],
+            'poids' => ['required'],
         ]);
-        $nameFile = $this->SavePicture();
-
-        $user = user::where('id',auth()->user()->id );
-        if($user->mot_de_passe == request('ancienPassword'));
-        $user->mot_de_passe = bcrypt(request('password'));
+        $user = user::where('id',auth()->user()->id )->first();
+        $user->email = auth()->user()->email ;
         $user->nom = request('nom_complet');
-        $user->img = $nameFile;
         $user->date_de_naissance = request('date') ;
         $user->tel = request('num') ;
-        $user->taille = request('taille') ;
-        $user->poids = request('poids') ;
-        $user->saxe = request('sexe') ;
-        $user->pays = request('payts');
+        $user->taille = doubleval( request('taille') );
+        $user->poids = doubleval (request('poids')) ;
         $user->save();
 
-        return redirect('/mon-compte');
+       return back();
     }
+
+    public function modifpass(){
+        request()->validate([
+            'password' => ['required','confirmed','min:8'],
+            'password_confirmation' => ['required'],
+        ]);
+        
+    $user = user::where('id',auth()->user()->id)->first();
+    if(Crypt::decrypt($user->mot_de_passe) === request('ancienPassword')) {
+        $user->password = bcrypt(request('password'));
+        $user->save();
+        return back();
+    }
+
+    return "erreur";
+}
 
 
     public function deconnexion(){
@@ -78,3 +86,17 @@ class CompteController extends Controller
     }
 
 }
+
+/*<div class="sidebar-box ftco-animate">
+                       <br><br> <h3 class="sidebar-heading">Modification de : </h3>
+                        <ul class="tagcloud">
+                            <a href="#" class="tag-cloud-link">Mot de passe </a>
+                            <a href="#" class="tag-cloud-link">Nom Complet </a>
+                            <a href="#" class="tag-cloud-link">Photo de profil</a>
+                            <a href="#" class="tag-cloud-link">Taille</a>
+                            <a href="#" class="tag-cloud-link">Poids</a>
+                            <a href="#" class="tag-cloud-link">Date de naissance</a>
+                            <a href="#" class="tag-cloud-link">Numero de Téléphone</a>
+                        </ul>
+                    </div>
+*/

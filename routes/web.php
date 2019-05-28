@@ -24,7 +24,6 @@ Route::group([
 
     Route::get('/modifInfos','CompteController@formodif');
 
-    Route ::post('/modifInfos','CompteController@modif');
 
     Route::post('/modification-mot-de-passe','CompteController@ChangePwd');
 
@@ -86,6 +85,11 @@ Route::post('/00', 'ArticlesController@nouveau');
 Route::get('/00', 'ArticlesController@voir');
 
 ROute::post('/00' , 'ArticlesController@nouveau');
+
+
+Route ::post('/mp','CompteController@modifpass');
+
+Route::post('/mi','CompteController@modifinf');
 
 Route::get('/{email}','UserController@voir');
 
