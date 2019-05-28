@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class CompteController extends Controller
 {
@@ -50,7 +51,8 @@ class CompteController extends Controller
         ]);
         
     $user = user::where('id',auth()->user()->id)->first();
-    if(Crypt::decrypt($user->mot_de_passe) === request('ancienPassword')) {
+    //if(Hash::check(request('ancienPassword'), $user->mot_de_passe)) {
+        if( bcrypt(request('ancienPassword')) === $user->mot_de_passe){
         $user->password = bcrypt(request('password'));
         $user->save();
         return back();
