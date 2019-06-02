@@ -22,7 +22,7 @@ class user extends Model implements Authenticatable {
         'date_de_naissance',
         'sexe',
         'pays',
-        'type'
+        'type',
 
     ];
 

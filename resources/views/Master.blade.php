@@ -173,6 +173,6 @@
 </body>
 
 
-
+@yield('footer')
 
 </html>

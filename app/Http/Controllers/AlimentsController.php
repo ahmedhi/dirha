@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\aliment;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Input;
 
 class AlimentsController extends Controller
 {
@@ -15,20 +17,26 @@ class AlimentsController extends Controller
         ]);
     }
 
+    public function SavePictureAliment( $NomAliment ){
+        // Save the profil picture
+
+            $file = Input::file('icone');
+            $file->move('img/aliment', $NomAliment.'.png' ); //l'image sera enregistrer dans public/img/aliment
+
+    }
+
     public function addAliment(){
 
             request() -> validate([
                 'nom' => ['required'],
+                'icone' => ['required'],
                 'energie_Kcal' => ['required','min:0'],
                 'proteines' => ['required','min:0'],
                 'glucides' => ['required','min:0'],
                 'lipides' => ['required','min:0'],
                 'fibres' => ['required','min:0'],
-                'mineraux' => ['required','min:0'],
-                'vitamines' => ['required','min:0'],
                 'quantite' => ['required','min:0'],
             ]);
-
 
             // Creation d'un aliment
             $aliment = aliment::create([
@@ -38,12 +46,19 @@ class AlimentsController extends Controller
                 'glucides' => request('glucides'),
                 'lipides' => request('lipides'),
                 'fibres' => request('fibres'),
-                'mineraux' => request('mineraux'),
-                'vitamines' => request('vitamines'),
                 'quantite' => request('quantite'),
             ]);
 
-            return back();
+            $this->SavePictureAliment(request('nom'));
+
+
+        return back();
+    }
+
+    public function SpecAliment()
+    {
+        $q = intval($_GET['id']);
+        return view('alimentSpec');
     }
 
 }

@@ -13,14 +13,15 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('menu', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->increments('menu_id');
             $table->integer('type_repas')->default('0');
             $table->string('Nom_Menu')->default('NULL');
             $table->integer('proprietaire_id')->references('id')->on('users');
             $table->integer('type_exercice')->default('0');
             $table->integer('type_evolution')->default('0');
-            $table->string('aliments')->default('NULL');
+            $table->string('aliments')->default('');
+            $table->timestamps();
         });
     }
 

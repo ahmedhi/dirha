@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -83,8 +84,14 @@
                         Déconnexion
                     </a>
                 </li>
+                <li>
+                    <a href="/menu">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p>Menu</p>
+                    </a>
+                </li>
                 <li class="active-pro">
-                    <a href="./upgrade.html">
+                    <a href="">
                         <p>Fallo Corp  MADE BY ASKOUR&HILALI</p>
                     </a>
                 </li>

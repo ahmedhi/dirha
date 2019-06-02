@@ -21,8 +21,6 @@ class CreateAlimentsTable extends Migration
             $table->double('glucides', 15, 8)->unsigned()->default(0);
             $table->double('lipides', 15, 8)->unsigned()->default(0);
             $table->double('fibres', 15, 8)->unsigned()->default(0);
-            $table->double('mineraux', 15, 8)->unsigned()->default(0);
-            $table->double('vitamines', 15, 8)->unsigned()->default(0);
             $table->integer('quantite')->unsigned()->default(0);
             $table->timestamps();
         });
