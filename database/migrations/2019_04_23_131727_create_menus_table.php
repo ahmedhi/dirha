@@ -20,7 +20,7 @@ class CreateMenusTable extends Migration
             $table->integer('proprietaire_id')->references('id')->on('users');
             $table->integer('type_exercice')->default('0');
             $table->integer('type_evolution')->default('0');
-            $table->string('aliments')->default('');
+            $table->text('aliments')->default('');
             $table->timestamps();
         });
     }

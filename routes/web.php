@@ -92,69 +92,9 @@ Route::group([
 
 Route::get('/menu','UserController@MenuListe');
 
-Route::get('/getaliment', function (){
-    $SelectAliment = aliment::where('aliment_id',intval($_GET['id']))->firstOrfail();
-    return view('alimentSpec',[
-        'Aliment' => $SelectAliment,
-    ]);
-});
+Route::get('/getaliment/id={id}', 'AlimentsController@getAliment' );
 
-//actumenu?id="+id+"nbr="+ al;
-
-Route::get('/actumenu', function (){
-    return "test";
-    $menu = menu::where('proprietaire_id', auth()->user()->id)->get();
-    if(count($menu) === 0){
-        $me = menu::create([
-            'type_repas' => intval($_GET['type']) ,
-            'proprietaire_id' => auth()->user()->id ,
-            'aliments' => intval($_GET['nom']) . ":" . intval($_GET['nbr']),
-        ]);
-    }
-    $SpecMenu = new menu;
-    foreach ( $menu as $me){
-        if( $me->type_repas === intval($_GET['type'])){
-            $SpecMenu = $me;
-            }
-    }
-
-    //Structure DB : id1:Qt1 id2:Qt2 id3:Qt3 ...
-
-    $aliments = explode(" ", $SpecMenu->aliments ); //decomposer la chaine en separant les aliments
-    $newaliment = "";
-    $Check = false ;
-    foreach ( $aliments as $aliment){
-        list( $Al , $Quant ) = explode( ":" , $aliment); // decomposer les aliments en id et quantite
-        if( $Al === intval($_GET['nom'])){
-            $newaliment = $newaliment . " " . $Al . ":" . intval($_GET['nbr']) ;
-            $Check = true;
-            }
-        else{
-            $newaliment = $newaliment . " " . $Al . ":" . $Quant ;
-            }
-    }
-    if( !$Check ){
-        $newaliment = $newaliment . " " . intval($_GET['nom']) . ":" . intval($_GET['nbr']) ;
-    }
-
-    $SpecMenu->aliments = $newaliment ;
-    $SpecMenu->save();
-    return view('menuPerso',[
-            'aliments' => $aliments,
-        ]);
-});
-
-Route::get('00', function (){
-    $menu = menu::where('proprietaire_id', auth()->user()->id)->where('type_repas',2 )->get();
-    if(count($menu) === 0){
-        $me = menu::create([
-            'type_repas' => 2 ,
-            'proprietaire_id' => auth()->user()->id ,
-            'aliments' => 'NULL',
-        ]);
-    }
-    dump( $me );
-});
+Route::get('/actumenu/type={type}/nom={nom}/nbr={nbr}', 'AlimentsController@ActualiserMenu');
 
 Route::get('/menu/{id}', function ($id){
 

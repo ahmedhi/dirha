@@ -82,7 +82,7 @@
                                                 <h4 style="align-content: center">Liste des aliments</h4>
                                                 <div id="4">
                                                     <form>
-                                                        <select name="aliments" onclick="showAliment(this.value)">
+                                                        <select name="aliments" onclick="showAliment(this.value , 2 )">
                                                             @foreach($aliments as $aliment)
                                                                 <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
                                                             @endforeach
@@ -95,9 +95,7 @@
                                             <div class="col-lg-5">
                                                 <h4 style="align-content: center">Aliments du menu</h4>
                                                 <div id="menu">
-                                                @foreach($randAl as $Al)
-                                                    <img src="img/aliment/{{ $Al->nom }}.png" height="75px" width="75px">
-                                                @endforeach
+                                                    a
                                                 </div>
                                             </div>
                                         </div>

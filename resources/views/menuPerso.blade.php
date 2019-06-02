@@ -1,6 +1,5 @@
-@foreach($aliments as $Al)
-    <?php
-        list( $nom , $Quant ) = explode( ":" , $Al);
-    ?>
-    <img src="img/aliment/{{ $nom }}.png" height="75px" width="75px">
-@endforeach
+<div>
+        @foreach( $aliments as $aliment)
+                <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+        @endforeach
+</div>

@@ -18,13 +18,7 @@
                     Glucides
                 </th>
                 <th>
-                    Minéraux
-                </th>
-                <th>
                     Fibres
-                </th>
-                <th>
-                    Vitamines
                 </th>
             </tr>
             <tr>
@@ -38,13 +32,7 @@
                     {{ $Aliment->glucides }}
                 </td>
                 <td>
-                    {{ $Aliment->mineraux }}
-                </td>
-                <td>
                     {{ $Aliment->fibres }}
-                </td>
-                <td>
-                    {{ $Aliment->vitamines }}
                 </td>
             </tr>
         </table>
@@ -52,7 +40,7 @@
 
 </div>
 <div class="row">
-    <input class="rhs" type="number" min="0" value="0"> Unité(s)
+    <input class="rhs" type="number" min="0" value="0" id="nbr"> Unité(s)
         <br>
-    <button onclick="actualiserMenu( 2 , {{$Aliment->nom}}, 2)">Ajouter au menu</button>
+    <button onclick="actualiserMenu( 1 , '{{$Aliment->nom}}', document.getElementById('nbr').value )">Ajouter au menu</button>
 </div>

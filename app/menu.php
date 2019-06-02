@@ -9,7 +9,7 @@ class menu extends Model
     protected $fillable = [
         'menu_id',
         'type_repas',
-        'Nom_Menu',
+        'aliments',
         'proprietaire_id',
         'type_exercice',
         'type_evolution',
