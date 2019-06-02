@@ -23,6 +23,18 @@ class CompteController extends Controller
         return view('modifInfos');
     }
 
+    //use Mail;
+
+    public function sendemail()
+    {
+        $message = request('message');
+        Mail::send('/contact', [], function($message)
+        {
+            $subject= request('sujet');
+            $message->from('fallo072019@gmail.com');
+            $message->to(request('email'))->subject($subject);
+        });
+    }
 
     public function modifinf(){
         request()->validate([
@@ -61,6 +73,10 @@ class CompteController extends Controller
     return "erreur";
 }
 
+    public function cnt(){
+        return view('contact');
+    }
+
 
     public function deconnexion(){
         auth()->logout();
@@ -86,6 +102,7 @@ class CompteController extends Controller
 
         return redirect("/mon-compte");
     }
+
 
 }
 

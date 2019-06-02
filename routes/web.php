@@ -84,12 +84,15 @@ Route::post('/00', 'ArticlesController@nouveau');
 
 Route::get('/00', 'ArticlesController@voir');
 
-ROute::post('/00' , 'ArticlesController@nouveau');
+Route::post('/00' , 'ArticlesController@nouveau');
 
+Route :: get('/contact','CompteController@cnt');
 
 Route ::post('/mp','CompteController@modifpass');
 
 Route::post('/mi','CompteController@modifinf');
+
+Route :: post('/sendMail','CompteController@sendemail');
 
 Route::get('/{email}','UserController@voir');
 

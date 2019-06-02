@@ -132,17 +132,40 @@
         <!-- User Menu | Visible que si l'utilisateur est connecté-->
         @if( auth()->check())
             <div class="card content CardColLeft">
-                <figure style=" position: relative ">
-                    <img src="UserImage/profile-icon-png-898.png" class="img-thumbnail" style="position: relative ; padding-top: 25px">
-                </figure>
+                <br><br>
+                <center> <img src="img/FalloSolo.png" width="90" height="90"></center>
 
+                <p class="text-sm-left font-weight-bold">
+                <h4> <img src="UserImage/{{auth()->user()->img}}"  class="rounded-circle" width="50xp" height="50xp"> {{auth()->user()->nom}}</h4>
+                </p>
+                <br>
+                <h4>
+                    @if(auth()->user()->type == -1 )
+                        Super User
+                    @endif
+                    @if(auth()->user()->type == 1)
+                        Utilisateur Normal
+                    @endif
+                    @if(auth()->user()->type == 3)
+                        Partenaire (Besoin de validation)
+                    @endif
+                    @if(auth()->user()->id == 0)
+                        Admin
+                    @endif
+                    @if(auth()->user()->type == 2)
+                        Partenaire
+                    @endif
+                </h4>
                 <br><br><br><br>
                 <ul>
-                <li><strong>Nom d'utilisateur : </strong> <br>{{ auth()->user()->nom }}</li><br>
+                 <br>
                 <li><strong>Date de création : </strong><br>{{ auth()->user()->created_at }}</li>
-                    <br>
-                <li><strong>Date de modification : </strong><br>{{ auth()->user()->updated_at }}</li>
-                    <br>
+                        <li class="colorlib-active"><a href="/acceuil">Acceuil</a></li>
+                        <li><a href="mon-compte">Mon Compte</a></li>
+                        <li><a href="">Mon Menu</a></li>
+                        <li><a href="contact">Contactez-Nous</a></li>
+                        <li><a href="/deconnexion">Déconnexion</a></li>
+
                 </ul>
             </div>
     @endif

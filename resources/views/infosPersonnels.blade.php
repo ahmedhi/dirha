@@ -123,12 +123,13 @@
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
         <br><br>     <img src="img/FalloSolo.png" width="90" height="90"> <br> <br><br> <br> <br>
-        <h1 id="colorlib-logo"><a href="index.html">ASKOUR Hamza </a></h1>
+        <h1 id="colorlib-logo">{{auth()->user()->nom}} </h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li><a href="mon-compte"> Profil</a></li>
                 <li class="colorlib-active"><a href="infosPersonnels">Informations Personnels</a></li>
                 <li><a href="modifInfos">Modifier les informations Personnels  </a></li>
+                <li><a href="contact">Contactez-Nous</a></li>
             </ul>
         </nav>
 
@@ -140,7 +141,7 @@
         </div>
     </aside> <!-- END COLORLIB-ASIDE -->
     <div id="colorlib-main">
-        <img src ="profil/images/3498.jpg" width="100%" height="550xp" >
+        <img src ="profil/images/nutri.jpg" width="100%" height="550xp" >
         <footer class="ftco-footer ftco-bg-dark ftco-section">
             <div class="container px-md-5">
                 <div class="row mb-5">

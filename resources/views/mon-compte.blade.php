@@ -120,13 +120,13 @@
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
         <br><br>    <img src="img/FalloSolo.png" width="90" height="90">  <br> <br><br> <br> <br>
-        <h1 id="colorlib-logo"><a href="index.html">{{auth()->user()->nom}} </a></h1>
+        <h1 id="colorlib-logo">{{auth()->user()->nom}} </h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li class="colorlib-active"> <a href="mon-compte"> Profil</a></li>
                 <li><a href="infosPersonnels">Informations Personnels</a></li>
                 <li><a href="modifInfos">Modifier les informations Personnels </a></li>
-
+                <li><a href="contact">Contactez-Nous</a></li>
             </ul>
         </nav>
 
