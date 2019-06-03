@@ -21,7 +21,6 @@ function showAliment(id , type) {
 }
 
 function actualiserMenu(type , nom , nbr) {
-        alert("Start");
         if (window.XMLHttpRequest) {
                 // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
