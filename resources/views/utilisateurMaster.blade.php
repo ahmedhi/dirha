@@ -137,7 +137,7 @@
 
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
         <br><br>    <img src="img/FalloSolo.png" width="90" height="90">  <br> <br><br> <br> <br>
-        <h1 id="colorlib-logo"><a href="index.html">{{auth()->user()->nom}} </a></h1>
+        <h1 id="colorlib-logo">{{auth()->user()->nom}} </h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li><a href="mon-compte"> Profil</a></li>
@@ -149,8 +149,13 @@
         </nav>
         <div class="colorlib-footer">
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Fallo &copy;<script>document.write(new Date().getFullYear());</script> ASKOUR Hamza - HILALI Ahmed <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Fallo</a>
-
+                Fallo &copy; <i class="icon-heart" aria-hidden="true"></i> by <a href="#" target="_blank">ASKOUR Hamza - HILALI Ahmed </a>
+            <ul>
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-instagram"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+            </ul>
         </div>
     </aside> <!-- END COLORLIB-ASIDE -->
 
