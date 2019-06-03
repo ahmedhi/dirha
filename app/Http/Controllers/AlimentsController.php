@@ -7,6 +7,8 @@ use App\menu;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Input;
+use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\String_;
 
 class AlimentsController extends Controller
 {
@@ -75,7 +77,16 @@ class AlimentsController extends Controller
 
         $menu = menu::where('proprietaire_id', auth()->user()->id)->get();
 
-        if(count($menu) === 0){
+        $SpecMenu = new menu ;
+
+        foreach ( $menu as $me){
+            if( $me->type_repas == request('type')){
+                $SpecMenu = $me ;
+                break;
+            }
+        }
+
+        if( $SpecMenu->aliments == ""){
             $me = menu::create([
                 'type_repas' => request('type') ,
                 'proprietaire_id' => auth()->user()->id ,
@@ -86,15 +97,6 @@ class AlimentsController extends Controller
             return view('menuPerso',[
                 'aliments' => $aliments,
             ]);
-        }
-
-        $SpecMenu = new menu ;
-
-        foreach ( $menu as $me){
-            if( $me->type_repas == request('type')){
-                $SpecMenu = $me ;
-                break;
-            }
         }
 
         //Structure DB : id1:Qt1 id2:Qt2 id3:Qt3 ...
@@ -143,6 +145,59 @@ class AlimentsController extends Controller
         return view('menuPerso' , [
             'aliments' => $alimentArray ,
         ]) ;
+    }
+
+    public function alimentsArray( $aliments ){
+        $result = explode(" ", $aliments );
+        if( $result === "")
+            $result = $aliments;
+
+        $alimentArray[] = "";
+
+        foreach ( $result as $aliment) {
+            $AlimentArray = explode(":", $aliment);
+            if(!$AlimentArray[0] == "")
+            {
+                $alimentArray[] = [ "nom" => $AlimentArray[0] , "qte" => $AlimentArray[1] ];
+            }
+        }
+
+        unset($alimentArray[0]);
+
+        return  $alimentArray ;
+    }
+
+    public function MenuListe(){
+        $aliments = aliment::all();
+        $randAl = aliment::all()->random(3);
+        $Repas = menu::where( 'proprietaire_id' , auth()->user()->id )->get();
+        $Pt = new menu;
+        $Dej = new menu;
+        $Col = new menu;
+        $Din = new menu;
+        foreach ( $Repas as $Re){
+            switch( $Re->type_repas){
+                case 1 :    $Pt = $Re;
+                    break;
+                case 2 :    $Dej = $Re;
+                    break;
+                case 3 :    $Pt = $Re;
+                    break;
+                case 4 :    $Din = $Re;
+                    break;
+            }
+        }
+
+
+        return view('menuListe',[
+            'aliments' => $aliments,
+            'randAl' => $randAl,
+            //'Selectaliment' => $aliment,
+            'Pt' => $this->alimentsArray( $Pt->aliments ),
+            'Dej' => $this->alimentsArray( $Dej->aliments ),
+            'Col' => $this->alimentsArray( $Col->aliments ),
+            'Din' => $this->alimentsArray( $Din->aliments ),
+        ]);
     }
 
 }

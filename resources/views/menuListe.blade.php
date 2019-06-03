@@ -15,39 +15,7 @@
 
 @section('content')
     <div class="container">
-        <div class="card" style="text-align: center;">
-            <div class="card-header text-center font-weight-bold">
-                Petit dejeuner
-            </div>
 
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        Kcal :
-                        <br>
-                        Protéines :
-                        <br>
-                        Glucides :
-                        <br>
-                        Lipides :
-                        <br>
-                        Fibres :
-                        <br>
-                        Minéraux :
-                        <br>
-                        Vitamines :
-                    </div>
-                    <div class="col-6" style="text-align: center">
-                        @foreach($randAl as $Al)
-                            <img src="img/aliment/{{ $Al->nom }}.png" style="height: 50px ; width: 50px">
-                            <br><br>
-                        @endforeach
-                    </div>
-                </div>
-
-                <br>
-
-            </div>
 
         </div>
 
@@ -59,13 +27,43 @@
             </div>
 
             <div class="card-body">
+                @if( !$Dej == null)
+                    <div class="row">
+                <div class="col-6">
+                    Kcal :
+                    <br>
+                    Protéines :
+                    <br>
+                    Glucides :
+                    <br>
+                    Lipides :
+                    <br>
+                    Fibres :
+                    <br>
+                    Minéraux :
+                    <br>
+                    Vitamines :
+                </div>
+                <div class="col-6" style="text-align: center">
+                    @foreach($Dej as $Al)
+                        <img src="img/aliment/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
+                        <br><br>
+                    @endforeach
+                </div>
+                    </div>
+                @endif
+
                 <div>
                     <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">
-                        <i class="fas fa-plus"> Ajouter un menu </i>
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#Dej">
+                        @if( !$Dej == null)
+                            <i class="fas fa-plus"> Modifier le menu </i>
+                        @else
+                            <i class="fas fa-plus"> Ajouter un menu </i>
+                        @endif
                     </button>
 
-                    <div class="modal fade" id="myModal">
+                    <div class="modal fade" id="Dej">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                             <div class="modal-content">
 
@@ -95,7 +93,15 @@
                                             <div class="col-lg-5">
                                                 <h4 style="align-content: center">Aliments du menu</h4>
                                                 <div id="menu">
-                                                    a
+                                                    @if( !$Dej == null)
+                                                        @foreach ($Dej as $aliment)
+                                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                                        @endforeach
+
+                                                    @else
+                                                        PAS D'ALIMENTS
+
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -119,9 +125,15 @@
                 </div>
 
 
-        </div>
+                </div>
+
+                </div>
+
+        <br><br>
+
+
     </div>
-    </div>
+
 
 @endsection
 

@@ -42,5 +42,5 @@
 <div class="row">
     <input class="rhs" type="number" min="0" value="0" id="nbr"> Unité(s)
         <br>
-    <button onclick="actualiserMenu( 1 , '{{$Aliment->nom}}', document.getElementById('nbr').value )">Ajouter au menu</button>
+    <button onclick="actualiserMenu( '{{ $type }}' , '{{$Aliment->nom}}', document.getElementById('nbr').value )">Ajouter au menu</button>
 </div>

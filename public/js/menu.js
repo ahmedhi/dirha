@@ -15,7 +15,7 @@ function showAliment(id , type) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","/getaliment/id="+ id + "/type=" + type,true);
+        xmlhttp.open("GET","/getaliment/id="+ id + "/type=" + type ,true);
         xmlhttp.send();
     }
 }

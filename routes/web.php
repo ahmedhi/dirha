@@ -90,9 +90,9 @@ Route::group([
 
 });
 
-Route::get('/menu','UserController@MenuListe');
+Route::get('/menu','AlimentsController@MenuListe');
 
-Route::get('/getaliment/id={id}', 'AlimentsController@getAliment' );
+Route::get('/getaliment/id={id}/type={type}', 'AlimentsController@getAliment' );
 
 Route::get('/actumenu/type={type}/nom={nom}/nbr={nbr}', 'AlimentsController@ActualiserMenu');
 
