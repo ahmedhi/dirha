@@ -32,7 +32,7 @@ function actualiserMenu(type , nom , nbr) {
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("menu").innerHTML = this.responseText;
                 }
-            }
+            };
 
         xmlhttp.open("GET","/actumenu/type=" + type + "/nom=" + nom + "/nbr=" + nbr,true);
         xmlhttp.send();
