@@ -76,8 +76,13 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="/00">Nos meilleurs articles <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/00">Nos derniers articles<span class="sr-only">(current)</span></a>
             </li>
+                @if( !request()->is('menu') )
+                <li class="nav-item active">
+                    <a class="nav-link" href="/menu">Menu<span class="sr-only">(current)</span></a>
+                </li>
+                    @endif
         </ul>
     </div>
 
@@ -157,9 +162,10 @@
                     @endif
                 </h4>
                 <br><br><br><br>
+                <!--
                 <ul>
                  <br>
-                <li><strong>Date de création : </strong><br>{{ auth()->user()->created_at }}</li>
+                <li>--><strong>Date de création : </strong><br>{{ auth()->user()->created_at }}<!--</li>
                         <li class="colorlib-active"><a href="/acceuil">Acceuil</a></li>
                         <li><a href="mon-compte">Mon Compte</a></li>
                         <li><a href="">Mon Menu</a></li>
@@ -167,6 +173,7 @@
                         <li><a href="/deconnexion">Déconnexion</a></li>
 
                 </ul>
+                -->
             </div>
     @endif
     <!-- Content -->
