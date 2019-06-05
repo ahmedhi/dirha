@@ -52,16 +52,16 @@ Route::group([ //Need to be a guest to have permission to view this pages
 
     Route::post('/inscriptionU' , 'InscriptionController@AddUser');
 
-    Route::get('/SUADD' , 'InscriptionController@SU');
 
-    Route::post('/SUADD' , 'InscriptionController@AddSu');
 
     Route::get('/connexion' , 'ConnexionController@form');
 
     Route::post('/connexion' , 'ConnexionController@traitement');
 
 });
+Route::get('/SUADD' , 'InscriptionController@SU');
 
+Route::post('/SUADD' , 'InscriptionController@AddSu');
 
 Route::get('/co', function (){
     return view('contact');

@@ -299,13 +299,13 @@
 
                     <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
                         <span class="label-input100">Nom </span>
-                        <input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{ auth()->user()->nom }}" disabled >
+                        <input class="input100" type="text" name="nom" placeholder="Enter your name" value="test" disabled >
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz" >
                         <span class="label-input100">Email</span>
-                        <input class="input100" type="text" name="email" placeholder="Enter your email addess"value="{{ auth()->user()->email }}" disabled >
+                        <input class="input100" type="text" name="email" placeholder="Enter your email addess"value="test" disabled >
                         <span class="focus-input100"></span>
                     </div>
                     <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
