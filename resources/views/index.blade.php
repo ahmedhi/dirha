@@ -36,30 +36,32 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="lab-card">
                             <div class="icon">
-                                <i class="flaticon-023-flask"></i>
+                                <img src="fonts/002-doctor.png">
                             </div>
-                            <h2>Get in the lab</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+                            <h2>Partenaires Fallo Corp</h2>
+                            <p>Fallo a essayé de chercher les meilleures médecins du Maroc et d'Europe pour regrouper un immense savoir avec sa communauté</p>
                         </div>
                     </div>
                     <!-- single card -->
                     <div class="col-md-4 col-sm-6">
                         <div class="lab-card">
                             <div class="icon">
-                                <i class="flaticon-011-compass"></i>
+                                <img src="fonts/001-fruit.png">
                             </div>
-                            <h2>Projects online</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+                            <h2>Diététique</h2>
+                            <p>La diététique est une pratique qui s'intéresse à l’alimentation équilibrée. Si la nutrition se définit comme la science qui analyse les rapports entre la nourriture et la santé, la diététique y intègre une dimension culturelle liée aux pratiques alimentaires.
+
+                                La nutrition est la science qui étudie les aliments et leurs effets sur l’être humain, tandis que la diététique est l’étude de l’ensemble des règles qui doivent régir l’alimentation de l’être humain. </p>
                         </div>
                     </div>
                     <!-- single card -->
                     <div class="col-md-4 col-sm-12">
                         <div class="lab-card">
                             <div class="icon">
-                                <i class="flaticon-037-idea"></i>
+                                <i class="flaticon-011-compass"></i>
                             </div>
-                            <h2>SMART MARKETING</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+                            <h2>SMART Diététique</h2>
+                            <p>Tout est calculé rien n'est laissé au hasard le client et le centre de l'algorithme. Tous nos programmes sont personnalisés jusqu'au moindre détail.</p>
                         </div>
                     </div>
                 </div>
@@ -203,15 +205,14 @@
     </div>
     <!-- Testimonial section end-->
 
-
-    <!-- Services section -->
+    <!-- Services section
     <div class="services-section spad">
         <div class="container">
             <div class="section-title dark">
                 <h2>Get in <span>the Lab</span> and see the services</h2>
             </div>
             <div class="row">
-                <!-- single service -->
+                single service
                 <div class="col-md-4 col-sm-6">
                     <div class="service">
                         <div class="icon">
@@ -223,7 +224,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- single service -->
+                single service
                 <div class="col-md-4 col-sm-6">
                     <div class="service">
                         <div class="icon">
@@ -235,97 +236,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="icon">
-                            <i class="flaticon-037-idea"></i>
-                        </div>
-                        <div class="service-text">
-                            <h2>SMART MARKETING</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="icon">
-                            <i class="flaticon-039-vector"></i>
-                        </div>
-                        <div class="service-text">
-                            <h2>Social Media</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="icon">
-                            <i class="flaticon-036-brainstorming"></i>
-                        </div>
-                        <div class="service-text">
-                            <h2>Brainstorming</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="icon">
-                            <i class="flaticon-026-search"></i>
-                        </div>
-                        <div class="service-text">
-                            <h2>Documented</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="icon">
-                            <i class="flaticon-018-laptop-1"></i>
-                        </div>
-                        <div class="service-text">
-                            <h2>Responsive</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="icon">
-                            <i class="flaticon-043-sketch"></i>
-                        </div>
-                        <div class="service-text">
-                            <h2>Retina ready</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- single service -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="service">
-                        <div class="icon">
-                            <i class="flaticon-012-cube"></i>
-                        </div>
-                        <div class="service-text">
-                            <h2>Ultra modern</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="text-center">
                 <a href="" class="site-btn">Browse</a>
             </div>
         </div>
     </div>
-    <!-- services section end -->
+     services section end -->
+
 
 
     <!-- Team Section -->
