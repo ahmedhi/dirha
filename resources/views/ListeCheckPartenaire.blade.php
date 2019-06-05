@@ -25,6 +25,7 @@
 						<th scope="col">{{ $user->pays }}</th>
 						<th scope="col"> <a href="/accept/{{ $user->id }}">Accepter</a></th>
 						<th scope="col"> <a href="/delete/{{ $user->id }}">Supprimer</a></th>
+						<th> <a href="/infosPartenaire/{{$user->id}}">Voir plus</a></th>
 					</tr>
 				@endif
 			@endforeach

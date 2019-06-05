@@ -49,6 +49,12 @@ class AdminController extends Controller
             ]);
     }
 
+    public function infosPart()
+    {
+        $users = user::where ('id' , request('id') )->first0rfail() ;
+        return view ('/infosPartenaire',['users'=>$users]);
+    }
+
     public function AddP(){
             $part = user::where('id', request('id'))->firstOrfail();
             $part->type = 2 ;

@@ -85,6 +85,8 @@ Route::group([
 
     Route::get('/fixpartenaire', 'AdminController@checkPartenaire');
 
+    Route::get('/infosPartenaire/{{id}}','AdminController@infosPart');
+
     Route::get('/accept/{id}', 'AdminController@AddP');
 
     Route::get('/delete/{id}', 'AdminController@DeleteP');
