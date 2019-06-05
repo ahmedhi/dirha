@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->integer('partenaire_id');
             $table->string('title')->default('Sans titre');
             $table->string('source')->default('Source Inconnu');
-            $table->longText('description')->default('Article introuvable');
+            $table->longText('description');
             $table->string('categorie')->default('Non définie');
             $table->integer('Like')->unsigned()->default('0');
             $table->integer('DisLike')->unsigned()->default('0');

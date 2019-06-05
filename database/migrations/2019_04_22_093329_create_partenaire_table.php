@@ -15,10 +15,10 @@ class CreatePartenaireTable extends Migration
     {
         Schema::create('partenaires', function (Blueprint $table) {
             $table->integer('partenaire_id')->primary();
-            $table->longText('diplome')->default('NULL');
+            $table->longText('diplome');
             $table->string('metier')->default('NULL');
-            $table->longText('experience')->default('NULL');
-            $table->longText('adresse')->default('NULL');
+            $table->longText('experience');
+            $table->longText('adresse');
             $table->timestamps();
         });
 
