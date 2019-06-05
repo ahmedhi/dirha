@@ -111,6 +111,4 @@ Route::post('/mi','CompteController@modifinf');
 
 Route :: post('/sendMail','CompteController@sendemail');
 
-    return $id;
-});
 
