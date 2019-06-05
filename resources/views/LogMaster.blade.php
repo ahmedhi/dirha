@@ -1,15 +1,6 @@
+@extends('Master')
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>
-        @yield('title')
-    </title>
-
-    <!-- FavIcon -->
-    <link rel="icon" type="image/png" href="img/FalloSolo.png" />
-
+@section('cssCustom')
     <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="js/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
@@ -24,73 +15,12 @@
     <link rel="stylesheet" type="text/css" href="css/Login.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+@endsection
 
-</head>
-<body>
-<!-- NavBar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-
-    <div class="navbar-brand">
-        <a class="navbar-brand" href="/">
-            <img src="img/FalloSolo.png" width="30" height="30" class="d-inline-block align-top">
-            Fallo
-        </a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Nos meilleurs articles <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-    </div>
-
-
-    <!-- try to have the path of the page
-          Les deux boutton pour s'inscrire et se connecter
-          ne seront pas visible si l'utilisateur
-          est au niveau de la page de connexion
-    -->
-
-
-
-    @if( !request()->is('connexion') )
-
-
-        <div class="my-2 my-lg-0">
-            <div class="navbar-brand">
-                <div class="buttons">
-
-                    @auth
-                        <a class="" href="/mon-compte">
-                            Mon Compte
-                        </a>
-                        <a class="btn btn-danger" href="/deconnexion">
-                            Déconnexion
-                        </a>
-
-                    @else
-                        <a class="btn btn-outline-success" href="/inscription">
-                            <strong>S'inscire</strong>
-                        </a>
-                        <a class="btn btn-outline-secondary" href="/connexion">
-                            Se connecter
-                        </a>
-                    @endauth
-
-                </div>
-            </div>
-        </div>
-    @endif
-</nav>
+@section('content')
 
 <!--Body -->
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
+    <div class="d-flex justify-content-center" style="margin-bottom: 230px;">
         <div class="card">
             <div class="card-header">
                 <center>
@@ -101,7 +31,7 @@
             </div>
             <div class="card-body">
 
-                @yield('content')
+                @yield('contentLog')
 
                 <div class="card-footer">
                     <!-- SpecFooter est un footer specifique a la page -->
@@ -117,9 +47,6 @@
             </div>
         </div>
     </div>
-</div>
+</head>
 
-<script src="js.bootstrap.min.js"></script>
-
-</body>
-</html>
+@endsection

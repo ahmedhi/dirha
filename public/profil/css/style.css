@@ -8541,3 +8541,86 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+/*------------------------
+	Header css
+--------------------------*/
+.responsive {
+  display: none;
+}
+
+.header-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 0 50px;
+  background: white;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.header-section .logo {
+  display: inline-block;
+  float: left;
+  padding-top: 30px;
+}
+
+.header-section .logo img {
+  width: auto;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.header-section .menu-list {
+  list-style: none;
+  float: right;
+}
+
+.header-section .menu-list li {
+  display: inline;
+}
+
+.header-section .menu-list li a {
+  display: inline-block;
+  padding: 35px 15px;
+  margin-right: 15px;
+  color: #222;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.09em;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+.header-section .menu-list li a:hover,
+.header-section .menu-list li a.active {
+  color: #2d324b;
+}
+
+.header-section .menu-list li:last-child a {
+  margin-right: 0;
+}
+
+.header-section .menu-list li.active a {
+  background: #56cf5a;
+  color: #2d324b;
+}
+
+.header-section .menu-list .current a:after {
+  width: 10px;
+  margin-left: -5px;
+}
+
+.iconeLoad{
+  width: 95px ;
+  height: 65px;
+  margin-top: -20px;
+}
+

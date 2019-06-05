@@ -8,7 +8,7 @@
     <h3>Inscrivez vous</h3>
 @endsection
 
-@section('content')
+@section('contentLog')
 
     <center><h3 style="color: white">SuperUser</h3></center>
 

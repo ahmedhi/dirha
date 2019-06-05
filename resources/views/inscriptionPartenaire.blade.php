@@ -8,7 +8,7 @@
     <h3>Inscrivez vous</h3>
 @endsection
 
-@section('content')
+@section('contentLog')
     <form method="post" class="section " enctype="multipart/form-data">
 
         {{csrf_field()}}
