@@ -34,6 +34,7 @@
 	box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
@@ -59,6 +60,8 @@ a:focus {
 a:hover {
 	text-decoration: none;
 }
+=======
+>>>>>>> BritosBackup
 
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {

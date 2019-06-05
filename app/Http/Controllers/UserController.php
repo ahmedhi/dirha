@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\aliment;
+use App\menu;
 use App\Message;
 use App\user;
 use Illuminate\Http\Request;
@@ -19,15 +21,11 @@ class UserController extends Controller
     }
 
     public function voir(){
-       $email = request('email');
-
-        $user = user::where('email' , $email)->first();
-
-
         return  /*$user->email */
-          view('/utilisateur' , ['user' => $user ]);
+          view('/utilisateur' );
 
     }
+
 
 
 }

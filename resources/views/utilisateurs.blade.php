@@ -1,7 +1,7 @@
 @extends ('Master')
 
 @section('title')
-    Utilisateurs
+    Article
     @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
 
                 <li>
 
-                         <a href="/{{ $user->email }}" > {{ $user->email }}</a>
+                         <a href="/article" > {{ $user->email }}</a>
 
                 </li>
 
