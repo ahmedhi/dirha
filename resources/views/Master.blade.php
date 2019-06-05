@@ -31,15 +31,15 @@
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader">
-        <img src="img/FalloSolo.png" alt="" class="iconeLoad">
-        <h2>Chargement</h2>
+        <img src="img/FalloSolo.png" alt="" class="iconeLoader">
+        <h2 style="alignment: center">Chargement....</h2>
     </div>
 </div>
 
 
 <!-- Header section -->
 <header class="header-section">
-    <div class="logo">
+    <div class="row logo">
         <img src="img/FalloSolo.png" alt="" class="iconeLoad"><!-- Logo -->
     </div>
     <!-- Navigation -->
