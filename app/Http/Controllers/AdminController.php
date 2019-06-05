@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\partenaires;
 use App\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,6 +47,21 @@ class AdminController extends Controller
             return view('ListeCheckPartenaire',[
                 'users' => $users,
             ]);
+    }
+
+    public function AddP(){
+            $part = user::where('id', request('id'))->firstOrfail();
+            $part->type = 2 ;
+            $part->save();
+            return back();
+    }
+
+    public function DeleteP(){
+            $part = partenaires::where('partenaire_id', request('id'))->delete();
+            $part = user::where('id', request('id'))->firstOrfail();
+            $part->type = 1 ;
+            $part->save();
+            return back();
     }
 
 }

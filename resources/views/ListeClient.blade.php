@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                 @foreach( $users as $user)
-                    @if( $user->type === 1 )
+                    @if( $user->type === 1 || $user->type === 3)
                         <tr>
                             <th scope="col">{{ $user->id }}</th>
                             <th scope="col">{{ $user->email }}</th>

@@ -22,7 +22,7 @@ class user extends Model implements Authenticatable {
         'date_de_naissance',
         'sexe',
         'pays',
-        'type'
+        'type',
 
     ];
 
@@ -34,6 +34,10 @@ class user extends Model implements Authenticatable {
     public function getRememberTokenName()
     {
         return '';
+    }
+
+    public function part(){
+        return $this->hasOne('App\partenaires','partenaire_id','id');
     }
     /*
     public function connect(){

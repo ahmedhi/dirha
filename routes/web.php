@@ -11,7 +11,16 @@
 |
 */
 
+use App\aliment;
+use App\menu;
+
 Route::get('/' , 'UserController@liste');
+
+Route::get('/Bestarticles', 'ArticlesController@voir');
+
+Route::post('/Bestarticles', 'ArticlesController@nouveau');
+
+Route::get('/article','UserController@voir');
 
 Route::group([
 
@@ -76,13 +85,21 @@ Route::group([
 
     Route::get('/fixpartenaire', 'AdminController@checkPartenaire');
 
+    Route::get('/accept/{id}', 'AdminController@AddP');
+
+    Route::get('/delete/{id}', 'AdminController@DeleteP');
+
+    Route::get('/aliment','AlimentsController@voirAliment');
+
+    Route::post('/aliment','AlimentsController@addAliment');
+
 });
 
-Route::get('/00', 'ArticlesController@voir');
+Route::get('/menu','AlimentsController@MenuListe');
 
-Route::post('/00', 'ArticlesController@nouveau');
+Route::get('/getaliment/id={id}/type={type}', 'AlimentsController@getAliment' );
 
-Route::get('/00', 'ArticlesController@voir');
+Route::get('/actumenu/type={type}/nom={nom}/nbr={nbr}', 'AlimentsController@ActualiserMenu');
 
 Route::post('/00' , 'ArticlesController@nouveau');
 
@@ -94,5 +111,6 @@ Route::post('/mi','CompteController@modifinf');
 
 Route :: post('/sendMail','CompteController@sendemail');
 
-Route::get('/{email}','UserController@voir');
+    return $id;
+});
 
