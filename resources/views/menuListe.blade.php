@@ -5,6 +5,7 @@
 @endsection
 
 @section('cssCustom')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
 @endsection
 
@@ -41,7 +42,7 @@
                     </div>
                     <div class="col-6" style="text-align: center">
                         @foreach($Pt as $Al)
-                            <img src="img/aliment/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
+                            <img src="img/Aliments{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
                             <br><br>
                         @endforeach
                     </div>
@@ -304,7 +305,7 @@
                                                 <h4 style="align-content: center">Liste des aliments</h4>
                                                 <div id="4">
                                                     <form>
-                                                        <select name="aliments" onclick="showAliment(this.value , 2 )">
+                                                        <select name="aliments" onclick="showAliment(this.value , 3 )">
                                                             @foreach($aliments as $aliment)
                                                                 <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
                                                             @endforeach
@@ -418,7 +419,7 @@
                                                 <h4 style="align-content: center">Liste des aliments</h4>
                                                 <div id="4">
                                                     <form>
-                                                        <select name="aliments" onclick="showAliment(this.value , 2 )">
+                                                        <select name="aliments" onclick="showAliment(this.value , 4 )">
                                                             @foreach($aliments as $aliment)
                                                                 <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
                                                             @endforeach
