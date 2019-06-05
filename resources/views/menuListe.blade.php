@@ -4,16 +4,12 @@
     Menu
 @endsection
 
-@section('header-content')
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+@section('cssCustom')
     <script type="text/javascript" src="js/menu.js"></script>
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 130px; margin-bottom: 50px;">
 
 
         <!-- Petit Dejeuner -->
