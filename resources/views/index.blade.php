@@ -111,90 +111,20 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-4">
                     <div class="section-title left">
-                        <h2>What our clients say</h2>
+                        <h2>Les avis de nos clients</h2>
                     </div>
                     <div class="owl-carousel" id="testimonial-slide">
                         <!-- single testimonial -->
                         <div class="testimonial">
                             <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+                            <p>Je m'attendais pas à un résultat pareil. J'ai pu atteindre l'objectif que je désirai</p>
                             <div class="client-info">
                                 <div class="avatar">
                                     <img src="img/avatar/01.jpg" alt="">
                                 </div>
                                 <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/01.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/01.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
+                                    <h2>AFFACH Nahid</h2>
+                                    <p>Cliente depuis 2017</p>
                                 </div>
                             </div>
                         </div>
@@ -251,31 +181,31 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="section-title">
-                <h2>Get in <span>the Lab</span> and  meet the team</h2>
+                <h2>Rencontrer <span>FALLO</span> les fondateur</h2>
             </div>
             <div class="row">
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">
                         <img src="img/team/1.jpg" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Project Manager</h3>
+                        <h2>HILALI Ahmed</h2>
+                        <h3>Co-Fondateur</h3>
                     </div>
                 </div>
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">
                         <img src="img/team/2.jpg" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Junior developer</h3>
+                        <h2>ASKOUR Hamza</h2>
+                        <h3>Co-Fondateur</h3>
                     </div>
                 </div>
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">
                         <img src="img/team/3.jpg" alt="">
-                        <h2>Christinne Williams</h2>
-                        <h3>Digital designer</h3>
+                        <h2>JORIO Mehdi</h2>
+                        <h3>ENCADRANT</h3>
                     </div>
                 </div>
             </div>
