@@ -46,7 +46,7 @@
     <div class="responsive"><i class="fa fa-bars"></i></div>
     <nav>
         <ul class="menu-list">
-            <li @if( !request()->is('/') ) class="active" @endauth><a href="/">Acceuil</a></li>
+            <li @if( request()->is('/') ) class="active" @endauth><a href="/">Acceuil</a></li>
             @auth()
                 @if( auth()->user()->type === -1 || auth()->user()->type === 0)
                 <li>
@@ -108,7 +108,7 @@
         <div class="row">
             <div class="col-md-9">
                 <h2>Qu'attendez vous pour nous rejoindre !</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
+                <p>Suivez les conseils de spécialiste et composez votre menu dans les moindres détails avec les conseils de spécialiste dans le domaine de la diététique</p>
             </div>
             <div class="col-md-3">
                 <div class="promo-btn-area">
@@ -143,15 +143,15 @@
                 <form class="form-class" id="con_form">
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" name="name" placeholder="Your name">
+                            <input type="text" name="name" placeholder="@auth(){{ auth()->user()->nom }}@else Nom @endauth">
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" name="email" placeholder="Your email">
+                            <input type="text" name="email" placeholder="@auth(){{ auth()->user()->email }}@else Email @endauth">
                         </div>
                         <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
+                            <input type="text" name="objet" placeholder="Objet">
                             <textarea name="message" placeholder="Message"></textarea>
-                            <button class="site-btn">send</button>
+                            <button class="site-btn">Envoyer</button>
                         </div>
                     </div>
                 </form>
