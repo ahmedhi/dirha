@@ -1,5 +1,5 @@
 @extends('utilisateurMaster')
-@section('content')
+@section('contentutil')
         <img src ="profil/images/nutri.jpg" width="100%" height="550xp" >
         <footer class="ftco-footer ftco-bg-dark ftco-section">
             <div class="container px-md-5">
@@ -32,18 +32,24 @@
                         </div>
                     </div>
                     <div class="col-md">
+                        @auth()
+                            @if( !auth()->user()->type === -1 or !auth()->user()->type === 0)
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">.</h2>
+                            <h2 class="ftco-heading-2">Métabolisme</h2>
                             <ul class="list-unstyled categories">
                                 <li>Sexe : {{auth()->user()->sexe}} </li>
                                 <li>Taille : {{auth()->user()->taille}} cm </li>
                                 <li>Poids : {{auth()->user()->poids}} Kg</li>
                             </ul>
                         </div>
+                            @endif
+                        @endauth
                     </div>
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">.</h2>
+                            @auth()
+                                @if( auth()->user()->type === 2 or auth()->user()->type === 3)
+                            <h2 class="ftco-heading-2">Comment vous rejoindre</h2>
                             <div class="block-23 mb-3">
                                 <ul>
                                     <li><span class="icon icon-map-marker"></span><span class="text">{{auth()->user()->pays}}</span></li>
@@ -51,6 +57,9 @@
                                     <li><span class="icon icon-envelope"></span><span class="text">{{auth()->user()->email}}</span></li>
                                 </ul>
                             </div>
+                                @endif
+
+                            @endauth
                         </div>
                     </div>
 

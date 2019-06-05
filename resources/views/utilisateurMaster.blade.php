@@ -3,7 +3,7 @@
 <html lang="fr">
 
 <head>
-    <title>Contact </title>
+    <title>Profil @auth(){{ auth()->user()->nom }}@endauth</title>
     <link rel="icon" type="image/png" href="img/FalloSolo.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,82 +40,76 @@
 
 <body>
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-
-    <div class="navbar-brand">
-        <a class="navbar-brand" href="/">
-            <img src="img/FalloSolo.png" width="30" height="30" class="d-inline-block align-top">
-            Fallo
-        </a>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader">
+        <img src="img/FalloSolo.png" alt="" class="iconeLoad">
+        <h2>Chargement....</h2>
     </div>
+</div>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            @auth
+
+<!-- Header section -->
+<header class="header-section">
+    <!-- Navigation -->
+    <div class="responsive"><i class="fa fa-bars"></i></div>
+    <nav>
+        <ul class="menu-list">
+            <li ><a href="/">Acceuil</a></li>
+            @auth()
                 @if( auth()->user()->type === -1 || auth()->user()->type === 0)
-                    <li class="nav-item active">
+                    <li>
                         <a class="nav-link" href="/config">Dashboard<span class="sr-only">(current)</span></a>
                     </li>
                 @endif
+                <li><a href="/menu">Menu</a></li>
             @endauth
+            <li><a href="/Bestarticles">Nos meilleurs articles</a></li>
+            <li><a href="#">Contact</a></li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
-            </li>
+            @if( !request()->is('connexion') )
 
-            <li class="nav-item active">
-                <a class="nav-link" href="/00">Nos meilleurs articles <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-    </div>
-
-
-    <!-- try to have the path of the page
-          Les deux boutton pour s'inscrire et se connecter
-          ne seront pas visible si l'utilisateur
-          est au niveau de la page de connexion
-    -->
-
-
-
-    @if( !request()->is('connexion') )
-
-
-        <div class="my-2 my-lg-0">
-            <div class="navbar-brand">
-                <div class="buttons">
-
-                    @auth
-
-                        <a class="btn btn-danger" href="/deconnexion">
+                @auth
+                    <li @if( request()->is('mon-compte') or request()->is('infosPersonnels') or request()->is('modifInfos'))
+                        class="active"
+                            @endif>
+                        <a href="/mon-compte">
+                            Mon Compte
+                        </a>
+                    </li>
+                    <li>
+                        <a style="color: red;" href="/deconnexion">
                             Déconnexion
                         </a>
+                    </li>
+
+                @else
+                    @if( request()->is('inscription'))
 
                     @else
-                        @if( request()->is('inscription'))
-                            <a class="btn btn-outline-success" href="/inscription">
-                                <strong>Ajouter administrateur</strong>
-                            </a>
-                        @else
-                            <a class="btn btn-outline-success" href="/inscription">
+                        <li>
+                            <a style="color: #1f648b;" href="/inscription">
                                 <strong>S'inscire</strong>
                             </a>
-                        @endif
-                        <a class="btn btn-outline-secondary" href="/connexion">
+                        </li>
+                    @endif
+                    <li>
+                        <a href="/connexion" style="color: green;">
                             Se connecter
                         </a>
-                    @endauth
+                    </li>
 
-                </div>
-            </div>
-        </div>
-    @endif
-</nav>
+                @endauth
+            @endif
+        </ul>
+    </nav>
+</header>
+<!-- Header section end -->
 
 
 
 <div id="colorlib-main">
-    @yield('content')
+    @yield('contentutil')
 
 </div><!-- END COLORLIB-MAIN -->
 </div><!-- END COLORLIB-PAGE -->
@@ -135,7 +129,7 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 
-    <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+    <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center" style="overflow: hidden">
         <br><br>    <img src="img/FalloSolo.png" width="90" height="90">  <br> <br><br> <br> <br>
         <h1 id="colorlib-logo">{{auth()->user()->nom}} </h1>
         <nav id="colorlib-main-menu" role="navigation">
@@ -143,13 +137,12 @@
                 <li><a href="mon-compte"> Profil</a></li>
                 <li><a href="infosPersonnels">Informations Personnels</a></li>
                 <li><a href="modifInfos">Modifier les informations Personnels </a></li>
-                <li><a href="contact">Contactez-Nous</a></li>
 
             </ul>
         </nav>
         <div class="colorlib-footer">
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Fallo &copy; <i class="icon-heart" aria-hidden="true"></i> by <a href="#" target="_blank">ASKOUR Hamza - HILALI Ahmed </a>
+                2019 &COPY; All rights reserved. Made by ASKOUR & HILALI
             <ul>
                 <li><a href="#"><i class="icon-facebook"></i></a></li>
                 <li><a href="#"><i class="icon-twitter"></i></a></li>

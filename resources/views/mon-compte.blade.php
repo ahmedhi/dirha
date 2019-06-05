@@ -1,6 +1,6 @@
 @extends('utilisateurMaster')
 
-@section('content')
+@section('contentutil')
         <div class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(profil/images/nut.jpg);" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="js-fullheight d-flex justify-content-center align-items-center">

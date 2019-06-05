@@ -4,11 +4,24 @@
     Connexion
 @endsection
 
+@section('cssCustom')
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles et Jquey-->
+    <link rel="stylesheet" type="text/css" href="css/Login.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+@endsection
+
 @section('cardHeader')
     <h3>Se connecter</h3>
 @endsection
 
-@section('content')
+@section('contentLog')
 
     <form method="post" >
 
