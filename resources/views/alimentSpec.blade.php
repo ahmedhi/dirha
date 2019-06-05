@@ -33,6 +33,7 @@
                 </td>
                 <td>
                     {{ $Aliment->fibres }}
+                     {{ $type }}
                 </td>
             </tr>
         </table>

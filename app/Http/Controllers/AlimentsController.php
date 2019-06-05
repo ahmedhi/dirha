@@ -167,36 +167,96 @@ class AlimentsController extends Controller
         return  $alimentArray ;
     }
 
-    public function MenuListe(){
+    public function Value( $aliments ){
+        $alimentArray[] = "";
+
+        //KCAL
+        $S = 0 ;
+        foreach ( $aliments as $aliment) {
+            $al = aliment::where('nom', $aliment['nom'] )->first();
+            $S += $al->energie_Kcal * $aliment['qte'] ;
+        }
+
+        $alimentArray['Kcal'] = $S ;
+
+        //Proteines
+        $S = 0 ;
+        foreach ( $aliments as $aliment) {
+            $al = aliment::where('nom', $aliment['nom'] )->first();
+            $S += $al->proteines * $aliment['qte'] ;
+        }
+
+        $alimentArray['proteines'] = $S ;
+
+        //glucides
+        $S = 0 ;
+        foreach ( $aliments as $aliment) {
+            $al = aliment::where('nom', $aliment['nom'] )->first();
+            $S += $al->glucides * $aliment['qte'] ;
+        }
+
+        $alimentArray['glucides'] = $S ;
+
+        //lipides
+        $S = 0 ;
+        foreach ( $aliments as $aliment) {
+            $al = aliment::where('nom', $aliment['nom'] )->first();
+            $S += $al->lipides * $aliment['qte'] ;
+        }
+
+        $alimentArray['lipides'] = $S ;
+
+        //fibres
+        $S = 0 ;
+        foreach ( $aliments as $aliment) {
+            $al = aliment::where('nom', $aliment['nom'] )->first();
+            $S += $al->fibres * $aliment['qte'] ;
+        }
+
+        $alimentArray['fibres'] = $S ;
+
+        unset($alimentArray[0]);
+
+        return $alimentArray ;
+    }
+
+    public function MenuListe()
+    {
         $aliments = aliment::all();
         $randAl = aliment::all()->random(3);
-        $Repas = menu::where( 'proprietaire_id' , auth()->user()->id )->get();
+        $Repas = menu::where('proprietaire_id', auth()->user()->id)->get();
         $Pt = new menu;
         $Dej = new menu;
         $Col = new menu;
         $Din = new menu;
-        foreach ( $Repas as $Re){
-            switch( $Re->type_repas){
-                case 1 :    $Pt = $Re;
+        foreach ($Repas as $Re) {
+            switch ($Re->type_repas) {
+                case 1 :
+                    $Pt = $Re;
                     break;
-                case 2 :    $Dej = $Re;
+                case 2 :
+                    $Dej = $Re;
                     break;
-                case 3 :    $Pt = $Re;
+                case 3 :
+                    $Pt = $Re;
                     break;
-                case 4 :    $Din = $Re;
+                case 4 :
+                    $Din = $Re;
                     break;
             }
         }
 
-
-        return view('menuListe',[
+        return view('menuListe', [
             'aliments' => $aliments,
             'randAl' => $randAl,
-            //'Selectaliment' => $aliment,
-            'Pt' => $this->alimentsArray( $Pt->aliments ),
-            'Dej' => $this->alimentsArray( $Dej->aliments ),
-            'Col' => $this->alimentsArray( $Col->aliments ),
-            'Din' => $this->alimentsArray( $Din->aliments ),
+            'Pt' => $this->alimentsArray($Pt->aliments),
+            'PtValue' => $this->Value($this->alimentsArray($Pt->aliments)),
+            'Dej' => $this->alimentsArray($Dej->aliments),
+            'DejValue' => $this->Value($this->alimentsArray($Dej->aliments)),
+            'Col' => $this->alimentsArray($Col->aliments),
+            'ColValue' => $this->Value($this->alimentsArray($Col->aliments)),
+            'Din' => $this->alimentsArray($Din->aliments),
+            'DinValue' => $this->Value($this->alimentsArray($Din->aliments)),
         ]);
     }
 
