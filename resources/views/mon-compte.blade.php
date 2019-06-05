@@ -1,49 +1,33 @@
-@extends('Master')
-
-@section('title')
-    mon compte
-@endsection
+@extends('utilisateurMaster')
 
 @section('content')
+        <div class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(profil/images/nut.jpg);" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="js-fullheight d-flex justify-content-center align-items-center">
+                <div class="col-md-8 text text-center">
+                    <div class="img mb-4" style="background-image: url(profil/images/{{auth()->user()->img}});"></div>
+                    <div class="desc">
+                        <h2 class="subheading">Bienvenue</h2>
+                        <h1 class="mb-4">{{auth()->user()->nom}} </h1>
+                        <p class="mb-4"> @if(auth()->user()->type == -1 )
+                                Super User
+                            @endif
+                            @if(auth()->user()->type == 1)
+                                Utilisateur Normal
+                            @endif
+                            @if(auth()->user()->type == 3)
+                                Partenaire (Besoin de validation)
+                            @endif
+                            @if(auth()->user()->id == 0)
+                                Admin
+                            @endif
+                            @if(auth()->user()->type == 2)
+                                Partenaire
+                            @endif
+                        </p>
 
-    <form method="post" action="/modification-mot-de-passe" class="section">
-        {{csrf_field()}}
-
-        <div class="field">
-            <label class="label">Nouveau mot de passe</label>
-            <div class="control">
-                <input class="input" type="password" name="password">
-            </div>
-            @if( $errors->has('password'))
-
-                <p class="help is-danger">
-                    {{ $errors->first('password') }}
-                </p>
-
-            @endif
-        </div>
-
-        <div class="field">
-            <label class="label">Nouveau Mot de passe (confirmation)</label>
-            <div class="control">
-                <input class="input" type="password" name="password_confirmation">
-            </div>
-            @if( $errors->has('password_confirmation'))
-
-                <p class="help is-danger">
-                    {{ $errors->first('password_confirmation') }}
-                </p>
-
-            @endif
-        </div>
-
-        <div class="field">
-            <div class="control" style="
-                                        margin-left: 10%;
-                                        margin-right: 10%;
-                                        text-align: center;">
-                <button class="button is-link" type="submit">Modifier Mot de passe</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
 @endsection

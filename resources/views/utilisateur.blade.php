@@ -23,6 +23,7 @@
                             <span class="input-group-text" id="basic-addon1">Titre </span>
                         </div>
                         <input type="text" class="form-control" placeholder="Titre" name="title" aria-describedby="basic-addon1">
+
                     </div>
                         @if($errors->has('title'))
                             <p>Ce champs est obligatoire </p>
@@ -41,14 +42,14 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">Catégorie</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <select class="custom-select" name="categorie">
                             <option selected>Choose...</option>
-                            <option value="1">Consiel</option>
-                            <option value="2">Recette</option>
-                            <option value="3">Citation</option>
-                            <option value="3">Menu</option>
-                            <option value="3">Diète</option>
-                            <option value="3">Règime</option>
+                            <option value="Consiel">Consiel</option>
+                            <option value="Recette">Recette</option>
+                            <option value="Citation">Citation</option>
+                            <option value="Menu">Menu</option>
+                            <option value="Diete">Diète</option>
+                            <option value="Regime">Règime</option>
                         </select>
                     </div>
                     <div class="input-group mb-3">
