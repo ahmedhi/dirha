@@ -141,7 +141,6 @@ class AlimentsController extends Controller
             'type_evolution' => $SpecMenu->type_evolution,
         ]);
 
-
         return view('menuPerso' , [
             'aliments' => $alimentArray ,
         ]) ;

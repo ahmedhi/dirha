@@ -187,7 +187,7 @@
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">
-                        <img src="img/team/1.jpg" alt="">
+                        <img src="img/team/dev3.jpg" alt="">
                         <h2>HILALI Ahmed</h2>
                         <h3>Co-Fondateur</h3>
                     </div>
