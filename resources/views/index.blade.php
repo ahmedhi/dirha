@@ -39,7 +39,7 @@
                                 <img src="fonts/002-doctor.png">
                             </div>
                             <h2>Partenaires Fallo Corp</h2>
-                            <p>Fallo a essayé de chercher les meilleures médecins du Maroc et d'Europe pour regrouper un immense savoir avec sa communauté</p>
+                            <p>Fallo a essayé de chercher les meilleures médecins du Maroc et d'Europe pour regrouper un immense savoir pour sa communauté</p>
                         </div>
                     </div>
                     <!-- single card -->
