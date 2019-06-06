@@ -1,7 +1,7 @@
 @extends('Master')
 
 @section('title')
-
+    Acceuil
 @endsection
 
 @section('content')
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <!-- single card -->
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6">$
                         <div class="lab-card">
                             <div class="icon">
                                 <img src="fonts/001-fruit.png">

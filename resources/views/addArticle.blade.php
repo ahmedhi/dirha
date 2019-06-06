@@ -1,13 +1,13 @@
-@extends ('Master')
+@extends ('articles')
 
-@section('title')
-    Utilisateurs
-@endsection
-@section('content')
-            <h1> {{auth()->user()->email}} </h1>
+@section('cssCustom')
+    <link rel="stylesheet" href="css/article.css"/>
+    @endsection
 
-            @if (auth()->check() AND auth()->user()->id === auth()->user()->id )
-
+@section('form')
+    <div style="    background-color: #f5f5f5; padding: 10px ; border-radius: 20px">
+        <h4 style="text-align: center"> Publier avec notre communauté <br>@if(auth()->user()->sexe === "Homme")M. @else Mme. @endif {{auth()->user()->nom}} </h4>
+        <br>
                 <form action="/Bestarticles" method="post">
 
                     {{ csrf_field() }}
@@ -37,12 +37,11 @@
                             <label class="input-group-text" for="inputGroupSelect01">Catégorie</label>
                         </div>
                         <select class="custom-select" name="categorie">
-                            <option selected>Choose...</option>
-                            <option value="Consiel">Consiel</option>
+                            <option selected value="Conseil">Conseil</option>
                             <option value="Recette">Recette</option>
                             <option value="Citation">Citation</option>
                             <option value="Menu">Menu</option>
-                            <option value="Diete">Diète</option>
+                            <option value="Diététique">Diététique</option>
                             <option value="Regime">Règime</option>
                         </select>
                     </div>
@@ -60,9 +59,7 @@
                     <button type="submit" class="btn btn-primary">Publier</button>
 
                 </form>
+    </div>
 
-            @endif
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
 @endsection

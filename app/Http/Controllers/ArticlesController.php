@@ -32,13 +32,18 @@ class ArticlesController extends Controller
 
         ]);
 
-        return redirect('/00');
+        return redirect('/Bestarticles');
     }
 
     public function voir(){
         $Articles = article::all();
 
-        return view('acceuil',[
+        if( auth()->check() and auth()->user()->type == 2)
+            return view('addArticle',[
+                'articles' => $Articles,
+            ]);
+
+        return view('articles',[
             'articles' => $Articles,
         ]);
     }
