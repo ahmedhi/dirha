@@ -93,13 +93,12 @@
                                                 <center>
                                                     <div class="form-group">
                                                         <button type="submit" class="btn btn-info">Enregistrer modification</button>
-                                                        <form action="/modifInfos"> <button type="submit" class="btn btn-info">Retour</button></form>
                                                     </div>
                                                 </center>
                                             </form>
                                         </div>
 
-                                        <br><br>
+                                        <br>
                                     </div>
                                 </div>
                             </div>

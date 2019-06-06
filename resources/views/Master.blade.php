@@ -39,8 +39,11 @@
 
 <!-- Header section -->
 <header class="header-section">
-    <div class="row logo">
-        <img src="img/FalloSolo.png" alt="" class="iconeLoad"><!-- Logo -->
+    <div class="logo">
+        <div class="row" style="margin-top: -20px;">
+        <img src="img/FalloSolo.png" alt="" class="iconeLoad" href="/"><!-- Logo -->
+           <h2 style="font-family: American Typewriter, serif ; color: #319b43 ; margin: 15px auto auto 10px;">FALLO</h2>
+        </div>
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
