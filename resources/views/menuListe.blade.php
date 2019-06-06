@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-6" style="text-align: center">
                         @foreach($Pt as $Al)
-                            <img src="img/Aliments{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
+                            <img src="img/Aliments/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
                             <br><br>
                         @endforeach
                     </div>
@@ -91,7 +91,7 @@
                                             <div id="Pt">
                                                 @if( !$Pt == null)
                                                     @foreach ($Pt as $aliment)
-                                                        <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                                        <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
                                                     @endforeach
 
                                                 @else
@@ -157,7 +157,7 @@
                         </div>
                 <div class="col-6" style="text-align: center">
                     @foreach($Dej as $Al)
-                        <img src="img/aliment/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
+                        <img src="img/Aliments/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
                         <br><br>
                     @endforeach
                 </div>
@@ -206,7 +206,7 @@
                                                 <div id="menu">
                                                     @if( !$Dej == null)
                                                         @foreach ($Dej as $aliment)
-                                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                                            <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
                                                         @endforeach
 
                                                     @else
@@ -271,7 +271,7 @@
                         </div>
                         <div class="col-6" style="text-align: center">
                             @foreach($Col as $Al)
-                                <img src="img/aliment/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
+                                <img src="img/Aliments/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
                                 <br><br>
                             @endforeach
                         </div>
@@ -320,7 +320,7 @@
                                                 <div id="menu">
                                                     @if( !$Col == null)
                                                         @foreach ($Col as $aliment)
-                                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                                            <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
                                                         @endforeach
 
                                                     @else
@@ -385,7 +385,7 @@
                         </div>
                         <div class="col-6" style="text-align: center">
                             @foreach($Din as $Al)
-                                <img src="img/aliment/{{ $Al['nom'] }}.png" style="height: 50px ; width: 50px">
+                                <img src="/img/Aliments/{{ $Al['nom'] }}.png" style="height: 30px ; width: 50px">
                                 <br><br>
                             @endforeach
                         </div>
@@ -434,7 +434,7 @@
                                                 <div id="menu">
                                                     @if( !$Din == null)
                                                         @foreach ($Din as $aliment)
-                                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                                            <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
                                                         @endforeach
 
                                                     @else

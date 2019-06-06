@@ -56,7 +56,7 @@
             <li ><a href="/menu">Menu</a></li>
             @endauth
             <li><a href="/Bestarticles">Nos meilleurs articles</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
 
                 @if( !request()->is('connexion') )
 
@@ -139,7 +139,7 @@
                 <p class="con-item">fallo@contact.com</p>
             </div>
             <!-- contact form -->
-            <div class="col-md-6 col-pull">
+            <div id="contact" class="col-md-6 col-pull">
                 <form class="form-class" id="con_form">
                     <div class="row">
                         <div class="col-sm-6">
