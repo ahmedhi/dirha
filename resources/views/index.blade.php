@@ -204,7 +204,7 @@
                 <div class="col-sm-4">
                     <div class="member">
                         <img src="img/team/3.jpg" alt="">
-                        <h2>JORIO Mehdi</h2>
+                        <h2>JORIO Ali</h2>
                         <h3>ENCADRANT</h3>
                     </div>
                 </div>
