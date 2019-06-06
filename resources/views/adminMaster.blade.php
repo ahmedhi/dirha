@@ -120,11 +120,8 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="now-ui-icons users_single-02"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Compte</span>
-                                </p>
+                            <a class="nav-link" href="/mon-compte">
+                                <i @if( auth()->user()->type === -1 ) class="fas fa-user-cog" @else class="fas fa-user-cog" @endif></i>
                             </a>
                     </ul>
                 </div>

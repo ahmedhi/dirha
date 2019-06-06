@@ -82,20 +82,17 @@ class CompteController extends Controller
     }
 
     public function modifpass(){
-        request()->validate([
-            'password' => ['required','confirmed','min:8'],
-            'password_confirmation' => ['required'],
-        ]);
-        
-    $user = user::where('id',auth()->user()->id)->first();
-    //if(Hash::check(request('ancienPassword'), $user->mot_de_passe)) {
-        if( bcrypt(request('ancienPassword')) === $user->mot_de_passe){
-        $user->password = bcrypt(request('password'));
-        $user->save();
-        return back();
-    }
 
-    return "erreur";
+
+        if (Hash::check(request('ancienPassword'), auth()->user()->mot_de_passe)) {
+            auth()->user()->update([
+                'mot_de_passe' => bcrypt(request('password')),
+            ]);
+            return 'yes';
+        }
+
+        return back();
+
 }
 
     public function cnt(){
