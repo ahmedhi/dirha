@@ -51,7 +51,7 @@ class AdminController extends Controller
 
     public function infosPart()
     {
-        $users = user::where ('id' , request('id') )->first0rfail() ;
+        $users = user::where ('id' , request('id') )->firstOrfail() ;
         return view ('/infosPartenaire',['users'=>$users]);
     }
 
