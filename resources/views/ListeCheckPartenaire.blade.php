@@ -14,7 +14,6 @@
 				<th scope="col">PAYS</th>
 				<th>Accepter</th>
 				<th>Refuser</th>
-				<th>Voir plus</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -29,12 +28,10 @@
 						<th scope="col"> <a href="/accept/{{ $user->id }}">Accepter</a></th>
 						<th scope="col"> <a href="/delete/{{ $user->id }}">Supprimer</a></th>
 						<th>
-							<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#{{$user->id}}">
+							<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#my 	">
 								<i class="icon-update"> Voir plus </i>
 							</button>
-						</th>
-					</tr>
-							<div class="modal fade" id="{{$user->id}}" >
+							<div class="modal fade" id="my" >
 								<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-s">
 									<div class="modal-content">
 
@@ -47,7 +44,7 @@
 										<div class="modal-body">
 											<div class="container">
 												<center>
-													<form method="post" class="section" enctype="multipart/form-data" >
+													<form method="post" class="section" enctype="multipart/form-data"  action="/mi">
 
 													{{csrf_field()}}
 
@@ -57,17 +54,10 @@
 															<div class="input-group-prepend">
 																<span class="input-group-text"><i class="fas fa-user"></i></span>
 															</div>
-															<input type="text" class="form-control" name="nom_complet" value="{{ $user->nom}}" >
-														</div>
-														<!-- Nom Complet-->
-														<div class="input-group form-group">
-															<div class="input-group-prepend">
-																<span class="input-group-text"><i class="fas fa-user"></i></span>
-															</div>
-															<input type="text" class="form-control" name="nom_complet" value="{{ $user->nom}}" >
+															<input type="text" class="form-control" name="nom_complet" value="{{ auth()->user()->nom }}" >
 														</div>
 
-													<!-- tel -->
+													<!-- Numero de téléphone -->
 														<div class="input-group form-group">
 															<div class="input-group-prepend">
 																<span class="input-group-text"><i class="fas fa-mobile"></i></span>
@@ -75,7 +65,7 @@
 															<input  type="tel"
 																	class="form-control" name="num"
 																	placeholder="Numero de Téléphone"
-																	value="{{ $user->tel }}"
+																	value="{{ auth()->user()->tel }}"
 																	pattern="0[0-9]{9}"
 															>
 														</div>
@@ -86,7 +76,7 @@
 															<div class="input-group-prepend">
 																<span class="input-group-text"><i class="fas fa-calendar-alt "></i></span>
 															</div>
-															<input type="date" class="form-control" name="date" placeholder="Date de naissance" value="{{ $user->date_de_naissance }}">
+															<input type="date" class="form-control" name="date" placeholder="Date de naissance" value="{{ auth()->user()->date_de_naissance }}">
 														</div>
 
 
@@ -95,7 +85,7 @@
 															<div class="input-group-prepend">
 																<span class="input-group-text"><i class="fas fa-weight"></i></span>
 															</div>
-															<input type="text" class="form-control" name="poids" placeholder="Poids (kg)" value="{{ $user->poids }}">
+															<input type="text" class="form-control" name="poids" placeholder="Poids (kg)" value="{{ auth()->user()->poids }}">
 														</div>
 
 
@@ -104,7 +94,7 @@
 															<div class="input-group-prepend">
 																<span class="input-group-text"><i class="fas fa-ruler-vertical"></i></span>
 															</div>
-															<input type="text" class="form-control" name="taille" placeholder="Taille (cm)" value="{{ $user->taille}}">
+															<input type="text" class="form-control" name="taille" placeholder="Taille (cm)" value="{{ auth()->user()->taille}}">
 														</div>
 
 
@@ -124,8 +114,8 @@
 									</div>
 								</div>
 							</div>
-
-
+				</th>
+					</tr>
 				@endif
 			@endforeach
 
