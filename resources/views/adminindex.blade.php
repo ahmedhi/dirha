@@ -100,7 +100,7 @@
                 <th scope="col">{{ $user->id}}</th>
                 <th scope="col">{{ $user->email }}</th>
                 <th scope="col">{{ $user->nom }}</th>
-                <th scope="col">{{ $user->tel }}</th>
+                <th scope="col">{{ $user->tel }}</th>f
                 <th scope="col">{{ $user->taille }}</th>
                 <th scope="col">{{ $user->poids }}</th>
                 <th scope="col">{{ $user->sexe }}</th>

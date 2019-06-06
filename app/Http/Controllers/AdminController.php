@@ -52,7 +52,7 @@ class AdminController extends Controller
     public function infosPart()
     {
         $users = user::where ('id' , request('id') )->firstOrfail() ;
-        return view ('/infosPartenaire',['users'=>$users]);
+        return view ('/infospartenaire',['users'=>$users]);
     }
 
     public function AddP(){

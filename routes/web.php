@@ -85,7 +85,7 @@ Route::group([
 
     Route::get('/fixpartenaire', 'AdminController@checkPartenaire');
 
-    Route::get('/infosPartenaire/{id}','AdminController@infosPart');
+    Route::get('/infospartenaire/{id}','AdminController@infosPart');
 
     Route::get('/accept/{id}', 'AdminController@AddP');
 
@@ -96,6 +96,7 @@ Route::group([
     Route::post('/aliment','AlimentsController@addAliment');
 
 });
+
 
 Route::get('/menu','AlimentsController@MenuListe');
 
