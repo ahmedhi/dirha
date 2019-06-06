@@ -8,6 +8,7 @@
     <link href="img/FalloSolo.png" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700" rel="stylesheet">
 
     <!-- Stylesheets -->
@@ -41,9 +42,11 @@
 <header class="header-section">
     <div class="logo">
         <div class="row" style="margin-top: -20px;">
-        <img src="img/FalloSolo.png" alt="" class="iconeLoad" href="/"><!-- Logo -->
-           <h2 style="font-family: American Typewriter, serif ; color: #319b43 ; margin: 15px auto auto 10px;">FALLO</h2>
+            <a href="/">
+                <img src="img/FalloSolo.png" alt="" class="iconeLoad" ><!-- Logo -->
+            </a>
         </div>
+
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>

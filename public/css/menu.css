@@ -1,0 +1,21 @@
+tr{
+
+}
+
+th{
+    text-align: right;
+    color: #bc141b;
+    padding: 10px;
+}
+
+td{
+    padding: 10px;
+}
+
+.right{
+    position: relative;
+    right: 0px;
+}
+
+button {
+}
