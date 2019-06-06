@@ -32,6 +32,8 @@
 							<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#{{$user->id}}">
 								<i class="icon-update"> Voir plus </i>
 							</button>
+						</th>
+					</tr>
 							<div class="modal fade" id="{{$user->id}}" >
 								<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-s">
 									<div class="modal-content">
@@ -122,8 +124,8 @@
 									</div>
 								</div>
 							</div>
-				</th>
-					</tr>
+
+
 				@endif
 			@endforeach
 
