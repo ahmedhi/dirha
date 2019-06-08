@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\aliment;
+use App\article;
 use App\menu;
 use App\Message;
 use App\user;
@@ -14,8 +15,12 @@ class UserController extends Controller
 
         $users = user::all();
 
+        $articles = article::all();
+
+
         return view('index' , [
             'users' => $users ,
+            'articles' => $articles,
         ]);
 
     }
