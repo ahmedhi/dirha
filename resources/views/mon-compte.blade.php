@@ -5,7 +5,7 @@
             <div class="overlay"></div>
             <div class="js-fullheight d-flex justify-content-center align-items-center">
                 <div class="col-md-8 text text-center">
-                    <div class="img mb-4" style="background-image: url(profil/images/{{auth()->user()->img}});"></div>
+                    <div class="img mb-4" style="background-image: url(UserImage/{{auth()->user()->img}});"></div>
                     <div class="desc">
                         <h2 class="subheading">Bienvenue</h2>
                         <h1 class="mb-4">{{auth()->user()->nom}} </h1>
@@ -14,14 +14,11 @@
                             @endif
                             @if(auth()->user()->type == 1)
                                 Utilisateur Normal
-                            @endif
-                            @if(auth()->user()->type == 3)
+                            @elseif(auth()->user()->type == 3)
                                 Partenaire (Besoin de validation)
-                            @endif
-                            @if(auth()->user()->id == 0)
+                            @elseif(auth()->user()->id == 0)
                                 Admin
-                            @endif
-                            @if(auth()->user()->type == 2)
+                            @elseif(auth()->user()->type == 2)
                                 Partenaire
                             @endif
                         </p>
