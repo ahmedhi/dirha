@@ -33,15 +33,15 @@ class InscriptionController extends Controller
         return view('InscriptionSU');
     }
 
-    public function SavePicture(){
+    public function SavePicture($name){
         // Save the profil picture
         if( Input::file('image')){
         $file = Input::file('image');
-        $file->move('UserImage', $file->getClientOriginalName()); //l'image sera enregistrer dans public/UserImage
+        $file->move('UserImage', $name . '.jpg' ); //l'image sera enregistrer dans public/UserImage
         return $file->getClientOriginalName() ;
         }
         else {
-            return "profile-icon-png-898.png";
+            return "Default.png";
         }
     }
 
@@ -53,13 +53,13 @@ class InscriptionController extends Controller
             'nom_complet' =>['required'],
             'num' => ['required'],
             'date' => ['required','date'],
-            'poids' => ['required'],
-            'taille' => ['required'],
+            'poids' => ['required','min:0'],
+            'taille' => ['required','min:0'],
             'pays' => ['required'],
             'sexe' => ['required'],
         ]);
 
-        $nameFile = $this->SavePicture();
+        $nameFile = $this->SavePicture(request('nom_complet'));
 
         // Creation du nouveau profil dans la table users
         $user = user::create([
@@ -98,7 +98,7 @@ class InscriptionController extends Controller
             'sexe' => ['required'],
         ]);
 
-        $nameFile = $this->SavePicture();
+        $nameFile = $this->SavePicture(request('nom_complet'));
 
         // Creation du nouveau profil dans la table users
         $user = user::create([

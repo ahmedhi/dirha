@@ -87,14 +87,14 @@
                                         <br>
                                         <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
                                         <br>
-                                        <a href="" class="justify-content-md-end">Voir plus ...</a>
+                                        <a href="" >Voir plus ...</a>
                                         <div class="client-info">
                                             <div class="avatar">
                                                 <img src="UserImage/{{$article->users->img}}" alt="">
                                             </div>
                                             <div class="client-name">
                                                 <h2>{{$article->users->nom}}</h2>
-                                                <p class="right">{{$article->source}}</p>
+                                                <p>Source : {{$article->source}}</p>
                                             </div>
                                         </div>
                                     </div>
