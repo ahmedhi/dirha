@@ -44,38 +44,38 @@
                 <li class="active ">
                     <a href="/config">
                         <i class="now-ui-icons business_bank"></i>
-                        <p>Acceuil</p>
+                        <div>Acceuil</div>
                     </a>
                 </li>
                 <li>
                     <a href="/fixpartenaire">
                         <i class="now-ui-icons education_atom"></i>
-                        <p>Liste des Demandes</p>
+                        <div>Liste des Demandes</div>
                     </a>
                 </li>
                 <li>
                     <a href="/client">
                         <i class="now-ui-icons education_atom"></i>
-                        <p>Liste des Clients</p>
+                        <div>Liste des Clients</div>
                     </a>
                 </li>
                 <li>
                     <a href="/partenaire">
                         <i class="now-ui-icons transportation_air-baloon"></i>
-                        <p>Liste des Partenaires</p>
+                        <div>Liste des Partenaires</div>
                     </a>
                 </li>
                 <li>
                     <a href="/aliment">
                         <i class="now-ui-icons users_single-02"></i>
-                        <p>Liste des Aliments</p>
+                        <div>Liste des Aliments</div>
                     </a>
                 </li>
                 @if(auth()->user()->type == -1)
                 <li>
                     <a href="/inscriptionA">
                         <i class="now-ui-icons users_single-02"></i>
-                        <p>Gestion des aministrateurs</p>
+                        <div>Gestion des aministrateurs</div>
                     </a>
                 </li>
                 @endif
@@ -87,12 +87,12 @@
                 <li>
                     <a href="/menu">
                         <i class="now-ui-icons users_single-02"></i>
-                        <p>Menu</p>
+                        <div>Menu</div>
                     </a>
                 </li>
                 <li class="active-pro">
                     <a href="">
-                        <p>Fallo Corp  MADE BY ASKOUR&HILALI</p>
+                        <div>Fallo Corp  MADE BY ASKOUR&HILALI</div>
                     </a>
                 </li>
             </ul>
