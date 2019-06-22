@@ -116,7 +116,7 @@ ul {
 
 .section-title h2 {
 	text-transform: uppercase;
-	color: #fff;
+	color: #b10b0e;
 	font-weight: 400;
 }
 
@@ -127,7 +127,7 @@ ul {
 	color: #2d324b;
 }
 
-/* #2d324b #56cf5a*/
+/* #2d324b #56cf5a */
 
 .section-title:after {
 	content: "";
@@ -423,8 +423,8 @@ ul {
 	height: 100%;
 	left: 0;
 	top: 0;
-	z-index: 3;
-	background-image: url("../img/overlay.png");
+	z-index: -1;
+	background-image: url("../img/hh.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -529,7 +529,7 @@ ul {
 --------------------------*/
 .testimonial-section {
 	padding-top: 320px;
-	background: #220c3b;
+	background: rgba(177, 11, 14, 0.34);
 	position: relative;
 }
 
@@ -741,7 +741,7 @@ ul {
 	Promotion section
 --------------------------*/
 .promotion-section {
-	background: #56cf5a;
+	background: #b10b0e;
 	padding: 115px 0;
 }
 
@@ -859,7 +859,7 @@ ul {
 	Footer section
 --------------------------*/
 .footer-section {
-	background: #220c3b;
+	background: #b10b0e;
 	text-align: center;
 }
 

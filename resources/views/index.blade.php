@@ -18,8 +18,8 @@
         </div>
         <!-- slider -->
         <div id="hero-slider" class="owl-carousel">
-            <div class="item  hero-item" data-bg="profil/images/nutri.jpg"></div>
-            <div class="item  hero-item" data-bg="profil/images/nut.jpg"></div>
+            <div class="item  hero-item" data-bg="img/nutri_modif.jpg"></div>
+            <div class="item  hero-item" data-bg="img/CompleteNutrition_masthead_tcm150-59898_modif.jpg"></div>
         </div>
     </div>
     <!-- Intro Section -->
@@ -104,7 +104,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Articles section end-->
 
     <!-- Team Section -->
