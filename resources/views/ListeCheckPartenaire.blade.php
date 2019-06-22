@@ -1,32 +1,13 @@
 @extends('adminMaster')
 
-@section('refsheet')
-
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/vendor/animate/animate.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/vendor/css-hamburgers/hamburgers.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/vendor/animsition/css/animsition.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/vendor/select2/select2.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/vendor/daterangepicker/daterangepicker.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="email/css/util.css">
-	<link rel="stylesheet" type="text/css" href="email/css/main.css">
-
-	@endsection
+@section('titlePage')
+	Liste des Partenaires non valider
+@endsection
 
 @section('content')
-
-	<div class="table-responsive">
+	<div class="table-responsive tablepadding" >
 		<table class="table">
-			<thead class="thead-dark">
+			<thead class="tableTitle">
 			<tr style=" text-align: center ;" >
 				<th scope="col">ID</th>
 				<th scope="col">EMAIL</th>
@@ -35,6 +16,7 @@
 				<th scope="col">PAYS</th>
 				<th>Accepter</th>
 				<th>Refuser</th>
+				<th></th>
 			</tr>
 			</thead>
 			<tbody>
@@ -46,10 +28,10 @@
 						<th scope="col">{{ $user->nom }}</th>
 						<th scope="col">{{ $user->tel }}</th>
 						<th scope="col">{{ $user->pays }}</th>
-						<th scope="col"> <a href="/accept/{{ $user->id }}">Accepter</a></th>
-						<th scope="col"> <a href="/delete/{{ $user->id }}">Supprimer</a></th>
+						<th scope="col"> <a class="VoirPlus" href="/accept/{{ $user->id }}">Accepter</a></th>
+						<th scope="col"> <a class="VoirPlus" href="/delete/{{ $user->id }}">Supprimer</a></th>
 						<th>
-							<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#my{{$user->id}}	">
+							<button type="button" class="VoirPlus" data-toggle="modal" data-target="#my{{$user->id}}	">
 								<i class="icon-update"> Voir plus </i>
 							</button>
 							<div class="modal fade" id="my{{$user->id}}" >
@@ -69,116 +51,145 @@
 
 													<form method="post" class="section" enctype="multipart/form-data" >
 
-													{{csrf_field()}}
-														<table width="1500px" >
-																<img src="img/FalloSolo.png" class="rounded-circle" width="150px" height="150px"><br><br>
-															<td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Nom </span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->nom}}" disabled width="100%">
-															<span class="focus-input100"></span>
-														</div>
-																</td><td>
+														{{csrf_field()}}
 
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz" >
-															<span class="label-input100">Email</span>
-															<input class="input100" type="text" name="email" placeholder="Enter your email addess"value="{{$user->email}}" disabled width="100%">
-															<span class="focus-input100"></span>
-														</div>
-																</td>	<td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Tel</span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->tel}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-																</td><tr>
-																<td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Date de Naissance </span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->date_de_naissance}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-																</td>	<td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Poids </span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->poids}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-																</td><td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Taille </span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->taille}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-																</td></tr>
-															<tr><td>
-												        <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Sexe</span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->sexe}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-																</td><td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Diplome</span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->part->diplome}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-																</td><td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Métier</span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->part->metier}}" disabled >
-															<span class="focus-input100"></span>
-														</div></td></tr>
-																<tr><td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Expérience</span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->part->experience}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-																</td>
-															<td>
-														<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
-															<span class="label-input100">Adresse</span>
-															<input class="input100" type="text" name="nom" placeholder="Enter your name" value="{{$user->part->adresse}}" disabled >
-															<span class="focus-input100"></span>
-														</div>
-															</td></tr>
+														<img src="img/FalloSolo.png" class="rounded-circle" width="150px" height="150px"><br><br>
 
-														<div class="container-contact100-form-btn">
-															<tr><td>
-														<form action="/accept/{{ $user->id }}">	<button class="contact100-form-btn">
-						<span>
-							Accepter
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-															</button>
-														</form></td><td>
-															<form action="/delete/{{ $user->id }}">	<button class="contact100-form-btn">
-						<span>
-							Supprimer
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-																</button>
-															</form></td><td>
-															<form action="/fixpartenaire">	<button class="contact100-form-btn">
-						<span>
-							Retour
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
+														<div class="row">
 
-															</form></td></tr>
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Nom </span>
+																	<input class="input100" type="text" name="nom" value="{{$user->nom}}" disabled >
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Adresse Email</span>
+																	<input class="input100" type="text" name="email" value="{{$user->email}}" disabled >
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="wrap-input100 validate-input">
+																	<span class="label-input100">Téléphone</span>
+																	<input class="input100" type="text" name="tel" value="{{$user->tel}}" disabled >
+
+																</div>
+															</div>
+
 														</div>
-														</table>
+
+														<div class="row">
+
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Date de naissance</span>
+																	<input class="input100" type="text" name="dateDeNaissance" value="{{$user->date_de_naissance}}" disabled >
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Poids</span>
+																	<input class="input100" type="text" name="poids" value="{{$user->poids}}" disabled >
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="wrap-input100 validate-input">
+																	<span class="label-input100">Taille</span>
+																	<input class="input100" type="text" name="taille" value="{{$user->taille}}" disabled >
+
+																</div>
+															</div>
+
+														</div>
+
+														<div class="row">
+
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Sexe</span>
+																	<input class="input100" type="text" name="sexe" value="{{$user->sexe}}" disabled >
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Diplome</span>
+																	<input class="input100" type="text" name="diplome" value="{{$user->part->diplome}}" disabled >
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="wrap-input100 validate-input">
+																	<span class="label-input100">Métier</span>
+																	<input class="input100" type="text" name="metier" value="{{$user->part->metier}}" disabled >
+
+																</div>
+															</div>
+
+														</div>
+
+														<div class="row">
+
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Experience</span>
+																	<textarea class="input100" name="experience" disabled>{{$user->part->experience}}</textarea>
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+															<div class="col">
+																<div class="wrap-input100 validate-input" >
+																	<span class="label-input100">Adresse</span>
+																	<textarea class="input100" name="adresse" disabled>{{$user->part->adresse}}</textarea>
+																	<span class="focus-input100"></span>
+																</div>
+															</div>
+
+														</div>
+														<div class="row">
+															<div class="container-contact100-form-btn">
+																<div class="col">
+																	<a href="/accept/{{ $user->id }}" class="contact100-form-btn">
+																			<span>
+																				Accepter
+																				<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+																			</span>
+																	</a>
+																</div>
+																<div class="col">
+																		<a class="contact100-form-btn" href="/delete/{{ $user->id }}">
+																			<span>
+																				Supprimer
+																				<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+																			</span>
+																		</a>
+																</div>
+															</div>
+
+														</div>
+
 													</form>
 
 												</center>
-										</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 
-				</th>
+						</th>
 					</tr>
 				@endif
 			@endforeach
@@ -189,31 +200,5 @@
 			</tbody>
 		</table>
 	</div>
-
-
-	<!--===============================================================================================-->
-	<script src="email/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="email/vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="email/vendor/bootstrap/js/popper.js"></script>
-	<script src="email/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="email/vendor/select2/select2.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="email/vendor/daterangepicker/moment.min.js"></script>
-	<script src="email/vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script src="email/vendor/countdowntime/countdowntime.js"></script>
-	<!--===============================================================================================-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-	<script src="email/js/map-custom.js"></script>
-	<!--===============================================================================================-->
-	<script src="email/js/main.js"></script>
-
-
-
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-
 
 @endsection

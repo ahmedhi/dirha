@@ -1,7 +1,7 @@
 @extends('adminMaster')
 
-@section('refsheet')
-
+@section('titlePage')
+    Gestion d'administrateur
 @endsection
 
 @section('content')
@@ -108,7 +108,7 @@
     <!-- Boutton de confirmation -->
         <center>
             <div class="form-group">
-                <input type="submit" value="S'inscrire" class="btn login_btn">
+                <input type="submit" value="S'inscrire" class="VoirPlus">
             </div>
         </center>
 
@@ -119,7 +119,7 @@
 
     <div class="table-responsive">
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="tableTitle">
             <tr style=" text-align: center ;" >
                 <th scope="col">ID</th>
                 <th scope="col">Email</th>
