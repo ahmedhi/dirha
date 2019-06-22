@@ -54,14 +54,16 @@
     <div class="responsive"><i class="fa fa-bars"></i></div>
     <nav>
         <ul class="menu-list">
-            <li @if( request()->is('/') ) class="active" @endauth><a href="/">Acceuil</a></li>
+            <li @if( request()->is('/') ) class="active" @endif>
+                <a href="/">Acceuil</a>
+            </li>
             @auth()
                 @if( auth()->user()->type === -1 || auth()->user()->type === 0)
                 <li>
                     <a class="nav-link" href="/config">Dashboard<span class="sr-only">(current)</span></a>
                 </li>
                  @endif
-            <li ><a href="/menu">Menu</a></li>
+            <li @if( request()->is('menu') ) class="active" @endif><a href="/menu">Menu</a></li>
             @endauth
             <li><a href="/Bestarticles">Nos meilleurs articles</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -151,7 +153,7 @@
                 <form class="form-class" id="con_form">
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" name="name" placeholder="@auth(){{ auth()->user()->nom }}@else Nom @endauth">
+                            <input type="text" name="name" placeholder=@auth()"{{ auth()->user()->nom }}" disable@else "Nom"@endauth>
                         </div>
                         <div class="col-sm-6">
                             <input type="text" name="email" placeholder="@auth(){{ auth()->user()->email }}@else Email @endauth">

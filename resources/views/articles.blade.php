@@ -21,9 +21,13 @@
                                 <img src="UserImage/{{$article->users->img}}"  class="rounded-circle" width="50xp" height="50xp"> {{$article->users->nom}}
                             </p>
                             <h5 class="card-title font-weight-bold">{{ $article->title }} </h5>
-                            <p class="text-left font-italic" style="color: #319b43">Catégorie : {{$article->categorie}}</p>
-                            <p class="text-left">{{$article->description}}</p>
-                            <p class="text-right font-italic">{{$article->source}}</p>
+                            <div class="row">
+                                <div class="col font-italic" style="color: #319b43 ; text-align: left">Catégorie : {{$article->categorie}}</div>
+                                <a class="col font-italic" href="#" style=" text-decoration: none;color: #319b43 ; text-align: right" >Voir l'article...</a>
+                            </div>
+                            <br>
+                            <p class="text-left textarticle" >{{$article->description}}</p>
+                            <p class="text-right font-italic source">{{$article->source}}</p>
 
                         </div>
                         <br>

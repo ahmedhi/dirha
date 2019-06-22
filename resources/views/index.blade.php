@@ -20,6 +20,8 @@
         <div id="hero-slider" class="owl-carousel">
             <div class="item  hero-item" data-bg="img/01.jpg"></div>
             <div class="item  hero-item" data-bg="img/02.jpg"></div>
+                <div></div>
+            </div>
         </div>
     </div>
     <!-- Intro Section -->
@@ -126,7 +128,7 @@
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">
-                        <img src="img/team/2.jpg" alt="">
+                        <img src="img/askour.jpeg" alt="">
                         <h2>ASKOUR Hamza</h2>
                         <h3>Co-Fondateur</h3>
                     </div>

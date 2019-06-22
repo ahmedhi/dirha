@@ -127,7 +127,7 @@ ul {
 	color: #2d324b;
 }
 
-/* #2d324b #56cf5a*/
+/* #2d324b #56cf5a */
 
 .section-title:after {
 	content: "";
@@ -1769,4 +1769,17 @@ ul {
 .resume
 {
 	heigth: 20px;
+}
+
+.textarticle{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 10; /* number of lines to show */
+	max-height: 238px;       /* fallback */
+}
+
+.source {
+	color: #ff4b5a;
 }

@@ -1,13 +1,13 @@
 @extends('adminMaster')
 
-@section('title')
-    Page d'Administration
+@section('titlePage')
+        Liste des Utilisateurs
 @endsection
 
 @section('content')
-        <div class="table-responsive">
+        <div class="table-responsive tablepadding">
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="tableTitle">
                 <tr style=" text-align: center ;" >
                     <th scope="col">ID Utilisateur</th>
                     <th scope="col">Email</th>
