@@ -423,8 +423,8 @@ ul {
 	height: 100%;
 	left: 0;
 	top: 0;
-	z-index: 3;
-	background-image: url("../img/overlay.png");
+	z-index: -1;
+	background-image: url("../img/bg1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }

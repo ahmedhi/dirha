@@ -233,7 +233,7 @@ class AlimentsController extends Controller
                     break;
                 case 2 :    $Dej = $Re;
                     break;
-                case 3 :    $Pt = $Re;
+                case 3 :    $Col = $Re;
                     break;
                 case 4 :    $Din = $Re;
                     break;
