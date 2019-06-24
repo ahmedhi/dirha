@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Mail;
-class CompteController extends Controller
+class  CompteController extends Controller
 {
     public function acceuil(){
 
