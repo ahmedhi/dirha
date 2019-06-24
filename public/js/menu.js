@@ -26,7 +26,7 @@ function showAliment(id , type) {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 document.getElementById(Elements).innerHTML = this.responseText;
             }
         };
@@ -43,13 +43,40 @@ function actualiserMenu(type , nom , nbr) {
                 // code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
+
             xmlhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+                if (this.readyState === 4 && this.status === 200) {
                     document.getElementById("menu").innerHTML = this.responseText;
                 }
             };
 
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    if(type == 1){
+                        $("#NvPt").load("/menu #PtCard");
+                        alert(type);
+                    }
+                    else if( type == 2){
+                        $("#NvDej").load("/menu #DejCard");
+                        alert(type);
+                    }
+                    else if( type == 3){
+                        $("#NvCol").load("/menu #ColCard");
+                        alert(type);
+                    }
+                    else{
+                        $("#NvDin").load("/menu #DinCard");
+                        alert(type);
+                    }
+
+                }
+            };
+
         xmlhttp.open("GET","/actumenu/type=" + type + "/nom=" + nom + "/nbr=" + nbr,true);
+
+
+
         xmlhttp.send();
 
 }
