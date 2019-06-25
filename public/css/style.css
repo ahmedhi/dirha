@@ -116,7 +116,7 @@ ul {
 
 .section-title h2 {
 	text-transform: uppercase;
-	color: #a6a8a7;
+	color: #f42f2c;
 	font-weight: 400;
 }
 
@@ -529,7 +529,7 @@ ul {
 --------------------------*/
 .testimonial-section {
 	padding-top: 320px;
-	background: rgba(177, 11, 14, 0.34);
+	background: rgba(89, 165, 65, 0.34);
 	position: relative;
 }
 
@@ -553,7 +553,7 @@ ul {
 
 .testimonial p {
 	font-style: italic;
-	color: #fff;
+	color: #2f4f4f;
 	font-weight: 400;
 	line-height: 36px;
 }
@@ -578,14 +578,14 @@ ul {
 
 .testimonial .client-name h2 {
 	font-size: 18px;
-	color: #fff;
+	color: #220c3b;
 	font-weight: 400;
 }
 
 .testimonial .client-name p {
 	font-style: normal;
 	font-size: 12px;
-	color: #969696;
+	color: #6b6d6c;
 }
 
 /* Testimonial carousel */
@@ -841,12 +841,12 @@ ul {
 }
 
 .contact-info p {
-	color: #fff;
+	color: #2f4f4f;
 }
 
 .contact-info h3 {
 	font-weight: 400;
-	color: #56cf5a;
+	color: #f42f2c;
 	margin-bottom: 20px;
 }
 
