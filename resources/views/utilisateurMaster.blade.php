@@ -108,7 +108,7 @@
 
 
 
-<div id="colorlib-main">
+<div id="colorlib-main" >
     @yield('contentutil')
 
 </div><!-- END COLORLIB-MAIN -->
