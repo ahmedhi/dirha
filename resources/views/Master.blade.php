@@ -8,7 +8,6 @@
     <link href="img/FalloSolo.png" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,700" rel="stylesheet">
 
     <!-- Stylesheets -->

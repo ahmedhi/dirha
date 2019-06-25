@@ -73,39 +73,81 @@
 
 
     <!-- Articles section -->
+        <!-- Articles section -->
         <div class="testimonial-section pb100">
-            <!-- <div class="test-overlay"></div> Image -->
+            <!-- <div class="test-overlay"></div>  Image -->
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="section-title ">
-                            <h2>Derniers articles</h2>
+                        <div class="section-title left">
+                            <h2>Articles</h2>
                         </div>
                         <div class="owl-carousel" id="testimonial-slide">
-                                @foreach( $articles as $article)
-                                    <!-- single testimonial -->
-                                    <div class="testimonial">
-                                        <h2 style="text-align: center ; color: whitesmoke;" >{{ $article->title }}</h2>
-                                        <br>
-                                        <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
-                                        <br>
-                                        <a href="" >Voir plus ...</a>
-                                        <div class="client-info">
-                                            <div class="avatar">
-                                                <img src="UserImage/{{$article->users->img}}" alt="">
-                                            </div>
-                                            <div class="client-name">
-                                                <h2>{{$article->users->nom}}</h2>
-                                                <p>Source : {{$article->source}}</p>
-                                            </div>
-                                        </div>
+                            <div class="col">
+                                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                                        <h6 class="mb-0">
+                                            <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
+                                        </h6>
+                                        <div class="mb-1 text-muted small">Nov 12</div>
+                                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                        <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
                                     </div>
-                                @endforeach
+                                    <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <strong class="d-inline-block mb-2 text-success">Health</strong>
+                                        <h6 class="mb-0">
+                                            <a class="text-dark" href="#">Food for Thought: Diet and Brain Health</a>
+                                        </h6>
+                                        <div class="mb-1 text-muted small">Nov 11</div>
+                                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                        <a class="btn btn-outline-success btn-sm" href="http://www.jquery2dotnet.com/">Continue reading</a>
+                                    </div>
+                                    <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 200px; height: 250px;">
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                                        <h6 class="mb-0">
+                                            <a class="text-dark" href="#">40 Percent of People Can’t Afford Basics</a>
+                                        </h6>
+                                        <div class="mb-1 text-muted small">Nov 12</div>
+                                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                        <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
+                                    </div>
+                                    <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/arch" style="width: 200px; height: 250px;">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <strong class="d-inline-block mb-2 text-success">Health</strong>
+                                        <h6 class="mb-0">
+                                            <a class="text-dark" href="#">Food for Thought: Diet and Brain Health</a>
+                                        </h6>
+                                        <div class="mb-1 text-muted small">Nov 11</div>
+                                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                        <a class="btn btn-outline-success btn-sm" href="http://www.jquery2dotnet.com/">Continue reading</a>
+                                    </div>
+                                    <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="//placeimg.com/250/250/nature" style="width: 200px; height: 250px;">
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Articles section end-->
 
         <!-- Articles section end-->
 
