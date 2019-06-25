@@ -233,7 +233,7 @@ class AlimentsController extends Controller
                     break;
                 case 2 :    $Dej = $Re;
                     break;
-                case 3 :    $Pt = $Re;
+                case 3 :    $Col = $Re;
                     break;
                 case 4 :    $Din = $Re;
                     break;
@@ -246,12 +246,16 @@ class AlimentsController extends Controller
             //'Selectaliment' => $aliment,
             'Pt' => $this->alimentsArray( $Pt->aliments ),
             'PtValue' => $this->Value($this->alimentsArray( $Pt->aliments )),
+            'PtAlerte' => null,
             'Dej' => $this->alimentsArray( $Dej->aliments ),
             'DejValue' => $this->Value($this->alimentsArray( $Dej->aliments )),
+            'DejAlerte' => 'x',
             'Col' => $this->alimentsArray( $Col->aliments ),
             'ColValue' => $this->Value($this->alimentsArray( $Col->aliments )),
+            'ColAlerte' => null,
             'Din' => $this->alimentsArray( $Din->aliments ),
             'DinValue' => $this->Value($this->alimentsArray( $Din->aliments )),
+            'DinAlerte' => null,
         ]);
     }
 
