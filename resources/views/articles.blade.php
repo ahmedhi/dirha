@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div style="background: url(img/hero-bg.jpg); background-repeat: no-repeat ; background-attachment: fixed ; background-size: 100% 100%;"  >
+<div style="background: url(img/hero-bg1.png); background-repeat: no-repeat ; background-attachment: fixed ; background-size: 100% 100%;"  >
     <div class="container" style="padding-top: 150px;">
 
 

@@ -1,12 +1,8 @@
 
 
 
-
-
  @extends('utilisateurMaster')
  @section('contentutil')
-
-
      <img src ="profil/images/nutri.jpg" width="100%" height="550xp" >
      <footer class="ftco-footer ftco-bg-dark ftco-section">
          <div class="container px-md-5">
@@ -17,25 +13,40 @@
                          <ul class="list-unstyled categories">
 
                              <li>Type de Compte :
-
+                                 @if(auth()->user()->type == -1 )
+                                     Super User
+                                 @endif
+                                 @if(auth()->user()->type == 1)
+                                     Utilisateur Normal
+                                 @endif
+                                 @if(auth()->user()->type == 3)
+                                     Partenaire (Besoin de validation)
+                                 @endif
+                                 @if(auth()->user()->id == 0)
+                                     Admin
+                                 @endif
+                                 @if(auth()->user()->type == 2)
+                                     Partenaire
+                                 @endif
                              </li>
-
+                             <li>Nom Complet : {{auth()->user()->nom}} </li>
+                             <li>Date de Naissance : {{auth()->user()->date_de_naissance}}</li>
                          </ul>
                      </div>
                  </div>
                  <div class="col-md">
-
+                     @auth()
+                         @if( !auth()->user()->type === -1 or !auth()->user()->type === 0)
                              <div class="ftco-footer-widget mb-4">
                                  <h2 class="ftco-heading-2">Métabolisme</h2>
                                  <ul class="list-unstyled categories">
-                                     {{ $articles->article_id}}<br>
-                                     {{ $articles->partenaire_id }}<br>
-                                     {{ $articles->title }}<br>
-                                     {{ $articles->source }}<br>
-                                     {{ $articles->description }}<br>{{ $articles->categorie }}
+                                     <li>Sexe : {{auth()->user()->sexe}} </li>
+                                     <li>Taille : {{auth()->user()->taille}} cm </li>
+                                     <li>Poids : {{auth()->user()->poids}} Kg</li>
                                  </ul>
                              </div>
-
+                         @endif
+                     @endauth
                  </div>
                  <div class="col-md">
                      <div class="ftco-footer-widget mb-4">
@@ -61,5 +72,3 @@
 
 
  @endsection
-
-
