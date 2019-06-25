@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 th{
     text-align: right;
@@ -36,7 +37,7 @@ td{
 
 .card h1 {
     text-align: center;
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .card .additional {
@@ -282,4 +283,293 @@ td{
 
 .InformationContent{
     text-align: center;
+}
+
+/* Caroussel */
+
+.social-card-header{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 96px;
+}
+.social-card-header i {
+    font-size: 32px;
+    color:#FFF;
+}
+.bg-facebook {
+    background-color:#3b5998;
+}
+.text-facebook {
+    color:#3b5998;
+}
+.bg-google-plus{
+    background-color:#dd4b39;
+}
+.text-google-plus {
+    color:#dd4b39;
+}
+.bg-twitter {
+    background-color:#1da1f2;
+}
+.text-twitter {
+    color:#1da1f2;
+}
+.bg-pinterest {
+    background-color:#bd081c;
+}
+.text-pinterest {
+    color:#bd081c;
+}
+.share:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+/* Testimonial */
+
+.testimonial-section {
+    padding-top: 320px;
+    background: #220c3b;
+    position: relative;
+}
+
+.test-overlay {
+    position: absolute;
+    background-image: url("../img/test-man.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;
+    bottom: 0;
+    height: 78%;
+    left: 50px;
+}
+
+.testimonial span {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    font-size: 48px;
+    color: #2d324b;
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #fff;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.testimonial .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    margin-right: 20px;
+}
+
+.testimonial .client-info {
+    margin-top: 40px;
+}
+
+.testimonial .client-name {
+    float: left;
+    padding-top: 20px;
+}
+
+.testimonial .client-name h2 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.testimonial .client-name p {
+    font-style: normal;
+    font-size: 12px;
+    color: #969696;
+}
+
+/* Testimonial carousel */
+#testimonial-slide {
+    position: relative;
+}
+
+#testimonial-slide .owl-dots {
+    position: absolute;
+    width: 8px;
+    top: 100px;
+}
+
+#testimonial-slide .owl-dots .owl-dot {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 15px;
+    display: block;
+    margin-bottom: 15px;
+    position: relative;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+#testimonial-slide .owl-dots .owl-dot:after {
+    position: absolute;
+    content: "";
+    width: 28px;
+    height: 28px;
+    border: 2px solid #2d324b;
+    border-radius: 40px;
+    left: -10px;
+    top: -10px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+#testimonial-slide .owl-dots .owl-dot.active {
+    background: #2d324b;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+#testimonial-slide .owl-dots .owl-dot.active:after {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+#testimonial-slide .owl-dots .owl-dot:first-child.active {
+    margin-top: 15px;
+}
+
+
+.cardWraper{
+    font-family: helvetica;
+    left: -15%;
+    position: absolute;
+    transform: translate(-38%, -50%);
+}
+.leftbox{
+    background-color: #cc3846 ;
+    border: 4px solid #9f2130;
+    border-radius: 22px;
+    background-size: contain;
+    background-position: left top;
+    background-repeat: no-repeat;
+    border: 25px solid rgba(0, 0, 0, 0);
+}
+.rightbox {
+    background: rgba(76, 162, 66, 0.21) none repeat scroll 0 0;
+    border-radius: 22px;
+    color: #ffffff;
+    left: 50%;
+    padding: 25px 35px 25px 140px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.rightbox h1 {
+    text-transform: uppercase; font-weight:600; margin-top: 15px; text-align: center;
+}
+.rightbox h3 {
+    margin-top:0px;
+}
+.rightbox .sizeinfo {
+    text-transform: uppercase;
+}
+.rightbox .sizeinfo ul {
+    display: flex;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.rightbox .sizeinfo ul li:nth-child(1){
+    border-right: 1px solid #cc3846;
+    margin-right: 22px;
+    padding-right: 22px;
+}
+.rightbox .sizeinfo ul li:nth-child(2) {
+    text-align: center;
+    width: 38%;
+}
+.rightbox .sizeinfo ul li h5{
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.rightbox .sizeinfo ul li:first-child h5 {
+    margin-top: 35px;
+}
+.rightbox .sizeinfo ul li p{
+    margin: 15px 0 12px;
+}
+.rightbox .sizeinfo ul li p a{
+    border: 1px solid transparent;
+    border-radius: 50%;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    height: 25px;
+    padding: 3px 0;
+    text-align: center;
+    width: 25px;
+}
+
+.cardFooter{
+    margin-bottom: 0;
+    margin-top: 22px;
+}
+.cardFooter button{
+    background-color: #cc3846;
+    background-image: none;
+    border: 0 none;
+    border-radius: 18px;
+    box-shadow: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 16px;
+    text-shadow: none;
+    text-transform: uppercase;
+}
+
+.cardFooter button:hover,
+.cardFooter button:focus {
+    background-color:#A22D36;
+    outline:0 none !important;
+}
+
+.cardFooter span{
+    color: #3f535e;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 15px;
+    margin-top: 7px;
+    text-transform: uppercase;
+}
+.cardFooter span i{
+    color: #cc3846;
+    font-size: 10px;
+    margin-right: 5px;
+}
+.helmet {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../img/FalloSolo.png");
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 225px;
+    left: -20%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+
 }
