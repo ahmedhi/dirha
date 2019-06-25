@@ -64,7 +64,7 @@
                  @endif
             <li @if( request()->is('menu') ) class="active" @endif><a href="/menu">Menu</a></li>
             @endauth
-            <li><a href="/Bestarticles">Nos meilleurs articles</a></li>
+            <li @if( request()->is('Bestarticles') ) class="active" @endif><a href="/Bestarticles">Nos meilleurs articles</a></li>
             <li><a href="#contact">Contact</a></li>
 
                 @if( !request()->is('connexion') )

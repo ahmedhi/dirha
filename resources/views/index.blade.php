@@ -9,17 +9,19 @@
     <!-- Intro Section -->
     <div class="hero-section" id="m">
         <div class="hero-content">
-            <!--
             <div class="hero-center">
-                <img src="img/FalloSolo.png" alt="" style=" width: 404px ; height: 300px">
-                <p>Get your freebie template now!</p>
+                <img src="img/FalloSolo.png" alt="" style=" width: 150px ; height: 160px">
+                <p style="margin-top: -18px; color: #2d324b;
+                   text-shadow: 10px 10px 10px #2d324b;
+                   font-size: 80px;
+                   line-height: 1.3;">Jamais abandonné il n'est jamais trop tard pour reprendre contrôle de ton corps</p>
             </div>
-            -->
         </div>
         <!-- slider -->
         <div id="hero-slider" class="owl-carousel">
-            <div class="item  hero-item" data-bg="img/nutri_modif.jpg"></div>
-            <div class="item  hero-item" data-bg="img/CompleteNutrition_masthead_tcm150-59898_modif.jpg"></div>
+            <div class="item  hero-item" data-bg="img/background00.jpg"></div>
+            <div class="item  hero-item" data-bg="img/background01.jpg"></div>
+            </div>
         </div>
     </div>
     <!-- Intro Section -->

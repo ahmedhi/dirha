@@ -24,7 +24,7 @@
                     <div class="cardWraper">
                         <div>
                             <div class="rightbox">
-                                <h1>@if( auth()->user()->sexe === "Homme" )
+                                <h1 style="margin-bottom: 20px">@if( auth()->user()->sexe === "Homme" )
                                         M.
                                     @elseif( auth()->user()->sexe === "Femme" )
                                         Mme.
