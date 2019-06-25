@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 return [
 
@@ -120,4 +120,5 @@ return [
         ],
     ],
 
+        'pretend' => false ,
 ];

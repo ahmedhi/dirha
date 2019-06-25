@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-
-    <div class="container" style="padding-top: 150px">
+<div style="background: url(img/hero-bg1.png); background-repeat: no-repeat ; background-attachment: fixed ; background-size: 100% 100%;"  >
+    <div class="container" style="padding-top: 150px;">
 
 
         <div class="row">
@@ -52,7 +52,7 @@
     </div>
     <br>
 
-
+</div>
 @endsection
 
 

@@ -5,6 +5,8 @@
 @endsection
 
 @section('cssCustom')
+    <div style="background: url(img/hero-bg1.png); background-repeat: no-repeat ; background-attachment: fixed ; background-size: 100% 100%;"  >
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
     <link rel="stylesheet" href="css/menu.css"/>

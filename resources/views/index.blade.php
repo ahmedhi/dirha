@@ -18,8 +18,8 @@
         </div>
         <!-- slider -->
         <div id="hero-slider" class="owl-carousel">
-            <div class="item  hero-item" data-bg="img/01.jpg"></div>
-            <div class="item  hero-item" data-bg="img/02.jpg"></div>
+            <div class="item  hero-item" data-bg="img/nutri_modif.jpg"></div>
+            <div class="item  hero-item" data-bg="img/CompleteNutrition_masthead_tcm150-59898_modif.jpg"></div>
         </div>
     </div>
     <!-- Intro Section -->
@@ -87,7 +87,7 @@
                                         <br>
                                         <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
                                         <br>
-                                        <a href="" >Voir plus ...</a>
+                                        <a href="voirplusArticle/{{$article->article_id}}" >Voir plus ...</a>
                                         <div class="client-info">
                                             <div class="avatar">
                                                 <img src="UserImage/{{$article->users->img}}" alt="">
@@ -104,7 +104,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Articles section end-->
 
     <!-- Team Section -->
@@ -126,7 +125,7 @@
                 <!-- single member -->
                 <div class="col-sm-4">
                     <div class="member">
-                        <img src="img/team/2.jpg" alt="">
+                        <img src="img/askour.jpg" alt="">
                         <h2>ASKOUR Hamza</h2>
                         <h3>Co-Fondateur</h3>
                     </div>
