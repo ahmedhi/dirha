@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\article;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller
 {
@@ -21,10 +22,13 @@ class ArticlesController extends Controller
             'categorie'=> ['required'],
         ]);
 
-        $artcl =  article:: create([
+
+
+        $article =  article:: create([
             'partenaire_id' => auth()->id(),
             'title' => request('title'),
             'source'=> request('source'),
+            'img' => $this->SavePicture( @auth()->user()->nom . request('title')),
             'description'=>request('article'),
             'categorie'=>request('categorie'),
             'Like' => 0,
@@ -33,6 +37,18 @@ class ArticlesController extends Controller
         ]);
 
         return redirect('/Bestarticles');
+    }
+
+    public function SavePicture($name){
+        // Save the profil picture
+        if( Input::file('img')){
+            $file = Input::file('img');
+            $file->move('img/articleBackground', $file->getClientOriginalName() );
+            return $file->getClientOriginalName() ;
+        }
+        else {
+            return "backDefault.jpg";
+        }
     }
 
     public function voir(){

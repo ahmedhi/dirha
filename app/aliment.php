@@ -17,5 +17,6 @@ class aliment extends Model
         'mineraux',
         'vitamines',
         'quantite',
+        'img'
     ];
 }

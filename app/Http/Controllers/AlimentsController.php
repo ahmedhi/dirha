@@ -20,19 +20,23 @@ class AlimentsController extends Controller
         ]);
     }
 
-    public function SavePictureAliment( $NomAliment ){
+
+    public function SavePicture($name){
         // Save the profil picture
-
+        if( Input::file('icone')){
             $file = Input::file('icone');
-            $file->move('img/aliment', $NomAliment.'.png' ); //l'image sera enregistrer dans public/img/aliment
-
+            $file->move('img/aliment', $file->getClientOriginalName() );
+            return $file->getClientOriginalName()  ;
+        }
+        else {
+            return "alimentDefault.jpg";
+        }
     }
 
     public function addAliment(){
 
             request() -> validate([
                 'nom' => ['required'],
-                'icone' => ['required'],
                 'energie_Kcal' => ['required','min:0'],
                 'proteines' => ['required','min:0'],
                 'glucides' => ['required','min:0'],
@@ -45,15 +49,13 @@ class AlimentsController extends Controller
             $aliment = aliment::create([
                 'nom' => request('nom'),
                 'energie_Kcal' => request('energie_Kcal'),
+                'img' => $this->SavePicture(request('nom')),
                 'proteines' => request('proteines'),
                 'glucides' => request('glucides'),
                 'lipides' => request('lipides'),
                 'fibres' => request('fibres'),
                 'quantite' => request('quantite'),
             ]);
-
-            $this->SavePictureAliment(request('nom'));
-
 
         return back();
     }
@@ -173,6 +175,7 @@ class AlimentsController extends Controller
         $S = 0 ;
         foreach ( $aliments as $aliment) {
                 $al = aliment::where('nom', $aliment['nom'] )->first();
+                return dump($al);
                 $S += $al->energie_Kcal * $aliment['qte'] ;
         }
 
@@ -227,6 +230,7 @@ class AlimentsController extends Controller
         $Dej = new menu;
         $Col = new menu;
         $Din = new menu;
+
         foreach ( $Repas as $Re){
             switch( $Re->type_repas){
                 case 1 :    $Pt = $Re;
