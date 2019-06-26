@@ -175,7 +175,6 @@ class AlimentsController extends Controller
         $S = 0 ;
         foreach ( $aliments as $aliment) {
                 $al = aliment::where('nom', $aliment['nom'] )->first();
-                return dump($al);
                 $S += $al->energie_Kcal * $aliment['qte'] ;
         }
 
