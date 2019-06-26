@@ -549,7 +549,7 @@
                                     <h4 style="align-content: center">Aliments du menu</h4>
                                     <div id="menu">
                                         @foreach ( $Pt as $aliment)
-                                            <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                            <img src="/img/Aliments/{{ $aliment['img'] }} " style="height: 50px ; width: 50px">
                                         @endforeach
                                     </div>
                                 @endif
@@ -605,7 +605,7 @@
                                         <h4 style="align-content: center">Aliments du menu</h4>
                                         <div id="menu">
                                             @foreach ($Dej as $aliment)
-                                                <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                                <img src="/img/Aliments/{{ $aliment['img'] }} " style="height: 50px ; width: 50px">
                                             @endforeach
                                         </div>
                                     @endif
@@ -661,7 +661,7 @@
                                     <h4 style="align-content: center">Aliments du menu</h4>
                                     <div id="menu">
                                         @foreach ($Col as $aliment)
-                                            <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                            <img src="/img/Aliments/{{ $aliment['img'] }}" style="height: 50px ; width: 50px">
                                         @endforeach
                                     </div>
                                 @endif
@@ -717,7 +717,7 @@
                                     <h4 style="align-content: center">Aliments du menu</h4>
                                     <div id="menu">
                                         @foreach ($Din as $aliment)
-                                            <img src="/img/Aliments/{{ $aliment['nom'] }}.png " style="height: 50px ; width: 50px">
+                                            <img src="/img/Aliments/{{ $aliment['img'] }}" style="height: 50px ; width: 50px">
                                         @endforeach
                                     </div>
                                 @endif

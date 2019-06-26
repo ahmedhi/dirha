@@ -37,7 +37,7 @@ class InscriptionController extends Controller
         // Save the profil picture
         if( Input::file('image')){
         $file = Input::file('image');
-        $file->move('UserImage', $name . '.jpg' ); //l'image sera enregistrer dans public/UserImage
+        $file->move('UserImage', $name . $file->getClientOriginalName() ); //l'image sera enregistrer dans public/UserImage
         return $file->getClientOriginalName() ;
         }
         else {

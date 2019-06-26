@@ -12,6 +12,7 @@ class article extends Model {
         'categorie',
         'Like',
         'DisLike',
+        'img'
     ];
 
     public function users(){
