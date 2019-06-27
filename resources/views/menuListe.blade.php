@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/menu.css"/>
     <!--Fontawesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+        <script type="text/javascript" src="js/menu.js"></script>
 @endsection
 
 @section('content')
@@ -70,6 +70,7 @@
             <div class="col">
 
                 <div class="row">
+
                     <div class="col">
 
                         <!-- Petit Dejeuner -->
@@ -136,8 +137,8 @@
                             </div>
                         </div>
                         <div class="general">
-                            <h1 @if ( $Pt == null || $PtAlerte == null) class="center" style="margin-top: 0px;" @endif>Petit Dejeuner</h1>
-                                @if( !$PtAlerte == null)
+                            <h1 @if ( $Pt == null || $PtAlerte == 0) class="center" style="margin-top: 0px;" @endif>Petit Dejeuner</h1>
+                                @if( !$PtAlerte == 0 && !$Pt == null)
                                     <!-- Information -->
                                         <div class="Information">
                                             <svg  class="icon" height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.74 451.74" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
@@ -150,7 +151,18 @@
                                                     <circle style="fill:#3F4448;" cx="225.879" cy="336.092" r="17.067"/>
                                                 </g>
         </svg>
-                                            <div class="InformationContent">Vous avez dépasser le nombre de Kcal recommandez !</div>
+                                            <div class="InformationContent">
+                                                @switch($PtAlerte)
+
+                                                        @case(-1)
+                                                            Vous etes au-dessous du nombres de Kcal recommandez !
+                                                            @break
+                                                        @case(1)
+                                                            Vous avez dépassé le nombres de Kcal recommandez !
+                                                            @break
+
+                                                @endswitch
+                                            </div>
                                         </div>
                                     @endif
 
@@ -248,8 +260,8 @@
                                 </div>
                             </div>
                             <div class="general">
-                                <h1 @if ( $Dej == null || $DejAlerte == null) class="center" style="margin-top: 0px;" @endif>Dejeuner</h1>
-                                    @if( !$DejAlerte == null)
+                                <h1 @if ( $Dej == null || $DejAlerte == 0) class="center" style="margin-top: 0px;" @endif>Dejeuner</h1>
+                                    @if( !$DejAlerte == 0 && !$Dej == null)
                                         <!-- Information -->
                                             <div class="Information">
                                                 <svg  class="icon" height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.74 451.74" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
@@ -262,7 +274,17 @@
                                                         <circle style="fill:#3F4448;" cx="225.879" cy="336.092" r="17.067"/>
                                                     </g>
         </svg>
-                                                <div class="InformationContent">Vous avez dépasser le nombre de Kcal recommandez !</div>
+                                                <div class="InformationContent">
+                                                    @switch($DejAlerte)
+
+                                                        @case(-1)
+                                                        Vous etes au-dessous du nombres de Kcal recommandez !
+                                                        @break
+                                                        @case(1)
+                                                        Vous avez dépassé le nombres de Kcal recommandez !
+                                                        @break
+
+                                                    @endswitch</div>
                                             </div>
                                         @endif
                             </div>
@@ -363,8 +385,8 @@
                                 </div>
                             </div>
                             <div class="general">
-                                <h1 @if ( $Col == null || $ColAlerte == null) class="center" style="margin-top: 0px;" @endif>Collation</h1>
-                                    @if( !$ColAlerte == null)
+                                <h1 @if ( $Col == null || $ColAlerte == 0) class="center" style="margin-top: 0px;" @endif>Collation</h1>
+                                    @if( !$ColAlerte == 0 && !$Col == null)
                                         <!-- Information -->
                                             <div class="Information">
                                                 <svg  class="icon" height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.74 451.74" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
@@ -377,7 +399,18 @@
                                                         <circle style="fill:#3F4448;" cx="225.879" cy="336.092" r="17.067"/>
                                                     </g>
         </svg>
-                                                <div class="InformationContent">Vous avez dépasser le nombre de Kcal recommandez !</div>
+                                                <div class="InformationContent">
+                                                    @switch($ColAlerte)
+
+                                                        @case(-1)
+                                                        Vous etes au-dessous du nombres de Kcal recommandez !
+                                                        @break
+                                                        @case(1)
+                                                        Vous avez dépassé le nombres de Kcal recommandez !
+                                                        @break
+
+                                                    @endswitch
+                                                </div>
                                             </div>
                                         @endif
                             </div>
@@ -484,8 +517,8 @@
                                 </div>
                             </div>
                             <div class="general">
-                                <h1 @if ( $Din == null || $DinAlerte == null) class="center" style="margin-top: 0px;" @endif>Diner</h1>
-                                @if( !$DinAlerte == null)
+                                <h1 @if ( $Din == null || $DinAlerte == 0) class="center" style="margin-top: 0px;" @endif>Diner</h1>
+                                @if( !$DinAlerte == 0 && !$Din == null)
                                 <!-- Information -->
                                 <div class="Information">
                                     <svg  class="icon" height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.74 451.74" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
@@ -498,243 +531,251 @@
                                             <circle style="fill:#3F4448;" cx="225.879" cy="336.092" r="17.067"/>
                                         </g>
 </svg>
-                                    <div class="InformationContent">Vous avez dépasser le nombre de Kcal recommandez !</div>
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                                    <div class="InformationContent">
+                                        @switch($DinAlerte)
 
-                </div>
+                                            @case(-1)
+                                            Vous etes au-dessous du nombres de Kcal recommandez !
+                                            @break
+                                            @case(1)
+                                            Vous avez dépassé le nombres de Kcal recommandez !
+                                            @break
 
-            </div>
-
-        </div>
-
-
-    </div>
-
-    <!-- Petit dejeuner -->
-    <div class="modal fade" id="Pt">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header ">
-                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Modifier menu du Petit Dejeuner</h2>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <h4 style="align-content: center">Liste des aliments</h4>
-                                <div id="4">
-                                    <form>
-                                        <select name="aliments" onclick="showAliment(this.value , 1 )">
-                                            @foreach($aliments as $aliment)
-                                                <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
-                                            @endforeach
-                                        </select>
-                                    </form>
-
-                                </div>
-                            </div>
-                            <div class="col-1"></div>
-                            <div class="col-lg-5">
-                                @if( !$Pt == null)
-
-                                    <h4 style="align-content: center">Aliments du menu</h4>
-                                    <div id="menu">
-                                        @foreach ( $Pt as $aliment)
-                                            <img src="/img/Aliments/{{ $aliment['img'] }} " style="height: 50px ; width: 50px">
-                                        @endforeach
+                                        @endswitch
                                     </div>
+                                </div>
                                 @endif
                             </div>
                         </div>
-                        <br><br>
-
-                        <div id="PetitD"></div>
-
+                        </div>
                     </div>
-                </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
+
         </div>
+
+
     </div>
+
+            <!-- Petit dejeuner -->
+            <div class="modal fade" id="Pt" >
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header ">
+                            <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu du Petit Dejeuner</h2>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col">
+                                        <div class="select">
+
+                                            <select name="aliments" onclick="showAliment(this.value , 1 )" id="slct">
+                                                @foreach($aliments as $aliment)
+                                                    <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
+                                                @endforeach
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+
+                                    </div>
+
+                                </div>
+
+                                <div id="PetitD"></div>
+                                <br><br>
+
+                                @if( !$Pt == null)
+                                    <center>
+                                        <div id="menu1">
+                                            <div id="menuPT">
+                                                @foreach ( $Pt as $aliment)
+                                                    <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </center>
+
+                                @endif
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
     <!-- Dejeuner -->
     <div class="modal fade" id="Dej">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header ">
-                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Modifier menu du Dejeuner</h2>
+                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu du Petit Dejeuner</h2>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-5">
-                                <h4 style="align-content: center">Liste des aliments</h4>
-                                <div id="4">
-                                    <form>
-                                        <select name="aliments" onclick="showAliment(this.value , 2 )">
-                                            @foreach($aliments as $aliment)
-                                                <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
-                                            @endforeach
-                                        </select>
-                                    </form>
+
+                            <div class="col">
+                                <div class="select">
+
+                                    <select name="aliments" onclick="showAliment(this.value , 2 )" id="slct">
+                                        @foreach($aliments as $aliment)
+                                            <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
+                                        @endforeach
+                                    </select>
 
                                 </div>
                             </div>
-                            <div class="col-1"></div>
-                            <div class="col-lg-5">
-                                    @if( !$Dej == null)
 
-                                        <h4 style="align-content: center">Aliments du menu</h4>
-                                        <div id="menu">
-                                            @foreach ($Dej as $aliment)
-                                                <img src="/img/Aliments/{{ $aliment['img'] }} " style="height: 50px ; width: 50px">
-                                            @endforeach
-                                        </div>
-                                    @endif
+                            <div class="col">
+
                             </div>
+
                         </div>
-                        <br><br>
 
                         <div id="Dejeuner"></div>
+                        <br><br>
+
+                        @if( !$Dej == null)
+                            <center>
+                                <div id="menu2">
+                                    <div id="menuDJ">
+                                        @foreach ( $Dej as $aliment)
+                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </center>
+
+                        @endif
 
                     </div>
                 </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-
             </div>
         </div>
     </div>
 
     <!-- Collation -->
     <div class="modal fade" id="Col">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header ">
-                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Modifier menu de Collation</h2>
+                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu du Petit Dejeuner</h2>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-5">
-                                <h4 style="align-content: center">Liste des aliments</h4>
-                                <div id="4">
-                                    <form>
-                                        <select name="aliments" onclick="showAliment(this.value , 3 )">
-                                            @foreach($aliments as $aliment)
-                                                <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
-                                            @endforeach
-                                        </select>
-                                    </form>
+
+                            <div class="col">
+                                <div class="select">
+
+                                    <select name="aliments" onclick="showAliment(this.value , 3 )" id="slct">
+                                        @foreach($aliments as $aliment)
+                                            <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
+                                        @endforeach
+                                    </select>
 
                                 </div>
                             </div>
-                            <div class="col-1"></div>
-                            <div class="col-lg-5">
-                                @if( !$Col == null)
 
-                                    <h4 style="align-content: center">Aliments du menu</h4>
-                                    <div id="menu">
-                                        @foreach ($Col as $aliment)
-                                            <img src="/img/Aliments/{{ $aliment['img'] }}" style="height: 50px ; width: 50px">
-                                        @endforeach
-                                    </div>
-                                @endif
+                            <div class="col">
+
                             </div>
+
                         </div>
-                        <br><br>
 
                         <div id="Collation"></div>
+                        <br><br>
+
+                        @if( !$Col == null)
+                            <center>
+                                <div id="menu3">
+                                    <div id="menuCol">
+                                        @foreach ( $Col as $aliment)
+                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </center>
+
+                        @endif
 
                     </div>
                 </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-
             </div>
         </div>
     </div>
 
     <!-- Diner -->
     <div class="modal fade" id="Din">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header ">
-                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Modifier menu du Diner</h2>
+                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu du Diner</h2>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-5">
-                                <h4 style="align-content: center">Liste des aliments</h4>
-                                <div id="4">
-                                    <form>
-                                        <select name="aliments" onclick="showAliment(this.value , 4 )">
-                                            @foreach($aliments as $aliment)
-                                                <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
-                                            @endforeach
-                                        </select>
-                                    </form>
+
+                            <div class="col">
+                                <div class="select">
+
+                                    <select name="aliments" onclick="showAliment(this.value , 4 )" id="slct">
+                                        @foreach($aliments as $aliment)
+                                            <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
+                                        @endforeach
+                                    </select>
 
                                 </div>
                             </div>
-                            <div class="col-1"></div>
-                            <div class="col-lg-5">
-                                @if( !$Din == null)
 
-                                    <h4 style="align-content: center">Aliments du menu</h4>
-                                    <div id="menu">
-                                        @foreach ($Din as $aliment)
-                                            <img src="/img/Aliments/{{ $aliment['img'] }}" style="height: 50px ; width: 50px">
-                                        @endforeach
-                                    </div>
-                                @endif
+                            <div class="col">
+
                             </div>
+
                         </div>
-                        <br><br>
 
                         <div id="Diner"></div>
+                        <br><br>
+
+                        @if( !$Din == null)
+                            <center>
+                                <div id="menu4">
+                                    <div id="menuDI">
+                                        @foreach ( $Din as $aliment)
+                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </center>
+
+                        @endif
 
                     </div>
                 </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-
             </div>
         </div>
     </div>

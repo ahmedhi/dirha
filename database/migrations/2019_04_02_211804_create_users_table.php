@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('sexe')->default('NULL');
             $table->string('pays')->default('NULL');
             $table->integer('type');
+            $table->integer('TypeEvolution')->default('0');
             $table->timestamps();
         });
     }

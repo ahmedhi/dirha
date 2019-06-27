@@ -57,6 +57,8 @@ class InscriptionController extends Controller
             'taille' => ['required','min:0'],
             'pays' => ['required'],
             'sexe' => ['required'],
+            'TypeEvolution' => ['required'],
+            'TypeActivite' => ['required'],
         ]);
 
         $nameFile = $this->SavePicture(request('nom_complet'));
@@ -74,6 +76,8 @@ class InscriptionController extends Controller
             'sexe' => request('sexe'),
             'pays' => request('pays'),
             'type' => 1, // =1 pour utilisateur normal
+            'TypeEvolution' => request('TypeEvolution'),
+            'TypeActivite' => request('TypeActivite'),
         ]);
 
 
@@ -96,6 +100,8 @@ class InscriptionController extends Controller
             'metier' => ['required'],
             'experience' => ['required'],
             'sexe' => ['required'],
+            'TypeEvolution' => ['required'],
+            'TypeActivite' => ['required'],
         ]);
 
         $nameFile = $this->SavePicture(request('nom_complet'));
@@ -113,6 +119,8 @@ class InscriptionController extends Controller
             'sexe' => request('sexe'),
             'pays' => request('pays'),
             'type' => 3, // =2 pour partenaire Valider | = 3 pour partenaire non valider
+            'TypeEvolution' => request('TypeEvolution'),
+            'TypeActivite' => request('TypeActivite'),
         ]);
 
         $util = partenaires::create([

@@ -23,6 +23,8 @@ class user extends Model implements Authenticatable {
         'sexe',
         'pays',
         'type',
+        'TypeActivite',
+        'TypeEvolution',
 
     ];
 

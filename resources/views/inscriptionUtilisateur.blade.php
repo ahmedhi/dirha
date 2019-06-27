@@ -97,7 +97,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-images"></i></span>
             </div>
-            <input type="file" class="form-control" id ="image" name="image" placeholder="Photo de profil" style="padding-bottom: 0.400px;border-bottom-width: 0px;padding-top: 0.5px;">
+            <input type="file" class="form-control" id ="image" name="image" placeholder="Photo de profil" style="border-bottom-width: 0px; height: auto">
         </div>
 
         <!-- Gestion d'erreur pour le image -->
@@ -442,6 +442,51 @@
             </p>
 
     @endif
+
+
+        <br>
+
+    <!-- Type D'Evolution -->
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-arrow-alt-circle-up"></i></span>
+            </div>
+            <select name="TypeEvolution" class="form-control">
+                <option value="0" selected="selected">Stabilisation du poids</option>
+                <option value="1" >Perte de poids</option>
+                <option value="2" >Prendre du poids</option>
+            </select>
+        </div>
+
+        <!-- Gestion d'erreur pour le poids -->
+        @if( $errors->has('TypeEvolution'))
+            <p class="erreur">
+                {{ $errors->first('TypeEvolution') }}
+            </p>
+
+        @endif
+
+    <!-- Type D'Activité -->
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-dumbbell"></i></span>
+            </div>
+            <select name="TypeActivite" class="form-control">
+                <option value="0" >Travail de bureau et une faible dépense sportive</option>
+                <option value="1" selected="selected">Entrainement de 1 à 3 fois par semaine</option>
+                <option value="2" >Entrainement de 4 à 6 fois par semaine</option>
+                <option value="3" >Entrainement plus de 6 fois par semaine</option>
+            </select>
+        </div>
+
+        <!-- Gestion d'erreur pour le poids -->
+        @if( $errors->has('TypeActivite'))
+            <p class="erreur">
+                {{ $errors->first('TypeActivite') }}
+            </p>
+
+    @endif
+
 
     <!-- Boutton de confirmation -->
         <center>
