@@ -262,15 +262,29 @@ class AlimentsController extends Controller
     }
 
     public function CheckPT( $ObjKcal , $ActuKcal){
-        return ( ($ObjKcal * 0.25 ) > $ActuKcal ) ? 1 : ( ($ObjKcal * 0.25 ) < $ActuKcal ) ? -1 : 0 ;
+         dump($ObjKcal * 0.25);
+         dump($ActuKcal['Kcal']);
+
+         if( $ObjKcal * 0.25 > 6000 ) return dump("0");
+
+         if( ($ObjKcal * 0.25 ) < $ActuKcal['Kcal'] ) {
+            return dump(1) ;
+        }
+
+         else if ( ($ObjKcal * 0.25)  > $ActuKcal['Kcal'] ) {
+             return dump(-1) ;
+        }
+         else return dump(0) ;
+
+        return dump (( ($ObjKcal * 0.25 ) > $ActuKcal['Kcal'] ) ? 1 : ( ($ObjKcal * 0.25 ) < $ActuKcal['Kcal'] ) ? -1 : 0 );
     }
 
     public function CheckDej( $ObjKcal , $ActuKcal){
-        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) > $ActuKcal ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) < $ActuKcal ) ? -1 : 0 ;
+        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) > $ActuKcal['Kcal'] ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) < $ActuKcal['Kcal'] ) ? -1 : 0 ;
     }
 
     public function CheckCol( $ObjKcal , $ActuKcal){
-        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) > $ActuKcal ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) < $ActuKcal ) ? -1 : 0 ;
+        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) > $ActuKcal['Kcal'] ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) < $ActuKcal['Kcal'] ) ? -1 : 0 ;
     }
 
     public function CheckDin( $ObjKcal , $ActuKcal){
@@ -313,7 +327,7 @@ class AlimentsController extends Controller
             //'Selectaliment' => $aliment,
             'Pt' => $this->alimentsArray( $Pt->aliments ),
             'PtValue' => $this->Value($this->alimentsArray( $Pt->aliments )),
-            'PtAlerte' => $this->CheckPT( round($this->CalculKcalTotal(),-1) , round( $this->Value($this->alimentsArray( $Pt->aliments )) , -1 ) ),
+            'PtAlerte' => $this->CheckPT( round($this->CalculKcalTotal(),-1) , $this->Value($this->alimentsArray( $Pt->aliments ))  ),
             'PtRec' => round($this->KcalRec(1), 2 ) ,
 
             'Dej' => $this->alimentsArray( $Dej->aliments ),

@@ -50,6 +50,7 @@ function actualiserMenu(type , nom , nbr) {
                     if(type == 1){
                         $("#NvPt").load("/menu #PtCard");
                         $("#menu1").load("/menu #menuPT");
+                        $("#modalPTalerte").load("/menu #AlertePT");
                     }
                     else if( type == 2){
                         $("#NvDej").load("/menu #DejCard");

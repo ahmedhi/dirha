@@ -614,6 +614,7 @@
                             </div>
 
                             <div class="col" id="modalPTalerte">
+                                <div id="AlertePT">
 
                                 <table class="TableAliment" style="width: 100% ; text-align: center">
                                     <tr>
@@ -639,7 +640,7 @@
                                     </tr>
 
                                 </table>
-                            @if( !$Pt == null)
+                                    @if( !$Pt == null)
                                 <!-- Information -->
                                     <div class="">
                                         @if($PtAlerte == -1 || $PtAlerte == 1)
@@ -687,6 +688,8 @@
                                         </div>
                                     </div>
                                 @endif
+
+                                </div>
 
                             </div>
 
