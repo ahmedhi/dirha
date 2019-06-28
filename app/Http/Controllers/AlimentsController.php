@@ -252,20 +252,29 @@ class AlimentsController extends Controller
 
     }
 
+    public function KcalRec( $RefRepas ){
+        switch ($RefRepas ){
+            case 1 :   return $this->CalculKcalTotal() *0.25 ;
+            case 2 :   return ($this->GetAge() > 15) ? $this->CalculKcalTotal() * 0.4 : $this->CalculKcalTotal() * 0.35 ;
+            case 3 :   return ($this->GetAge() > 15) ? $this->CalculKcalTotal() * 0.05 : $this->CalculKcalTotal() * 0.1 ;
+            case 4 :   return $this->CalculKcalTotal() *0.4 ;
+        }
+    }
+
     public function CheckPT( $ObjKcal , $ActuKcal){
-        return ( ($ObjKcal * 0.25 ) > $ActuKcal ) ? -1 : ( ($ObjKcal * 0.25 ) < $ActuKcal ) ? 1 : 0 ;
+        return ( ($ObjKcal * 0.25 ) > $ActuKcal ) ? 1 : ( ($ObjKcal * 0.25 ) < $ActuKcal ) ? -1 : 0 ;
     }
 
     public function CheckDej( $ObjKcal , $ActuKcal){
-        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) > $ActuKcal ) ? -1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) < $ActuKcal ) ? 1 : 0 ;
+        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) > $ActuKcal ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) < $ActuKcal ) ? -1 : 0 ;
     }
 
     public function CheckCol( $ObjKcal , $ActuKcal){
-        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) > $ActuKcal ) ? -1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) < $ActuKcal ) ? 1 : 0 ;
+        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) > $ActuKcal ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) < $ActuKcal ) ? -1 : 0 ;
     }
 
     public function CheckDin( $ObjKcal , $ActuKcal){
-        return ( ($ObjKcal * 0.4 ) > $ActuKcal ) ? -1 : ( ($ObjKcal * 0.4 ) < $ActuKcal ) ? 1 : 0 ;
+        return ( ($ObjKcal * 0.4 ) > $ActuKcal ) ? 1 : ( ($ObjKcal * 0.4 ) < $ActuKcal ) ? -1 : 0 ;
     }
 
 
@@ -304,16 +313,23 @@ class AlimentsController extends Controller
             //'Selectaliment' => $aliment,
             'Pt' => $this->alimentsArray( $Pt->aliments ),
             'PtValue' => $this->Value($this->alimentsArray( $Pt->aliments )),
-            'PtAlerte' => $this->CheckPT( $this->CalculKcalTotal() , $this->Value($this->alimentsArray( $Pt->aliments ))),
+            'PtAlerte' => $this->CheckPT( round($this->CalculKcalTotal(),-1) , round( $this->Value($this->alimentsArray( $Pt->aliments )) , -1 ) ),
+            'PtRec' => round($this->KcalRec(1), 2 ) ,
+
             'Dej' => $this->alimentsArray( $Dej->aliments ),
             'DejValue' => $this->Value($this->alimentsArray( $Dej->aliments )),
-            'DejAlerte' => $this->CheckDej( $this->CalculKcalTotal() , $this->Value($this->alimentsArray( $Dej->aliments ))),
+            'DejAlerte' => $this->CheckDej( round($this->CalculKcalTotal(),-1) , round( $this->Value($this->alimentsArray( $Dej->aliments )) , -1 )),
+            'DejRec' => round($this->KcalRec(2), 2 ) ,
+
             'Col' => $this->alimentsArray( $Col->aliments ),
             'ColValue' => $this->Value($this->alimentsArray( $Col->aliments )),
-            'ColAlerte' => $this->CheckCol( $this->CalculKcalTotal() , $this->Value($this->alimentsArray( $Col->aliments ))),
+            'ColAlerte' => $this->CheckCol( round($this->CalculKcalTotal(),-1) , round( $this->Value($this->alimentsArray( $Col->aliments )) , -1 )),
+            'ColRec' => round($this->KcalRec(3), 2 ) ,
+
             'Din' => $this->alimentsArray( $Din->aliments ),
             'DinValue' => $this->Value($this->alimentsArray( $Din->aliments )),
-            'DinAlerte' => $this->CheckDin( $this->CalculKcalTotal() , $this->Value($this->alimentsArray( $Din->aliments ))),
+            'DinAlerte' => $this->CheckDin( round($this->CalculKcalTotal(),-1) , round( $this->Value($this->alimentsArray( $Din->aliments )) , -1 )),
+            'DinRec' => round($this->KcalRec(4), 2 ) ,
         ]);
     }
 
