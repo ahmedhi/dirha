@@ -262,33 +262,35 @@ class AlimentsController extends Controller
     }
 
     public function CheckPT( $ObjKcal , $ActuKcal){
-         dump($ObjKcal * 0.25);
-         dump($ActuKcal['Kcal']);
 
-         if( $ObjKcal * 0.25 > 6000 ) return dump("0");
-
-         if( ($ObjKcal * 0.25 ) < $ActuKcal['Kcal'] ) {
-            return dump(1) ;
-        }
-
-         else if ( ($ObjKcal * 0.25)  > $ActuKcal['Kcal'] ) {
-             return dump(-1) ;
-        }
-         else return dump(0) ;
-
-        return dump (( ($ObjKcal * 0.25 ) > $ActuKcal['Kcal'] ) ? 1 : ( ($ObjKcal * 0.25 ) < $ActuKcal['Kcal'] ) ? -1 : 0 );
+         if( round( $ObjKcal*0.25 , -3) == round( $ActuKcal['Kcal'] , -3 ))
+             return dump(0) ;
+         else if( ($ObjKcal*0.25) > $ActuKcal['Kcal'] ) return dump(-1) ;
+         else if (($ObjKcal*0.25) > $ActuKcal['Kcal'] )return dump(1) ;
     }
 
     public function CheckDej( $ObjKcal , $ActuKcal){
-        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) > $ActuKcal['Kcal'] ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.4 : 0.35 ) < $ActuKcal['Kcal'] ) ? -1 : 0 ;
+        if( round( $ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 ) , -3) == round( $ActuKcal['Kcal'] , -3 ))
+            return dump(0) ;
+        else if( ($ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 )) > $ActuKcal['Kcal'] ) return dump(-1) ;
+        else if (($ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 )) > $ActuKcal['Kcal'] )return dump(1) ;
     }
 
     public function CheckCol( $ObjKcal , $ActuKcal){
-        return ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) > $ActuKcal['Kcal'] ) ? 1 : ( $ObjKcal * ( ($this->GetAge() > 15) ? 0.05 : 0.1 ) < $ActuKcal['Kcal'] ) ? -1 : 0 ;
+
+        if( round( $ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 ) , -3) == round( $ActuKcal['Kcal'] , -3 ))
+            return dump(0) ;
+        else if( ($ObjKcal*( ($this->GetAge() > 15) ) ? 0.05 : 0.1 ) > $ActuKcal['Kcal'] ) return dump(-1) ;
+        else if (($ObjKcal*( ($this->GetAge() > 15) ) ?  0.05 : 0.1 ) > $ActuKcal['Kcal'] )return dump(1) ;
+        
     }
 
     public function CheckDin( $ObjKcal , $ActuKcal){
-        return ( ($ObjKcal * 0.4 ) > $ActuKcal ) ? 1 : ( ($ObjKcal * 0.4 ) < $ActuKcal ) ? -1 : 0 ;
+
+        if( round( $ObjKcal*0.4 , -3) == round( $ActuKcal['Kcal'] , -3 ))
+            return dump(0) ;
+        else if( ($ObjKcal*0.4) > $ActuKcal['Kcal'] ) return dump(-1) ;
+        else if (($ObjKcal*0.4) > $ActuKcal['Kcal'] )return dump(1) ;
     }
 
 
@@ -327,7 +329,7 @@ class AlimentsController extends Controller
             //'Selectaliment' => $aliment,
             'Pt' => $this->alimentsArray( $Pt->aliments ),
             'PtValue' => $this->Value($this->alimentsArray( $Pt->aliments )),
-            'PtAlerte' => $this->CheckPT( round($this->CalculKcalTotal(),-1) , $this->Value($this->alimentsArray( $Pt->aliments ))  ),
+            'PtAlerte' => $this->CheckPT( $this->CalculKcalTotal() , $this->Value($this->alimentsArray( $Pt->aliments ))  ),
             'PtRec' => round($this->KcalRec(1), 2 ) ,
 
             'Dej' => $this->alimentsArray( $Dej->aliments ),
