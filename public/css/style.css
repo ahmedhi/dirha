@@ -425,9 +425,9 @@ ul {
 	left: 0;
 	top: 0;
 	z-index: -1;
-	background-image: url("../img/100.png");
+	background-image: url("../img/01.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 150%;
 }
 
 /*Card Section*/
@@ -775,7 +775,7 @@ ul {
 --------------------------*/
 .contact-section {
 	position: relative;
-	background:whitesmoke;
+	background: #d3d3d3;
 
 }
 

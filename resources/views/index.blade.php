@@ -89,7 +89,86 @@
                                     <br>
                                     <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
                                     <br>
-                                    <a href="voirplusArticle/{{$article->article_id}}" >Voir plus ...</a>
+
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#modal{{$article->article_id}}">
+                                        <i class="icon-update"> Voir Plus  </i>
+                                    </button>
+
+
+
+
+
+                                    <div class="modal fade" id="modal{{$article->article_id}}">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content">
+
+
+                                                <div class="modal-header ">
+                                                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto"> {{$article->title}}</h2>
+                                                </div>
+
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <div class="container">
+
+                                                        <form method="post" class="section" enctype="multipart/form-data" >
+
+                                                                    {{csrf_field()}}
+
+                                                                    <img src="img/FalloSolo.png" class="rounded-circle" width="150px" height="150px"><br><br>
+
+
+
+                                                                        <div class="col">
+                                                                            <div class="wrap-input100 validate-input" >
+                                                                                <span class="label-input100">Nom </span>
+                                                                                <input class="input100" type="text" name="nom" value="{{$article->title}}" disabled >
+                                                                                <span class="focus-input100"></span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col">
+                                                                            <div class="wrap-input100 validate-input" >
+                                                                                <span class="label-input100">Adresse Email</span>
+                                                                                <input class="input100" type="text" name="email" value="{{$article->source}}" disabled >
+                                                                                <span class="focus-input100"></span>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    {{csrf_field()}}
+
+                                                                    <input type="text" value="{{$article->title}}">
+                                                                    <input type ="text" value="{{$article->source}}">
+                                                                    <input type="text" value="{{$article->description}}">
+                                                                    <input type="text" value="{{$article->categorie}}">
+
+
+                                                        </form>
+
+
+
+
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
                                     <div class="client-info">
                                         <div class="avatar">
                                             <img src="UserImage/{{$article->users->img}}" alt="">
