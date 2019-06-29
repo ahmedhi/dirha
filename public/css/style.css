@@ -413,7 +413,7 @@ ul {
 --------------------------*/
 .about-section,
 .team-section {
-	background: #2d324b;
+	background: #ffa07a;
 	position: relative;
 	z-index: 2;
 }
@@ -529,10 +529,12 @@ ul {
   Testimonial section
 --------------------------*/
 .testimonial-section {
-	padding-top: 320px;
-	background: rgba(89, 165, 65, 0.34);
-	position: relative;
+
+	background-image: url("../img/top-banner1.png");
+	background-size: 100% 100% ;
+	background-repeat: no-repeat;
 }
+
 
 .test-overlay {
 	position: absolute;
@@ -727,7 +729,7 @@ ul {
 	font-size: 24px;
 	font-weight: 400;
 	margin-bottom: 20px;
-	color: #fff;
+	color: #2f4f4f;
 }
 
 .member h3 {
@@ -742,8 +744,10 @@ ul {
 	Promotion section
 --------------------------*/
 .promotion-section {
-	background: #f5f5f5;
+	background: rgba(177, 11, 14, 0.47);
 	padding: 115px 0;
+	background-image: url("../img/top-banner1.png");
+	background-size: 100% 100%;
 }
 
 .promotion-section h2 {
@@ -771,7 +775,8 @@ ul {
 --------------------------*/
 .contact-section {
 	position: relative;
-	background-color: #dcdcdc;
+	background:whitesmoke;
+
 }
 
 .contact-section:after {
@@ -1788,5 +1793,3 @@ ul {
 .input-group-prepend span {
 	text-align: center;
 }
-
-																													  }

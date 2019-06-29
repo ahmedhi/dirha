@@ -1,74 +1,75 @@
+@extends ('Master')
+
+@section('title')
+    Acceuil
+@endsection
+
+@section('content')
 
 
 
- @extends('utilisateurMaster')
- @section('contentutil')
-     <img src ="profil/images/nutri.jpg" width="100%" height="550xp" >
-     <footer class="ftco-footer ftco-bg-dark ftco-section">
-         <div class="container px-md-5">
-             <div class="row mb-5">
-                 <div class="col-md">
-                     <div class="ftco-footer-widget mb-4 ml-md-4">
-                         <h2 class="ftco-heading-2">Informations Personnels </h2>
-                         <ul class="list-unstyled categories">
-
-                             <li>Type de Compte :
-                                 @if(auth()->user()->type == -1 )
-                                     Super User
-                                 @endif
-                                 @if(auth()->user()->type == 1)
-                                     Utilisateur Normal
-                                 @endif
-                                 @if(auth()->user()->type == 3)
-                                     Partenaire (Besoin de validation)
-                                 @endif
-                                 @if(auth()->user()->id == 0)
-                                     Admin
-                                 @endif
-                                 @if(auth()->user()->type == 2)
-                                     Partenaire
-                                 @endif
-                             </li>
-                             <li>Nom Complet : {{auth()->user()->nom}} </li>
-                             <li>Date de Naissance : {{auth()->user()->date_de_naissance}}</li>
-                         </ul>
-                     </div>
-                 </div>
-                 <div class="col-md">
-                     @auth()
-                         @if( !auth()->user()->type === -1 or !auth()->user()->type === 0)
-                             <div class="ftco-footer-widget mb-4">
-                                 <h2 class="ftco-heading-2">Métabolisme</h2>
-                                 <ul class="list-unstyled categories">
-                                     <li>Sexe : {{auth()->user()->sexe}} </li>
-                                     <li>Taille : {{auth()->user()->taille}} cm </li>
-                                     <li>Poids : {{auth()->user()->poids}} Kg</li>
-                                 </ul>
-                             </div>
-                         @endif
-                     @endauth
-                 </div>
-                 <div class="col-md">
-                     <div class="ftco-footer-widget mb-4">
-                         @auth()
-                             @if( auth()->user()->type === 2 or auth()->user()->type === 3)
-                                 <h2 class="ftco-heading-2">Comment vous rejoindre</h2>
-                                 <div class="block-23 mb-3">
-                                     <ul>
-                                         <li><span class="icon icon-map-marker"></span><span class="text">{{auth()->user()->pays}}</span></li>
-                                         <li><span class="icon icon-phone"></span><span class="text">{{auth()->user()->tel}}</span></li>
-                                         <li><span class="icon icon-envelope"></span><span class="text">{{auth()->user()->email}}</span></li>
-                                     </ul>
-                                 </div>
-                             @endif
-
-                         @endauth
-                     </div>
-                 </div>
-
-             </div>
-         </div>
-     </footer>
 
 
- @endsection
+
+    {{ $articles->title }}
+    {{ $articles->description }}
+    {{$articles->article_id}}
+    {{$articles->users->img}}
+    {{$articles->users->nom}}
+    {{$articles->source}}
+
+
+
+
+
+    <div style="background: url(img/hero-bg1.png); background-repeat: no-repeat ; background-attachment: fixed ; background-size: 100% 100%;"  >
+        <div class="container" style="padding-top: 150px;">
+
+
+            <div class="row">
+                <div class="col">
+
+                        <div class="card text-center" style="border-radius: 20px">
+
+                            <div class="card-body">
+                                <p class="text-sm-left font-weight-bold">
+                                    <img src="UserImage/{{$articles->users->img}}"  class="rounded-circle" width="50xp" height="50xp"> {{$articles->users->nom}}
+                                </p>
+                                <h5 class="card-title font-weight-bold">{{ $articles->title }} </h5>
+                                <div class="row">
+                                    <div class="col font-italic" style="color: #319b43 ; text-align: left">Catégorie : {{$articles->categorie}}</div>
+                                    <a class="col font-italic" href="#" style=" text-decoration: none;color: #319b43 ; text-align: right" >Voir l'article...</a>
+                                </div>
+                                <br>
+                                <p class="text-left textarticle" >{{$articles->description}}</p>
+                                <p class="text-right font-italic source">{{$articles->source}}</p>
+
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+
+
+
+                </div>
+
+                <div class="col-sm-4" >
+
+
+
+                    <br>
+
+                    <img class="imgADS" src="img/ADSFallo.png">
+
+                    <img class="imgADS" src="img/ADSHan.jpg">
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <br>
+
+    </div>
+@endsection
