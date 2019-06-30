@@ -33,32 +33,13 @@ class  CompteController extends Controller
             'nom' => ['required'],
             'email' => ['required'],
         ]);
-       /* $message = request('message');
-        Mail::send('/contact', [], function($message)
-        {
-            $subject= request('sujet');
-            $message->from('fallo072019@gmail.com');
-            $message->to(request('email'))->subject($subject);
-        });*/
+
         $title = request('objet');
         $content = request('message');
         $user_email = request('email');
         $user_name = request('nom');
 
-        try
-        {
-            $data = ['email'=> $user_email,'name'=> $user_name,'subject' => $title, 'content' => $content];
-            Mail::send('/contact', $data, function($message) use($data)
-            {
-                $subject=$data['subject'];
-                $message->from('fallo072019@gmail.com');
-                $message->to($data['email'], 'Fallo')->subject($subject);
-            });
-        }
-        catch (\Exception $e)
-        {
-            dd($e->getMessage());
-        }
+
     }
 
     public function modifinf(){
