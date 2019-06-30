@@ -36,11 +36,11 @@ class  CompteController extends Controller
 
 
         $sujet= request('objet');
-        $content = request('message');
+      //  $content = request('message');
         $email = request('email');
         $name = request('name ');
 
-        $msg= filter_var($_POST['message'],FILTER_SANITIZE_STRING);
+           $msg= filter_var($_POST['message'],FILTER_SANITIZE_STRING);
            $headers= $name . $email . '\r\n';
            $myEmail = 'fallo072019@gmail.com';
            $subject = $sujet ;
