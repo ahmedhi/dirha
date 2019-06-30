@@ -114,4 +114,4 @@ Route::post('/mi','CompteController@modifinf');
 
 Route :: post('/sendMail','CompteController@sendemail');
 
-Route::get('/voirplusArticle/{article_id}','ArticleController@voirplusArticle');
+Route::get('/articleVoirPlus','ArticlesController@voirplusArticle');

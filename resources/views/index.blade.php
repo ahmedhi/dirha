@@ -89,7 +89,7 @@
                                         <br>
                                         <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
                                         <br>
-                                        <a href="voirplusArticle/{{$article->article_id}}" >Voir plus ...</a>
+                                        <a href="articleVoirPlus?id={{$article->article_id}}" > <i class="icon-update"> Voir Plus  </i></a>
                                         <div class="client-info">
                                             <div class="avatar">
                                                 <img src="UserImage/{{$article->users->img}}" alt="">
