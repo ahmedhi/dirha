@@ -89,8 +89,8 @@
                                     <br>
                                     <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
                                     <br>
-                                <form action="/voirplusArticle" method="post" >
-                                    <button type="button" class="btn btn-outline-secondary" >
+                                <form action="voirplusArticle/{{$article->article_id}}" method="get" >
+                                    <button type="submit" class="btn btn-outline-secondary" >
                                         <i class="icon-update"> Voir Plus  </i>
                                     </button>
                                 </form>
