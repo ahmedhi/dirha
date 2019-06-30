@@ -703,7 +703,8 @@
                                 <div id="menu1">
                                     <div id="menuPT">
                                         @foreach ( $Pt as $aliment)
-                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
+                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px ; margin : 10px">
+                                            <img src="/img/connection.png " style="margin-left: -30px; margin-top: 40px;height: 30px; width: 30px; position: absolute;">
                                         @endforeach
                                     </div>
                                 </div>

@@ -264,33 +264,33 @@ class AlimentsController extends Controller
     public function CheckPT( $ObjKcal , $ActuKcal){
 
          if( round( $ObjKcal*0.25 , -3) == round( $ActuKcal['Kcal'] , -3 ))
-             return dump(0) ;
-         else if( ($ObjKcal*0.25) > $ActuKcal['Kcal'] ) return dump(-1) ;
-         else if (($ObjKcal*0.25) > $ActuKcal['Kcal'] )return dump(1) ;
+             return     0 ;
+         else if( ($ObjKcal*0.25) > $ActuKcal['Kcal'] ) return -1 ;
+         else if (($ObjKcal*0.25) > $ActuKcal['Kcal'] )return 1 ;
     }
 
     public function CheckDej( $ObjKcal , $ActuKcal){
         if( round( $ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 ) , -3) == round( $ActuKcal['Kcal'] , -3 ))
-            return dump(0) ;
-        else if( ($ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 )) > $ActuKcal['Kcal'] ) return dump(-1) ;
-        else if (($ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 )) > $ActuKcal['Kcal'] )return dump(1) ;
+            return 0 ;
+        else if( ($ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 )) > $ActuKcal['Kcal'] ) return -1 ;
+        else if (($ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 )) > $ActuKcal['Kcal'] )return 1 ;
     }
 
     public function CheckCol( $ObjKcal , $ActuKcal){
 
         if( round( $ObjKcal*( ($this->GetAge() > 15) ? 0.4 : 0.35 ) , -3) == round( $ActuKcal['Kcal'] , -3 ))
-            return dump(0) ;
-        else if( ($ObjKcal*( ($this->GetAge() > 15) ) ? 0.05 : 0.1 ) > $ActuKcal['Kcal'] ) return dump(-1) ;
-        else if (($ObjKcal*( ($this->GetAge() > 15) ) ?  0.05 : 0.1 ) > $ActuKcal['Kcal'] )return dump(1) ;
+            return 0 ;
+        else if( ($ObjKcal*( ($this->GetAge() > 15) ) ? 0.05 : 0.1 ) > $ActuKcal['Kcal'] ) return -1 ;
+        else if (($ObjKcal*( ($this->GetAge() > 15) ) ?  0.05 : 0.1 ) > $ActuKcal['Kcal'] )return 1 ;
         
     }
 
     public function CheckDin( $ObjKcal , $ActuKcal){
 
         if( round( $ObjKcal*0.4 , -3) == round( $ActuKcal['Kcal'] , -3 ))
-            return dump(0) ;
-        else if( ($ObjKcal*0.4) > $ActuKcal['Kcal'] ) return dump(-1) ;
-        else if (($ObjKcal*0.4) > $ActuKcal['Kcal'] )return dump(1) ;
+            return 0 ;
+        else if( ($ObjKcal*0.4) > $ActuKcal['Kcal'] ) return -1 ;
+        else if (($ObjKcal*0.4) > $ActuKcal['Kcal'] )return 1 ;
     }
 
 
