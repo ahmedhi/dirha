@@ -160,7 +160,7 @@
                         <div class="col-sm-12">
                             <input type="text" name="objet" placeholder="Objet">
                             <textarea name="message" placeholder="Message"></textarea>
-                            <button class="site-btn">Envoyer</button>
+                            <button class="site-btn" type="submit">Envoyer</button>
                         </div>
                     </div>
                 </form>
