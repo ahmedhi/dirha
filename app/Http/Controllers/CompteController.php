@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactAdminMail;
 use App\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Mail;
+
 class  CompteController extends Controller
 {
     public function acceuil(){
@@ -27,26 +29,10 @@ class  CompteController extends Controller
 
     public function sendemail()
     {
-        request()->validate([
-            'message' => ['required'],
-            'objet' => ['required'],
-            'nom' => ['required'],
-            'email' => ['required'],
-        ]);
-
-
-        $sujet= request('objet');
-      //  $content = request('message');
-        $email = request('email');
-        $name = request('name ');
-
-           $msg= filter_var($_POST['message'],FILTER_SANITIZE_STRING);
-           $headers= $name . $email . '\r\n';
-           $myEmail = 'fallo072019@gmail.com';
-           $subject = $sujet ;
-             mail($myEmail , $subject , $msg , $headers) ;
-           return "test";
+        Mail::send( new ContactAdminMail() );
+        return back();
     }
+
 
 
 
