@@ -149,7 +149,7 @@
             </div>
             <!-- contact form -->
             <div id="contact" class="col-md-6 col-pull">
-                <form class="form-class" id="con_form" method="post" action="/sendMail">
+                <form class="form-class" action="/sendMail">
                     <div class="row">
                         <div class="col-sm-6">
                             <input type="text" name="name" placeholder=@auth()"{{ auth()->user()->nom }}" disable@else "Nom"@endauth>

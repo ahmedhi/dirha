@@ -44,7 +44,7 @@ class  CompteController extends Controller
            $headers= $name . $email . '\r\n';
            $myEmail = 'fallo072019@gmail.com';
            $subject = $sujet ;
-
+             mail($myEmail , $subject , $msg , $headers) ;
            return "test";
     }
 
