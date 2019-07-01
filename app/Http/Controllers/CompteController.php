@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactAdminMail;
 use App\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Mail;
+
 class  CompteController extends Controller
 {
     public function acceuil(){
@@ -27,39 +29,12 @@ class  CompteController extends Controller
 
     public function sendemail()
     {
-        request()->validate([
-            'message' => ['required'],
-            'objet' => ['required'],
-            'nom' => ['required'],
-            'email' => ['required'],
-        ]);
-       /* $message = request('message');
-        Mail::send('/contact', [], function($message)
-        {
-            $subject= request('sujet');
-            $message->from('fallo072019@gmail.com');
-            $message->to(request('email'))->subject($subject);
-        });*/
-        $title = request('objet');
-        $content = request('message');
-        $user_email = request('email');
-        $user_name = request('nom');
-
-        try
-        {
-            $data = ['email'=> $user_email,'name'=> $user_name,'subject' => $title, 'content' => $content];
-            Mail::send('/contact', $data, function($message) use($data)
-            {
-                $subject=$data['subject'];
-                $message->from('fallo072019@gmail.com');
-                $message->to($data['email'], 'Fallo')->subject($subject);
-            });
-        }
-        catch (\Exception $e)
-        {
-            dd($e->getMessage());
-        }
+        Mail::send( new ContactAdminMail() );
+        return back();
     }
+
+
+
 
     public function modifinf(){
         request()->validate([
