@@ -78,7 +78,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="section-title ">
+                        <div class="section-title " style="margin-top: 40px;">
                             <h2>Derniers articles</h2>
                         </div>
                         <div class="owl-carousel" id="testimonial-slide">
@@ -89,11 +89,7 @@
                                     <br>
                                     <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
                                     <br>
-                                <form action="voirplusArticle/{{$article->article_id}}" method="get" >
-                                    <button type="submit" class="btn btn-outline-secondary" >
-                                        <i class="icon-update"> Voir Plus  </i>
-                                    </button>
-                                </form>
+                                    <a href="articleVoirPlus?id={{$article->article_id}}" > <i class="icon-update"> Voir Plus  </i></a>
                                     <div class="client-info">
                                         <div class="avatar">
                                             <img src="UserImage/{{$article->users->img}}" alt="">

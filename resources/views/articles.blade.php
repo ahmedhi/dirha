@@ -23,7 +23,7 @@
                             <h5 class="card-title font-weight-bold">{{ $article->title }} </h5>
                             <div class="row">
                                 <div class="col font-italic" style="color: #319b43 ; text-align: left">Catégorie : {{$article->categorie}}</div>
-                                <a class="col font-italic" href="#" style=" text-decoration: none;color: #319b43 ; text-align: right" >Voir l'article...</a>
+                                <a class="col font-italic" href="articleVoirPlus?id={{$article->article_id}}" style=" text-decoration: none;color: #319b43 ; text-align: right" >Voir l'article...</a>
                             </div>
                             <br>
                             <p class="text-left textarticle" >{{$article->description}}</p>
