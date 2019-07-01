@@ -14,15 +14,15 @@
                 <p style="margin-top: -18px; color: #2d324b;
                    text-shadow: 10px 10px 10px #2d324b;
                    font-size: 80px;
-                   line-height: 1.3;">Jamais abandonné ! il n'est jamais trop tard pour reprendre contrôle de ton corps</p>
+                   line-height: 1.3;">Jamais abandonné il n'est jamais trop tard pour reprendre contrôle de ton corps</p>
             </div>
         </div>
         <!-- slider -->
         <div id="hero-slider" class="owl-carousel">
             <div class="item  hero-item" data-bg="img/background00.jpg"></div>
             <div class="item  hero-item" data-bg="img/background01.jpg"></div>
-            </div>
         </div>
+    </div>
     </div>
     <!-- Intro Section -->
 
@@ -82,25 +82,29 @@
                             <h2>Derniers articles</h2>
                         </div>
                         <div class="owl-carousel" id="testimonial-slide">
-                                @foreach( $articles as $article)
-                                    <!-- single testimonial -->
-                                    <div class="testimonial">
-                                        <h2 style="text-align: center ; color: whitesmoke;" >{{ $article->title }}</h2>
-                                        <br>
-                                        <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
-                                        <br>
-                                        <a href="articleVoirPlus?id={{$article->article_id}}" > <i class="icon-update"> Voir Plus  </i></a>
-                                        <div class="client-info">
-                                            <div class="avatar">
-                                                <img src="UserImage/{{$article->users->img}}" alt="">
-                                            </div>
-                                            <div class="client-name">
-                                                <h2>{{$article->users->nom}}</h2>
-                                                <p>Source : {{$article->source}}</p>
-                                            </div>
+                        @foreach( $articles as $article)
+                            <!-- single testimonial -->
+                                <div class="testimonial">
+                                    <h2 style="text-align: center ; color: whitesmoke;" >{{ $article->title }}</h2>
+                                    <br>
+                                    <p style="height: 100px ; overflow: hidden ">{{ $article->description }}</p>
+                                    <br>
+                                <form action="voirplusArticle/{{$article->article_id}}" method="get" >
+                                    <button type="submit" class="btn btn-outline-secondary" >
+                                        <i class="icon-update"> Voir Plus  </i>
+                                    </button>
+                                </form>
+                                    <div class="client-info">
+                                        <div class="avatar">
+                                            <img src="UserImage/{{$article->users->img}}" alt="">
+                                        </div>
+                                        <div class="client-name">
+                                            <h2>{{$article->users->nom}}</h2>
+                                            <p>Source : {{$article->source}}</p>
                                         </div>
                                     </div>
-                                @endforeach
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -109,42 +113,42 @@
 
         <!-- Articles section end-->
 
-    <!-- Team Section -->
-    <div class="team-section spad">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="section-title">
-                <h2>Rencontrer les <span>FALLO</span> Developers</h2>
-            </div>
-            <div class="row">
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="img/team/dev3.jpg" alt="" style="">
-                        <h2>HILALI Ahmed</h2>
-                        <h3>Co-Fondateur</h3>
-                    </div>
+        <!-- Team Section -->
+        <div class="team-section spad">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Rencontrer les <span>FALLO</span> Developers</h2>
                 </div>
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="img/askour.jpg" alt="">
-                        <h2>ASKOUR Hamza</h2>
-                        <h3>Co-Fondateur</h3>
+                <div class="row">
+                    <!-- single member -->
+                    <div class="col-sm-4">
+                        <div class="member">
+                            <img src="img/team/dev3.jpg" alt="" style="">
+                            <h2>HILALI Ahmed</h2>
+                            <h3>Co-Fondateur</h3>
+                        </div>
                     </div>
-                </div>
-                <!-- single member -->
-                <div class="col-sm-4">
-                    <div class="member">
-                        <img src="img/team/3.jpg" alt="">
-                        <h2>JORIO Ali</h2>
-                        <h3>ENCADRANT</h3>
+                    <!-- single member -->
+                    <div class="col-sm-4">
+                        <div class="member">
+                            <img src="img/askour.jpg" alt="">
+                            <h2>ASKOUR Hamza</h2>
+                            <h3>Co-Fondateur</h3>
+                        </div>
+                    </div>
+                    <!-- single member -->
+                    <div class="col-sm-4">
+                        <div class="member">
+                            <img src="img/team/3.jpg" alt="">
+                            <h2>JORIO Ali</h2>
+                            <h3>ENCADRANT</h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Team Section end-->
+        <!-- Team Section end-->
 
-    </div>
+
 @endsection

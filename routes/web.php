@@ -112,6 +112,6 @@ Route ::post('/mp','CompteController@modifpass');
 
 Route::post('/mi','CompteController@modifinf');
 
-Route :: post('/sendMail','CompteController@sendemail');
+Route::get('/sendMail','CompteController@sendemail');
 
 Route::get('/articleVoirPlus','ArticlesController@voirplusArticle');

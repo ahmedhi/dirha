@@ -149,18 +149,18 @@
             </div>
             <!-- contact form -->
             <div id="contact" class="col-md-6 col-pull">
-                <form class="form-class" id="con_form">
+                <form class="form-class" action="/sendMail" >
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" name="name" placeholder=@auth()"{{ auth()->user()->nom }}" disable@else "Nom"@endauth>
+                            <input type="text" name="name" placeholder="Nom">
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" name="email" placeholder="@auth(){{ auth()->user()->email }}@else Email @endauth">
+                            <input type="text" name="email" placeholder="Email">
                         </div>
                         <div class="col-sm-12">
                             <input type="text" name="objet" placeholder="Objet">
                             <textarea name="message" placeholder="Message"></textarea>
-                            <button class="site-btn">Envoyer</button>
+                            <button class="site-btn" type="submit">Envoyer</button>
                         </div>
                     </div>
                 </form>
