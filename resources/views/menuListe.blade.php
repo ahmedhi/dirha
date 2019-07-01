@@ -697,21 +697,52 @@
 
                         <div id="PetitD"></div>
                         <br><br>
-
-                        @if( !$Pt == null)
                             <center>
                                 <div id="menu1">
                                     <div id="menuPT">
-                                        @foreach ( $Pt as $aliment)
-                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px ; margin : 10px">
-                                            <img src="/img/connection.png " style="top: 26px; left: 1px; z-index: 0; margin-left: -30px; margin-top: 40px;height: 30px; width: 30px;">
-                                            <m style="color: red ; top: 26px; left: 1px; z-index: 0; margin-left: -30px; margin-top: 40px;height: 30px; width: 30px;">{{ $aliment['qte'] }}</m>
-                                        @endforeach
+
+                                        @if( !$Pt == null)
+                                            @foreach ( $Pt as $aliment)
+                                                <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px ; margin : 10px; margin-left: 30px">
+                                                <img src="/img/connection.png " style="color: red;
+                                                position: relative;
+
+    top: 0px;
+
+    left: 7px;
+
+    z-index: 0;
+
+    margin-left: -30px;
+
+    margin-top: 40px;
+
+    height: 30px;
+
+    width: 30px;
+
+    position: relative;">
+                                                <m style="color: red;
+
+    top: 22px;
+
+    left: 14px;
+
+    z-index: 0;
+
+    margin-left: -30px;
+
+    margin-top: 40px;
+
+    height: 30px;
+
+    width: 30px;
+    position: relative">{{ $aliment['qte'] }}</m>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </center>
-
-                        @endif
 
                     </div>
                 </div>
@@ -720,68 +751,180 @@
     </div>
 
     <!-- Dejeuner -->
-    <div class="modal fade" id="Dej">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
-            <div class="modal-content">
+    <div class="modal fade" id="Dej" >
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
+                    <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header ">
-                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu du Petit Dejeuner</h2>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col">
-                                <div class="select">
-
-                                    <select name="aliments" onclick="showAliment(this.value , 2 )" id="slct">
-                                        @foreach($aliments as $aliment)
-                                            <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div class="col">
-
-                            </div>
-
+                        <!-- Modal Header -->
+                        <div class="modal-header ">
+                            <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu du Dejeuner</h2>
                         </div>
 
-                        <div id="Dejeuner"></div>
-                        <br><br>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
 
-                        @if( !$Dej == null)
-                            <center>
-                                <div id="menu2">
-                                    <div id="menuDJ">
-                                        @foreach ( $Dej as $aliment)
-                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
-                                        @endforeach
+                                    <div class="col">
+                                        <div class="select center">
+
+                                            <select name="aliments" onclick="showAliment(this.value , 2 )" id="slct">
+                                                @foreach($aliments as $aliment)
+                                                    <option value="{{ $aliment->aliment_id }}" >{{ $aliment->nom }}</option>
+                                                @endforeach
+                                            </select>
+
+                                        </div>
                                     </div>
+
+                                    <div class="col" id="modalDejalerte">
+                                        <div id="AlerteDej">
+
+                                            <table class="TableAliment" style="width: 100% ; text-align: center">
+                                                <tr>
+                                                    <th>
+                                                        @if( !$Dej == null)
+                                                            Kcal du menu :
+                                                        @endif
+                                                    </th>
+                                                    <th>
+                                                        Kcal recommandé :
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        @if( !$Dej == null)
+                                                            {{ $DejValue['Kcal'] }} Kcal
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        {{ $DejRec }} Kcal
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        @if( !$Dej== null)
+                                            <!-- Information -->
+                                                <div class="">
+                                                    @if($DejAlerte == -1 || $DejAlerte == 1)
+                                                        <center>
+                                                            <svg  height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.74 451.74" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
+                c-15.644,28.444,4.267,64,36.978,64h365.511C442.057,429.959,461.968,395.825,446.324,367.381z"/>
+                                                                <path style="fill:#FFFFFF;" d="M225.879,63.025l183.467,325.689H42.413L225.879,63.025L225.879,63.025z"/>
+                                                                <g>
+                                                                    <path style="fill:#3F4448;" d="M196.013,212.359l11.378,75.378c1.422,8.533,8.533,15.644,18.489,15.644l0,0
+                    c8.533,0,17.067-7.111,18.489-15.644l11.378-75.378c2.844-18.489-11.378-34.133-29.867-34.133l0,0
+                    C207.39,178.225,194.59,193.87,196.013,212.359z"/>
+                                                                    <circle style="fill:#3F4448;" cx="225.879" cy="336.092" r="17.067"/>
+                                                                </g>
+                                            </svg>
+                                                        </center>
+
+                                                    @else
+                                                        <center>
+                                                            <svg  height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 504.12 504.12" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
+                c-15.644,28.444,4.267,64,36.978,64h365.511C442.057,429.959,461.968,395.825,446.324,367.381z"/>
+                                                                <circle style="fill:#3DB39E;" cx="252.06" cy="252.06" r="252.06"/>
+                                                                <path style="fill:#37A18E;" d="M463.163,114.609L240.246,345.403l0.394,24.812h10.24l241.428-194.56
+	C485.218,153.994,475.372,133.12,463.163,114.609z"/>
+                                                                <path style="fill:#F2F1EF;" d="M499.397,103.582l-44.505-44.111c-5.908-5.908-15.754-5.908-22.055,0L242.609,256l-82.314-81.132
+	c-5.908-5.908-15.754-5.908-22.055,0l-39.385,38.991c-5.908,5.908-5.908,15.754,0,21.662L230.4,365.883
+	c3.545,3.545,8.271,4.726,12.997,4.332c4.726,0.394,9.452-0.788,12.997-4.332l243.003-240.246
+	C505.305,119.335,505.305,109.489,499.397,103.582z"/>
+                                                                <path style="fill:#E6E5E3;" d="M256.394,365.883l243.003-240.246c5.908-5.908,5.908-15.754,0-21.662l-7.089-6.695L243.003,342.252
+	L105.157,207.951l-5.908,5.908c-5.908,5.908-5.908,15.754,0,21.662l131.545,130.363c3.545,3.545,8.271,4.726,12.997,4.332
+	C248.123,370.609,252.849,369.428,256.394,365.883z"/>
+                                                </svg>
+                                                        </center>
+                                                    @endif
+                                                    <div class="InformationContent">
+                                                        @switch($DejAlerte)
+
+                                                            @case(-1)
+                                                            Vous êtes au-dessous du nombre de Kcal recommandez !
+                                                            @break
+                                                            @case(1)
+                                                            Vous avez dépassé le nombre de Kcal recommandez !
+                                                            @break
+
+                                                        @endswitch
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
-                            </center>
 
-                        @endif
+                                <div id="Dejeuner"></div>
+                                <br><br>
+                                    <center>
+                                        <div id="menu2">
+                                            <div id="menuDJ">
 
+                                                @if( !$Dej == null)
+
+                                                    @foreach ( $Dej as $aliment)
+                                                        <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px ; margin : 10px; margin-left: 30px">
+                                                        <img src="/img/connection.png " style="color: red;
+                                                position: relative;
+
+    top: 0px;
+
+    left: 7px;
+
+    z-index: 0;
+
+    margin-left: -30px;
+
+    margin-top: 40px;
+
+    height: 30px;
+
+    width: 30px;
+
+    position: relative;">
+                                                        <m style="color: red;
+
+top: 22px;
+
+left: 14px;
+
+z-index: 0;
+
+margin-left: -30px;
+
+margin-top: 40px;
+
+height: 30px;
+
+width: 30px;
+position: relative">{{ $aliment['qte'] }}</m>
+                                                    @endforeach
+
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </center>
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
     <!-- Collation -->
-    <div class="modal fade" id="Col">
+    <div class="modal fade" id="Col" >
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header ">
-                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu du Petit Dejeuner</h2>
+                    <h2 class="modal-title" style="margin-left: auto; margin-right: auto">Menu de la Collation</h2>
                 </div>
 
                 <!-- Modal body -->
@@ -790,7 +933,7 @@
                         <div class="row">
 
                             <div class="col">
-                                <div class="select">
+                                <div class="select center">
 
                                     <select name="aliments" onclick="showAliment(this.value , 3 )" id="slct">
                                         @foreach($aliments as $aliment)
@@ -801,7 +944,83 @@
                                 </div>
                             </div>
 
-                            <div class="col">
+                            <div class="col" id="modalColalerte">
+                                <div id="AlerteCol">
+
+                                    <table class="TableAliment" style="width: 100% ; text-align: center">
+                                        <tr>
+                                            <th>
+                                                @if( !$Col == null)
+                                                    Kcal du menu :
+                                                @endif
+                                            </th>
+                                            <th>
+                                                Kcal recommandé :
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                @if( !$Col == null)
+                                                    {{ $ColValue['Kcal'] }} Kcal
+                                                @endif
+                                            </td>
+                                            <td>
+                                                {{ $ColRec }} Kcal
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                @if( !$Col== null)
+                                    <!-- Information -->
+                                        <div class="">
+                                            @if($ColAlerte == -1 || $ColAlerte == 1)
+                                                <center>
+                                                    <svg  height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.74 451.74" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
+        c-15.644,28.444,4.267,64,36.978,64h365.511C442.057,429.959,461.968,395.825,446.324,367.381z"/>
+                                                        <path style="fill:#FFFFFF;" d="M225.879,63.025l183.467,325.689H42.413L225.879,63.025L225.879,63.025z"/>
+                                                        <g>
+                                                            <path style="fill:#3F4448;" d="M196.013,212.359l11.378,75.378c1.422,8.533,8.533,15.644,18.489,15.644l0,0
+            c8.533,0,17.067-7.111,18.489-15.644l11.378-75.378c2.844-18.489-11.378-34.133-29.867-34.133l0,0
+            C207.39,178.225,194.59,193.87,196.013,212.359z"/>
+                                                            <circle style="fill:#3F4448;" cx="225.879" cy="336.092" r="17.067"/>
+                                                        </g>
+                                    </svg>
+                                                </center>
+
+                                            @else
+                                                <center>
+                                                    <svg  height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 504.12 504.12" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
+        c-15.644,28.444,4.267,64,36.978,64h365.511C442.057,429.959,461.968,395.825,446.324,367.381z"/>
+                                                        <circle style="fill:#3DB39E;" cx="252.06" cy="252.06" r="252.06"/>
+                                                        <path style="fill:#37A18E;" d="M463.163,114.609L240.246,345.403l0.394,24.812h10.24l241.428-194.56
+C485.218,153.994,475.372,133.12,463.163,114.609z"/>
+                                                        <path style="fill:#F2F1EF;" d="M499.397,103.582l-44.505-44.111c-5.908-5.908-15.754-5.908-22.055,0L242.609,256l-82.314-81.132
+c-5.908-5.908-15.754-5.908-22.055,0l-39.385,38.991c-5.908,5.908-5.908,15.754,0,21.662L230.4,365.883
+c3.545,3.545,8.271,4.726,12.997,4.332c4.726,0.394,9.452-0.788,12.997-4.332l243.003-240.246
+C505.305,119.335,505.305,109.489,499.397,103.582z"/>
+                                                        <path style="fill:#E6E5E3;" d="M256.394,365.883l243.003-240.246c5.908-5.908,5.908-15.754,0-21.662l-7.089-6.695L243.003,342.252
+L105.157,207.951l-5.908,5.908c-5.908,5.908-5.908,15.754,0,21.662l131.545,130.363c3.545,3.545,8.271,4.726,12.997,4.332
+C248.123,370.609,252.849,369.428,256.394,365.883z"/>
+                                        </svg>
+                                                </center>
+                                            @endif
+                                            <div class="InformationContent">
+                                                @switch($ColAlerte)
+
+                                                    @case(-1)
+                                                    Vous êtes au-dessous du nombre de Kcal recommandez !
+                                                    @break
+                                                    @case(1)
+                                                    Vous avez dépassé le nombre de Kcal recommandez !
+                                                    @break
+
+                                                @endswitch
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                </div>
 
                             </div>
 
@@ -809,19 +1028,55 @@
 
                         <div id="Collation"></div>
                         <br><br>
+                        <center>
+                            <div id="menu3">
+                                <div id="menuCol">
 
-                        @if( !$Col == null)
-                            <center>
-                                <div id="menu3">
-                                    <div id="menuCol">
+                                    @if( !$Col == null)
+
                                         @foreach ( $Col as $aliment)
-                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </center>
+                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px ; margin : 10px; margin-left: 30px">
+                                            <img src="/img/connection.png " style="color: red;
+                                        position: relative;
 
-                        @endif
+top: 0px;
+
+left: 7px;
+
+z-index: 0;
+
+margin-left: -30px;
+
+margin-top: 40px;
+
+height: 30px;
+
+width: 30px;
+
+position: relative;">
+                                            <m style="color: red;
+
+top: 22px;
+
+left: 14px;
+
+z-index: 0;
+
+margin-left: -30px;
+
+margin-top: 40px;
+
+height: 30px;
+
+width: 30px;
+position: relative">{{ $aliment['qte'] }}</m>
+                                        @endforeach
+
+                                    @endif
+                                </div>
+                            </div>
+                        </center>
+
 
                     </div>
                 </div>
@@ -830,7 +1085,7 @@
     </div>
 
     <!-- Diner -->
-    <div class="modal fade" id="Din">
+    <div class="modal fade" id="Din" >
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " style="width: 1000px">
             <div class="modal-content">
 
@@ -845,7 +1100,7 @@
                         <div class="row">
 
                             <div class="col">
-                                <div class="select">
+                                <div class="select center">
 
                                     <select name="aliments" onclick="showAliment(this.value , 4 )" id="slct">
                                         @foreach($aliments as $aliment)
@@ -856,7 +1111,83 @@
                                 </div>
                             </div>
 
-                            <div class="col">
+                            <div class="col" id="modalDinalerte">
+                                <div id="AlerteDin">
+
+                                    <table class="TableAliment" style="width: 100% ; text-align: center">
+                                        <tr>
+                                            <th>
+                                                @if( !$Din == null)
+                                                    Kcal du menu :
+                                                @endif
+                                            </th>
+                                            <th>
+                                                Kcal recommandé :
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                @if( !$Col == null)
+                                                    {{ $DinValue['Kcal'] }} Kcal
+                                                @endif
+                                            </td>
+                                            <td>
+                                                {{ $DinRec }} Kcal
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                @if( !$Din== null)
+                                    <!-- Information -->
+                                        <div class="">
+                                            @if($DinAlerte == -1 || $DinAlerte == 1)
+                                                <center>
+                                                    <svg  height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 451.74 451.74" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
+c-15.644,28.444,4.267,64,36.978,64h365.511C442.057,429.959,461.968,395.825,446.324,367.381z"/>
+                                                        <path style="fill:#FFFFFF;" d="M225.879,63.025l183.467,325.689H42.413L225.879,63.025L225.879,63.025z"/>
+                                                        <g>
+                                                            <path style="fill:#3F4448;" d="M196.013,212.359l11.378,75.378c1.422,8.533,8.533,15.644,18.489,15.644l0,0
+    c8.533,0,17.067-7.111,18.489-15.644l11.378-75.378c2.844-18.489-11.378-34.133-29.867-34.133l0,0
+    C207.39,178.225,194.59,193.87,196.013,212.359z"/>
+                                                            <circle style="fill:#3F4448;" cx="225.879" cy="336.092" r="17.067"/>
+                                                        </g>
+                            </svg>
+                                                </center>
+
+                                            @else
+                                                <center>
+                                                    <svg  height="15" width="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 504.12 504.12" style="enable-background:new 0 0 451.74 451.74;" xml:space="preserve"><path style="fill:#E24C4B;" d="M446.324,367.381L262.857,41.692c-15.644-28.444-58.311-28.444-73.956,0L5.435,367.381
+c-15.644,28.444,4.267,64,36.978,64h365.511C442.057,429.959,461.968,395.825,446.324,367.381z"/>
+                                                        <circle style="fill:#3DB39E;" cx="252.06" cy="252.06" r="252.06"/>
+                                                        <path style="fill:#37A18E;" d="M463.163,114.609L240.246,345.403l0.394,24.812h10.24l241.428-194.56
+C485.218,153.994,475.372,133.12,463.163,114.609z"/>
+                                                        <path style="fill:#F2F1EF;" d="M499.397,103.582l-44.505-44.111c-5.908-5.908-15.754-5.908-22.055,0L242.609,256l-82.314-81.132
+c-5.908-5.908-15.754-5.908-22.055,0l-39.385,38.991c-5.908,5.908-5.908,15.754,0,21.662L230.4,365.883
+c3.545,3.545,8.271,4.726,12.997,4.332c4.726,0.394,9.452-0.788,12.997-4.332l243.003-240.246
+C505.305,119.335,505.305,109.489,499.397,103.582z"/>
+                                                        <path style="fill:#E6E5E3;" d="M256.394,365.883l243.003-240.246c5.908-5.908,5.908-15.754,0-21.662l-7.089-6.695L243.003,342.252
+L105.157,207.951l-5.908,5.908c-5.908,5.908-5.908,15.754,0,21.662l131.545,130.363c3.545,3.545,8.271,4.726,12.997,4.332
+C248.123,370.609,252.849,369.428,256.394,365.883z"/>
+                                </svg>
+                                                </center>
+                                            @endif
+                                            <div class="InformationContent">
+                                                @switch($DinAlerte)
+
+                                                    @case(-1)
+                                                    Vous êtes au-dessous du nombre de Kcal recommandez !
+                                                    @break
+                                                    @case(1)
+                                                    Vous avez dépassé le nombre de Kcal recommandez !
+                                                    @break
+
+                                                @endswitch
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                </div>
 
                             </div>
 
@@ -864,26 +1195,61 @@
 
                         <div id="Diner"></div>
                         <br><br>
+                        <center>
+                            <div id="menu4">
+                                <div id="menuDI">
 
-                        @if( !$Din == null)
-                            <center>
-                                <div id="menu4">
-                                    <div id="menuDI">
+                                    @if( !$Din == null)
+
                                         @foreach ( $Din as $aliment)
-                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px">
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </center>
+                                            <img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height : 70px ; width: 70px ; margin : 10px; margin-left: 30px">
+                                            <img src="/img/connection.png " style="color: red;
+                                position: relative;
 
-                        @endif
+top: 0px;
+
+left: 7px;
+
+z-index: 0;
+
+margin-left: -30px;
+
+margin-top: 40px;
+
+height: 30px;
+
+width: 30px;
+
+position: relative;">
+                                            <m style="color: red;
+
+top: 22px;
+
+left: 14px;
+
+z-index: 0;
+
+margin-left: -30px;
+
+margin-top: 40px;
+
+height: 30px;
+
+width: 30px;
+position: relative">{{ $aliment['qte'] }}</m>
+                                        @endforeach
+
+                                    @endif
+                                </div>
+                            </div>
+                        </center>
+
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 
 @endsection

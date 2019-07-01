@@ -55,14 +55,17 @@ function actualiserMenu(type , nom , nbr) {
                     else if( type == 2){
                         $("#NvDej").load("/menu #DejCard");
                         $("#menu2").load("/menu #menuDJ");
+                        $("#modalDejalerte").load("/menu #AlerteDej");
                     }
                     else if( type == 3){
                         $("#NvCol").load("/menu #ColCard");
                         $("#menu3").load("/menu #menuCol");
+                        $("#modalColalerte").load("/menu #AlerteCol");
                     }
                     else{
                         $("#NvDin").load("/menu #DinCard");
                         $("#menu4").load("/menu #menuDI");
+                        $("#modalDinalerte").load("/menu #AlerteDin");
                     }
 
                 }

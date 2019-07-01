@@ -303,7 +303,7 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td class="text-left">Sign contract for "What are conference organizers afraid of?"</td>
+                                        <td class="text-left">Verifier le profil des partenaires</td>
                                         <td class="td-actions text-right">
                                             <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                                                 <i class="now-ui-icons ui-2_settings-90"></i>
@@ -322,7 +322,7 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td class="text-left">Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                        <td class="text-left">Mettre à jour les aliments</td>
                                         <td class="td-actions text-right">
                                             <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                                                 <i class="now-ui-icons ui-2_settings-90"></i>
@@ -341,7 +341,8 @@
                                                 </label>
                                             </div>
                                         </td>
-                                        <td class="text-left">Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                        <td class="text-left">
+                                            Verifier les mails du jour
                                         </td>
                                         <td class="td-actions text-right">
                                             <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">

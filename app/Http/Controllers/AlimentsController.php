@@ -225,7 +225,7 @@ class AlimentsController extends Controller
 
     public function CalculKcalTotal(){
         if ( auth()->user()->sexe === 'Homme'){
-            $S = [13.7516 * auth()->user()->poids ] + [500,33 * auth()->user()->taille ] - (6.7550 * $this->GetAge() ) + 66.473 ;
+            $S = (13.7516 * auth()->user()->poids ) + (500.33 * auth()->user()->taille ) - (6.7550 * $this->GetAge() ) + 66.473 ;
         }
         else
             $S = (9.5634 * auth()->user()->poids ) + (184.96 * auth()->user()->taille ) - (4.6756 * $this->GetAge() ) + 655.0955 ;
