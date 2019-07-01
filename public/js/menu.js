@@ -46,28 +46,23 @@ function actualiserMenu(type , nom , nbr) {
 
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    document.getElementById("menu").innerHTML = this.responseText;
-                }
-            };
-
-            xmlhttp.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
 
                     if(type == 1){
                         $("#NvPt").load("/menu #PtCard");
-                        alert(type);
+                        $("#menu1").load("/menu #menuPT");
+                        $("#modalPTalerte").load("/menu #AlertePT");
                     }
                     else if( type == 2){
                         $("#NvDej").load("/menu #DejCard");
-                        alert(type);
+                        $("#menu2").load("/menu #menuDJ");
                     }
                     else if( type == 3){
                         $("#NvCol").load("/menu #ColCard");
-                        alert(type);
+                        $("#menu3").load("/menu #menuCol");
                     }
                     else{
                         $("#NvDin").load("/menu #DinCard");
-                        alert(type);
+                        $("#menu4").load("/menu #menuDI");
                     }
 
                 }
@@ -79,4 +74,11 @@ function actualiserMenu(type , nom , nbr) {
 
         xmlhttp.send();
 
+}
+
+function cal( Kcal , prot , gluc , fibre ) {
+    document.getElementById("Kcal").innerHTML = (Kcal * document.getElementById('nbr').value).toFixed(2)
+    document.getElementById("Proteine").innerHTML = (prot * document.getElementById('nbr').value).toFixed(2)  ;
+    document.getElementById("Glucide").innerHTML = (gluc * document.getElementById('nbr').value).toFixed(2)
+    document.getElementById("Fibre").innerHTML = (fibre * document.getElementById('nbr').value).toFixed(2)
 }
