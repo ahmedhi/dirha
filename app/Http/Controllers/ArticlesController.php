@@ -63,4 +63,9 @@ class ArticlesController extends Controller
             'articles' => $Articles,
         ]);
     }
+
+    public function voirplusArticle(){
+        $article = article::where ('article_id' , $_GET['id']  )->first() ;
+        return view ('voirplusArticle',['article'=>$article]);
+    }
 }

@@ -1,46 +1,63 @@
-<head>
-    <script type="text/javascript" src="js/menu.js"></script>
-</head>
-<div id="Value" class="row" style="align-content: center">
-    <div class="col-2">
-        <img src="img/Aliments/{{ $Aliment->nom }}.png" width="75px" height="75px">
+<br><br><br>
+
+<div id="Value" style="align-content: center" >
+    <div class="row">
+    <div class="col-md-2">
+        <img src="img/aliment/{{ $Aliment->img }}" width="75px" height="75px">
+        <br> Pour 100 g
     </div>
-    <div class="col-10">
-        <table class="table-borderless" style="width: 100%">
-            <tr>
-                <th>
-                    Kcal
-                </th>
-                <th>
-                    Protéines
-                </th>
-                <th>
-                    Glucides
-                </th>
-                <th>
-                    Fibres
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    {{ $Aliment->energie_Kcal }}
-                </td>
-                <td>
-                    {{ $Aliment->proteines }}
-                </td>
-                <td>
-                    {{ $Aliment->glucides }}
-                </td>
-                <td>
-                    {{ $Aliment->fibres }}
-                </td>
-            </tr>
-        </table>
+        <div class="col">
+    <table class="table-borderless TableAliment" style="width: 100%;height: 100%;">
+        <tr >
+            <th >
+                Kcal
+            </th>
+            <th >
+                Protéines
+            </th>
+            <th>
+                Glucides
+            </th>
+            <th >
+                Fibres
+            </th>
+            <th>
+                Quantités
+            </th>
+        </tr>
+        <tr >
+            <td id="Kcal">
+                {{ $Aliment->energie_Kcal }}
+            </td>
+            <td id="Proteine">
+                {{ $Aliment->proteines }}
+            </td>
+            <td id="Glucide">
+                {{ $Aliment->glucides }}
+            </td>
+            <td id="Fibre">
+                {{ $Aliment->fibres }}
+            </td>
+            <td>
+                <input class="rhs" type="number" min="0" value="1" id="nbr" style="border: 0px;background: transparent;text-align: center; width: 100px;" onclick="cal({{ $Aliment->energie_Kcal }} , {{ $Aliment->proteines }} , {{ $Aliment->glucides }} , {{ $Aliment->fibres }})">
+            </td>
+        </tr>
+    </table>
+        </div>
     </div>
 
 </div>
+
+<br>
 <div class="row">
-    <input class="rhs" type="number" min="0" value="0" id="nbr"> Unité(s)
-        <br>
-    <button onclick="actualiserMenu( '{{ $type }}' , '{{$Aliment->nom}}', document.getElementById('nbr').value )">Ajouter au menu</button>
+    <div class="col">
+
+        <div class="" style="text-align: center;">
+            <button class="icon-btn add-btn" onclick="actualiserMenu( '{{ $type }}' , '{{$Aliment->nom}}', document.getElementById('nbr').value )">
+                <div class="add-icon"></div>
+                <div class="btn-txt">Ajouter</div>
+            </button>
+        </div>
+    </div>
+
 </div>
