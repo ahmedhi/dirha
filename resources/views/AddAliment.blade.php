@@ -207,7 +207,7 @@
             <tbody>
             @foreach( $aliments as $aliment)
                 <tr>
-                    <th scope="col"><img src="/img/Aliments/{{ $aliment->img }}" style="height: 30px ; width: 50px"></th>
+                    <th scope="col"><img src="/img/aliment/{{ $aliment['nom'] }}.png " style="height: 30px ; width: 50px"></th>
                     <th scope="col">{{ $aliment->nom }}</th>
                     <th scope="col">{{ $aliment->energie_Kcal }}</th>
                     <th scope="col">{{ $aliment->proteines }}</th>

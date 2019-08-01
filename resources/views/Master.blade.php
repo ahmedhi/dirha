@@ -139,13 +139,13 @@
             <!-- contact info -->
             <div class="col-md-5 col-md-offset-1 contact-info col-push">
                 <div class="section-title left">
-                    <h2>Contactez nous</h2>
+                    <h2>Contactez nous!</h2>
                 </div>
-                <p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. </p>
+                <p>FALLO est à votre écoute. Envoyez-nous toutes vos remarques ou recommandation. Pour plus d'informations contactaient nous dans le numéro ci-dessous</p>
                 <h3 class="mt60">Coordonnée</h3>
                 <p class="con-item"> Rabat Salé Kenitra <br> 12040 </p>
                 <p class="con-item">+212 6 16 17 16 17</p>
-                <p class="con-item">fallo@contact.com</p>
+                <p class="con-item">fallo072019@gmail.com</p>
             </div>
             <!-- contact form -->
             <div id="contact" class="col-md-6 col-pull">

@@ -14,7 +14,7 @@
                 <p style="margin-top: -18px; color: #2d324b;
                    text-shadow: 10px 10px 10px #2d324b;
                    font-size: 80px;
-                   line-height: 1.3;">Jamais abandonné il n'est jamais trop tard pour reprendre contrôle de ton corps</p>
+                   line-height: 1.3;">Jamais abandonné ! Il n'est jamais trop tard pour reprendre contrôle de ton corps</p>
             </div>
         </div>
         <!-- slider -->
@@ -146,5 +146,5 @@
         </div>
         <!-- Team Section end-->
 
-
+    </div>
 @endsection

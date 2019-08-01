@@ -33,11 +33,11 @@ class InscriptionController extends Controller
         return view('InscriptionSU');
     }
 
-    public function SavePicture($name){
+    public function SavePicture(){
         // Save the profil picture
         if( Input::file('image')){
         $file = Input::file('image');
-        $file->move('UserImage', $name . $file->getClientOriginalName() ); //l'image sera enregistrer dans public/UserImage
+        $file->move('UserImage', $file->getClientOriginalName() ); //l'image sera enregistrer dans public/UserImage
         return $file->getClientOriginalName() ;
         }
         else {
@@ -61,14 +61,12 @@ class InscriptionController extends Controller
             'TypeActivite' => ['required'],
         ]);
 
-        $nameFile = $this->SavePicture(request('nom_complet'));
-
         // Creation du nouveau profil dans la table users
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
             'nom' => request('nom_complet'),
-            'img' => $nameFile,
+            'img' => $this->SavePicture(),
             'tel' => request('num'),
             'date_de_naissance' => request('date'),
             'poids' => request('poids'),
@@ -104,14 +102,12 @@ class InscriptionController extends Controller
             'TypeActivite' => ['required'],
         ]);
 
-        $nameFile = $this->SavePicture(request('nom_complet'));
-
         // Creation du nouveau profil dans la table users
         $user = user::create([
             'email' => request('email'),
             'mot_de_passe' => bcrypt(request('password')),
             'nom' => request('nom_complet'),
-            'img' => $nameFile,
+            'img' => $this->SavePicture(),
             'tel' => request('num'),
             'date_de_naissance' => request('date'),
             'poids' => request('poids'),

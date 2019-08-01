@@ -29,14 +29,6 @@
                             Qu'est-ce que vous attendez pour créer un compte !
                         </p>
                         <br>
-                        <h6 class="blanc">
-                            Eodem tempore etiam Hymetii praeclarae indolis viri negotium est actitatum, cuius hunc
-                            novimus esse textum. cum Africam pro consule regeret Carthaginiensibus victus inopia iam
-                            lassatis, ex horreis Romano populo destinatis frumentum dedit, pauloque postea cum provenisset
-                            segetum copia, integre sine ulla restituit mora.
-
-                        </h6>
-
                     </div>
                 </a>
             </div>
@@ -52,18 +44,9 @@
                         </p>
                         <br>
                         <h6 class="blanc">
-                            En devenant partenaire Fallo en plus des avantages du compte normal vous avez la possibilité
-                            de publier des articles de diétetique sur un site de plus de 100 millions
-                            d'utilisateurs à travers le monde.
+                            En devenant partenaire Fallo en plus des avantages du compte normal vous avez la possibilité de publier des articles de diététique sur un site de plus de 100 millions d'utilisateurs à travers le monde.
                         </h6>
                         <br><br>
-                        <p class="card-footer">
-                            <i class="fas fa-exclamation-circle "></i>
-                            <h6>
-                            Il faut avoir un minimum de connaissances en medecine pour devenir partenaire Fallo
-                            </h6>
-                        </p>
-
                     </div>
 
                 </a>
